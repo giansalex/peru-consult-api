@@ -40,6 +40,20 @@ $app->group('/api/v1', function () {
 
 $app->get('/', function (Request $request, Response $response, array $args) {
     // Sample log message
+    /**@var $uri \Slim\Http\Uri */
+    $uri = $request->getUri();
+    /**@var $router \Slim\Router */
+    $router = $this->router;
+
+    return $this->renderer->render($response, 'index.phtml', ['url' => $uri->getBasePath(), 'json' => $router->pathFor('swagger')]);
+});
+
+$app->get('/swagger', function (Request $request, Response $response, array $args) {
+    $filename = __DIR__ . '/../public/swagger.json';
+    if (!file_exists($filename)) {
+        return $response->withStatus(404);
+    }
+
     $uri = $request->getUri();
     $url = $uri->getHost();
     if ($uri->getPort() && $uri->getPort() !== 80) {
@@ -47,7 +61,9 @@ $app->get('/', function (Request $request, Response $response, array $args) {
     }
     /**@var $uri \Slim\Http\Uri */
     $url .= $uri->getBasePath();
-    $url = $uri->getScheme() . '://' . $url;
 
-    return $this->renderer->render($response, 'index.phtml', ['url' => $uri->getBasePath()]);
-});
+    $jsonContent = file_get_contents($filename);
+    $response->getBody()->write(str_replace('consult.api', $url, $jsonContent));
+
+    return $response->withHeader('Content-Type', 'application/json; charset=utf8');
+})->setName('swagger');

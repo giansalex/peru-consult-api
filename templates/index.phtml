@@ -69,7 +69,7 @@
 
         // Build a system
         const ui = SwaggerUIBundle({
-            url: "http://petstore.swagger.io/v2/swagger.json",
+            url: "<?=$json?>",
             dom_id: '#swagger-ui',
             deepLinking: true,
             presets: [
@@ -79,8 +79,9 @@
             plugins: [
                 SwaggerUIBundle.plugins.DownloadUrl
             ],
-            layout: "StandaloneLayout"
-        })
+            layout: "StandaloneLayout",
+            validatorUrl: null
+        });
 
         window.ui = ui
     }
