@@ -1,0 +1,192 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Consulta de DNI y RUC",
+    "version": "1.0.0",
+    "title": "PERU CONSULT",
+    "contact": {
+      "email": "giansalex@gmail.com"
+    }
+  },
+  "host": "consult.api",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "consult",
+      "description": "Consultas Peru"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/ruc/{ruc}": {
+      "get": {
+        "tags": [
+          "consult"
+        ],
+        "summary": "Retorna datos de la empresa",
+        "description": "Retorna informacion segun el ruc",
+        "operationId": "getByRuc",
+        "parameters": [
+          {
+            "name": "ruc",
+            "in": "path",
+            "description": "Ruc de la empresa",
+            "required": true,
+            "type": "string",
+            "minLength": 11
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operacion exitosa",
+            "schema": {
+              "$ref": "#/definitions/RucResponse"
+            }
+          },
+          "404": {
+            "description": "Ruc invalido o no encontrado"
+          }
+        }
+      }
+    },
+    "/dni/{dni}": {
+      "get": {
+        "tags": [
+          "consult"
+        ],
+        "summary": "Retorna datos de la persona",
+        "description": "Retorna informacion segun el dni",
+        "operationId": "getByDni",
+        "parameters": [
+          {
+            "name": "dni",
+            "in": "path",
+            "description": "Dni de la persona",
+            "required": true,
+            "type": "string",
+            "minLength": 8
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operacion exitosa",
+            "schema": {
+              "$ref": "#/definitions/DniResponse"
+            }
+          },
+          "404": {
+            "description": "Dni invalido o no encontrado"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "RucResponse": {
+      "type": "object",
+      "properties": {
+        "ruc": {
+          "type": "string"
+        },
+        "razonSocial": {
+          "type": "string"
+        },
+        "nombreComercial": {
+          "type": "string"
+        },
+        "telefonos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tipo": {
+          "type": "string"
+        },
+        "estado": {
+          "type": "string"
+        },
+        "condicion": {
+          "type": "string"
+        },
+        "direccion": {
+          "type": "string"
+        },
+        "fechaInscripcion": {
+          "type": "string"
+        },
+        "sistEmsion": {
+          "type": "string"
+        },
+        "sistContabilidad": {
+          "type": "string"
+        },
+        "actExterior": {
+          "type": "string"
+        },
+        "actEconomicas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cpPago": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sistElectronica": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fechaEmisorFe": {
+          "type": "string"
+        },
+        "cpeElectronico": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fechaPle": {
+          "type": "string"
+        },
+        "padrones": {
+          "type": "string"
+        }
+      }
+    },
+    "DniResponse": {
+      "type": "object",
+      "properties": {
+        "dni": {
+          "type": "string"
+        },
+        "nombres": {
+          "type": "string"
+        },
+        "apellidoPaterno": {
+          "type": "string"
+        },
+        "apellidoMaterno": {
+          "type": "string"
+        },
+        "codVerifica": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

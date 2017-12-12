@@ -7,7 +7,7 @@ use Slim\Http\Response;
 
 // Routes
 
-$app->group('/api', function () {
+$app->group('/api/v1', function () {
     /**@var $this Slim\App */
     $this->get('/ruc/{ruc:\d{11}}', function (Request $request, Response $response, array $args) {
         $ruc = $args['ruc'];
@@ -37,9 +37,17 @@ $app->group('/api', function () {
         return $response->withJson(get_object_vars($person));
     });
 });
+
 $app->get('/', function (Request $request, Response $response, array $args) {
     // Sample log message
-    $this->logger->info("Slim-Skeleton '/' route");
+    $uri = $request->getUri();
+    $url = $uri->getHost();
+    if ($uri->getPort() && $uri->getPort() !== 80) {
+        $url .= ':' . $uri->getPort();
+    }
+    /**@var $uri \Slim\Http\Uri */
+    $url .= $uri->getBasePath();
+    $url = $uri->getScheme() . '://' . $url;
 
-    return $this->renderer->render($response, 'index.phtml', $args);
+    return $this->renderer->render($response, 'index.phtml', ['url' => $uri->getBasePath()]);
 });
