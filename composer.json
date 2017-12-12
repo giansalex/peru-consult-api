@@ -1,14 +1,13 @@
 {
-    "name": "slim/slim-skeleton",
-    "description": "A Slim Framework skeleton application for rapid development",
-    "keywords": ["microframework", "rest", "router", "psr7"],
-    "homepage": "http://github.com/slimphp/Slim-Skeleton",
+    "name": "giansalex/peru-consult-api",
+    "description": "Consult RUC, DNI - Peru",
+    "keywords": ["peru", "rest"],
+    "homepage": "https://github.com/giansalex/peru-consult-api",
     "license": "MIT",
     "authors": [
         {
-            "name": "Josh Lockhart",
-            "email": "info@joshlockhart.com",
-            "homepage": "http://www.joshlockhart.com/"
+            "name": "Giancarlos Salas",
+            "email": "giansalex@gmail.com"
         }
     ],
     "require": {
@@ -29,7 +28,7 @@
         "process-timeout" : 0
     },
     "scripts": {
-        "start": "php -S localhost:8080 -t public public/index.php",
+        "start": "php -S localhost:8080 -t public public/index_dev.php",
         "test": "phpunit"
     }
 
