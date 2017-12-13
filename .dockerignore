@@ -1,0 +1,8 @@
+.git
+.idea
+tests
+vendor
+.gitattributes
+.gitignore
+*.md
+phpunit.xml
