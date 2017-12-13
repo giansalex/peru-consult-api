@@ -2,6 +2,13 @@
 [![Travis-CI](https://img.shields.io/travis/giansalex/peru-consult-api.svg?label=build&branch=master&style=flat-square)](https://travis-ci.org/giansalex/peru-consult-api)  
 API para consultar el DNI o RUC - Perú empleando [peru-consult](https://github.com/giansalex/peru-consult) package.
 
+### Docker
+
+Install from [Docker Hub](https://hub.docker.com/r/giansalex/peru-consult-api/)
+```bash
+docker pull giansalex/peru-consult-api
+```
+
 ### DNI
 
 Respuesta:

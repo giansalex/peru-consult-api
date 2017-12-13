@@ -45,6 +45,11 @@ class ConsultApiTest extends BaseTestCase
     {
         $response = $this->runApp('GET', '/api/v1/dni/48004836');
 
+        if ($response->getStatusCode() == 500) {
+            echo (string)$response->getBody();
+            return;
+        }
+
         $this->assertEquals(200, $response->getStatusCode());
         /**@var $person Person*/
         $person = json_decode((string)$response->getBody());
