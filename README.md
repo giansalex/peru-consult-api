@@ -1,4 +1,5 @@
 # API Consulta - Perú
+[![Travis-CI](https://img.shields.io/travis/giansalex/peru-consult-api.svg?label=build&branch=master&style=flat-square)](https://travis-ci.org/giansalex/peru-consult-api)  
 API para consultar el DNI o RUC - Perú empleando [peru-consult](https://github.com/giansalex/peru-consult) package.
 
 ### DNI
@@ -22,7 +23,7 @@ Respuesta:
 ```json
 {
   "ruc": "20131312955",
-  "razonSocial": "- SUPERINTENDENCIA NACIONAL DE ADUANAS Y DE ADMINISTRACION TRIBUTARIA - SUNAT",
+  "razonSocial": "SUPERINTENDENCIA NACIONAL DE ADUANAS Y DE ADMINISTRACION TRIBUTARIA - SUNAT",
   "nombreComercial": "-",
   "telefonos": [
     "6343300",
