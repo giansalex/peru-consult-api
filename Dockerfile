@@ -13,8 +13,7 @@ RUN a2enmod rewrite
 COPY . /var/www/html/
 
 RUN cd /var/www/html && \
-    chmod -R 777 logs/ && \
-    mv public/assets ./assets && \
+    chmod -R 777 ./logs && \
     cp -f docker/.htaccess . && \
     cp -f docker/settings.php src/ && \
     composer install --no-interaction --no-dev --optimize-autoloader && \

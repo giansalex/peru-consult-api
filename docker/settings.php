@@ -12,7 +12,7 @@ return [
         // Monolog settings
         'logger' => [
             'name' => 'slim-app',
-            'path' => __DIR__ . '/../logs',
+            'path' => isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs',
             'level' => Psr\Log\LogLevel::INFO,
         ],
     ],
