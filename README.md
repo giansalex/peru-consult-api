@@ -1,6 +1,6 @@
 # API Consulta - Perú
 [![Travis-CI](https://img.shields.io/travis/giansalex/peru-consult-api.svg?label=build&branch=master&style=flat-square)](https://travis-ci.org/giansalex/peru-consult-api)  
-API para consultar el DNI o RUC - Perú empleando [peru-consult](https://github.com/giansalex/peru-consult) package.
+API para consultar el DNI o RUC - Perú, empleando [peru-consult](https://github.com/giansalex/peru-consult) package.
 
 ### Docker
 
@@ -10,6 +10,10 @@ docker pull giansalex/peru-consult-api
 ```
 
 ### DNI
+Ejecutar usando Curl.
+```bash
+curl -H "Accept: application/json" http://localhost:8090/api/v1/dni/48004836
+```
 
 Respuesta:
 
@@ -24,6 +28,10 @@ Respuesta:
 ```
 
 ### RUC
+Ejecutar usando Curl.
+```bash
+curl -H "Accept: application/json" http://localhost:8090/api/v1/ruc/20131312955
+```
 
 Respuesta:
 
