@@ -39,13 +39,15 @@ $app->group('/api/v1', function () {
 });
 
 $app->get('/', function (Request $request, Response $response, array $args) {
-    // Sample log message
     /**@var $uri \Slim\Http\Uri */
     $uri = $request->getUri();
     /**@var $router \Slim\Router */
     $router = $this->router;
 
-    return $this->renderer->render($response, 'index.phtml', ['url' => $uri->getBasePath(), 'json' => $router->pathFor('swagger')]);
+    return $this->renderer->render($response, 'index.phtml', [
+    	'url' => $uri->getBasePath(),
+    	'json' => $router->pathFor('swagger')
+    ]);
 });
 
 $app->get('/swagger', function (Request $request, Response $response, array $args) {
