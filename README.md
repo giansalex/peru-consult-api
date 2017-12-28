@@ -9,6 +9,12 @@ Install from [Docker Hub](https://hub.docker.com/r/giansalex/peru-consult-api/)
 docker pull giansalex/peru-consult-api
 ```
 
+### Windows Service
+
+Install as windows service.  
+Download [installer](https://github.com/giansalex/peru-consult-api/releases/latest).  
+After install go to http://127.0.0.1:8099/
+
 ### DNI
 Ejecutar usando Curl.
 ```bash
