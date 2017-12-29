@@ -16,7 +16,8 @@
         "slim/php-view": "^2.0",
         "katzgrau/klogger": "^1.2",
         "giansalex/peru-consult": "^1.0",
-        "tuupola/cors-middleware": "^0.5.2"
+        "tuupola/cors-middleware": "^0.5.2",
+        "webonyx/graphql-php": "^0.11.5"
     },
     "require-dev": {
         "phpunit/phpunit": ">=4.8 < 6.0"

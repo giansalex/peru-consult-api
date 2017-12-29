@@ -9,6 +9,7 @@
 namespace Peru\Api\Controller;
 
 use Peru\Api\Service\ArrayConverter;
+use Peru\Api\Service\GraphRunner;
 use Peru\Reniec\Dni;
 use Peru\Sunat\Ruc;
 use Psr\Container\ContainerInterface;
@@ -46,7 +47,6 @@ class ConsultController
     public function ruc($request, $response, array $args)
     {
         $ruc = $args['ruc'];
-        /** @var $service Ruc */
         $service = $this->container->get(Ruc::class);
         $company = $service->get($ruc);
         if ($company === false) {
@@ -72,7 +72,6 @@ class ConsultController
     public function dni($request, $response, array $args)
     {
         $dni = $args['dni'];
-        /** @var $service Dni */
         $service = $this->container->get(Dni::class);
         $person = $service->get($dni);
         if ($person === false) {
@@ -83,6 +82,25 @@ class ConsultController
         }
 
         return $response->withJson($this->container->get(ArrayConverter::class)->convert($person));
+    }
+
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @param array $args
+     *
+     * @return Response
+     *
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
+     * @throws \Throwable
+     */
+    public function graph($request, $response, array $args)
+    {
+        $service = $this->container->get(GraphRunner::class);
+        $result = $service->execute($request->getBody()->getContents());
+
+        return $response->withJson($result);
     }
 
     /**

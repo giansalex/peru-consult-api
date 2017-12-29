@@ -41,6 +41,21 @@ class ConsultApiTest extends BaseTestCase
         $this->assertEquals(404, $response->getStatusCode());
     }
 
+    public function testConsultGraph()
+    {
+        $q = <<<QL
+        query { 
+            echo(message: "Hello World")
+        }
+QL;
+
+        $response = $this->runApp('POST', '/graph', $q);
+
+
+        $this->assertEquals(404, $response->getStatusCode());
+        file_put_contents('da.txt', (string)$response->getBody());
+    }
+
     public function testConsultDni()
     {
         $response = $this->runApp('GET', '/api/v1/dni/48004836');
