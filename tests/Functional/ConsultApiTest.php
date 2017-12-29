@@ -34,7 +34,7 @@ class ConsultApiTest extends BaseTestCase
         $this->assertEquals('ACTIVO', $company->estado);
     }
 
-    public function testConsultDniInvalid()
+    public function testConsult()
     {
         $response = $this->runApp('GET', '/api/v1/dni/123456788');
 
@@ -60,5 +60,32 @@ class ConsultApiTest extends BaseTestCase
 
         $this->assertEquals('ROBERTO CARLOS', $person->nombres);
         $this->assertEquals('4', $person->codVerifica);
+    }
+
+    public function testConsultGraph()
+    {
+        $q = <<<QL
+query { 
+    company(ruc: "20131312955") {
+    	ruc
+    	razonSocial
+    	condicion
+    	estado
+    }
+}
+
+QL;
+
+        $response = $this->runApp('POST', '/api/v1/graph', $q);
+
+        $this->assertEquals(200, $response->getStatusCode());
+        /**@var $company Company */
+        $company = json_decode((string)$response->getBody())->data->company;
+
+        $this->assertContains('SUPERINTENDENCIA NACIONAL', $company->razonSocial);
+        $this->assertEquals('HABIDO', $company->condicion);
+        $this->assertEquals('ACTIVO', $company->estado);
+        $this->assertFalse(isset($company->direccion));
+        $this->assertFalse(isset($company->fechaInscripcion));
     }
 }

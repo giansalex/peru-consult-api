@@ -45,7 +45,12 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
 
         // Add request data, if it exists
         if (isset($requestData)) {
-            $request = $request->withParsedBody($requestData);
+            if (is_string($requestData)) {
+                $request->getBody()->write($requestData);
+                $request->getBody()->rewind();
+            } else {
+                $request = $request->withParsedBody($requestData);
+            }
         }
 
         // Set up a response object

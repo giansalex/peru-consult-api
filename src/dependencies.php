@@ -2,8 +2,10 @@
 
 // DIC configuration
 
+use Peru\Api\Repository\ConsultTypes;
 use Peru\Api\Service\ArrayConverter;
 use Peru\Api\Service\DniMultiple;
+use Peru\Api\Service\GraphRunner;
 use Peru\Api\Service\RucMultiple;
 use Peru\Reniec\Dni;
 use Peru\Sunat\Ruc;
@@ -43,4 +45,12 @@ $container[DniMultiple::class] = function ($c) {
 
 $container[ArrayConverter::class] = function () {
     return new ArrayConverter();
+};
+
+$container[ConsultTypes::class] = function () {
+    return new ConsultTypes();
+};
+
+$container[GraphRunner::class] = function ($c) {
+    return new GraphRunner($c);
 };
