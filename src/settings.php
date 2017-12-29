@@ -9,6 +9,8 @@ return [
             'template_path' => __DIR__ . '/../templates/',
         ],
 
+        'swagger_path' => __DIR__.'/../public/swagger.json',
+
         // Monolog settings
         'logger' => [
             'name' => 'slim-app',
