@@ -3,25 +3,59 @@
 API para consultar el DNI o RUC - Perú, empleando [peru-consult](https://github.com/giansalex/peru-consult) package.
 
 ## Install
-**Using Docker**
+
+### Using Docker
 
 Install from [Docker Hub](https://hub.docker.com/r/giansalex/peru-consult-api/)
 ```bash
 docker pull giansalex/peru-consult-api
 ```
 
-**As Windows Service**
+### As Windows Service
 
 - Install as windows service.  
 - Download [installer](https://github.com/giansalex/peru-consult-api/releases/latest).  
 - After install go to http://127.0.0.1:8099/
 
-**From Source code**
+### From Source code
 
 Clone the source code.
 ```
 git clone https://github.com/giansalex/peru-consult-api.git
 ```
+
+## Examples
+### GraphQL
+Empleando [graphql](http://graphql.org/) enviar el siguiente query por POST.
+
+```
+query { 
+    person(dni: "48004836") {
+    	dni
+    	nombres
+    },
+    company(ruc: "20131312955") {
+    	ruc
+    	razonSocial
+    }
+}
+```
+Respuest:
+```json
+{
+    "data": {
+        "person": {
+            "dni": "48004836",
+            "nombres": "ROBERTO CARLOS"
+        },
+        "company": {
+            "ruc": "20131312955",
+            "razonSocial": "SUPERINTENDENCIA NACIONAL DE ADUANAS Y DE ADMINISTRACION TRIBUTARIA - SUNAT"
+        }
+    }
+}
+```
+
 ### DNI
 Ejecutar usando Curl.
 ```bash
