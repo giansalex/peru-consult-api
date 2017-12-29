@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Consulta de DNI y RUC",
-    "version": "1.0.0",
+    "version": "1.1",
     "title": "PERU CONSULT",
     "contact": {
       "email": "giansalex@gmail.com"
@@ -13,7 +13,7 @@
   "tags": [
     {
       "name": "consult",
-      "description": "Consultas Peru"
+      "description": "Consultas Perú"
     }
   ],
   "schemes": [
@@ -55,6 +55,45 @@
         }
       }
     },
+    "/ruc": {
+      "post": {
+        "tags": [
+          "consult"
+        ],
+        "summary": "Retorna datos de las empresas",
+        "description": "Retorna informacion segun los rucs",
+        "operationId": "getByRucs",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Lista de Rucs",
+            "required": true,
+            "schema": {
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operacion exitosa",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/RucResponse"
+              }
+            }
+          },
+          "404": {
+            "description": "No es una lista de rucs"
+          }
+        }
+      }
+    },
     "/dni/{dni}": {
       "get": {
         "tags": [
@@ -85,6 +124,43 @@
           },
           "404": {
             "description": "Dni invalido o no encontrado"
+          }
+        }
+      }
+    },
+    "/dni": {
+      "post": {
+        "tags": [
+          "consult"
+        ],
+        "summary": "Retorna datos de las personas",
+        "description": "Retorna informacion segun los dnis",
+        "operationId": "getByDnis",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Lista de Dnis",
+            "required": true,
+            "schema": {
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operacion exitosa",
+            "schema": {
+              "$ref": "#/definitions/DniResponse"
+            }
+          },
+          "404": {
+            "description": "No es una lista de dnis"
           }
         }
       }
