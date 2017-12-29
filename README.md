@@ -1,20 +1,27 @@
 # API Consulta - Perú
-[![Travis-CI](https://img.shields.io/travis/giansalex/peru-consult-api.svg?label=build&branch=master&style=flat-square)](https://travis-ci.org/giansalex/peru-consult-api)  
+[![CircleCI](https://circleci.com/gh/giansalex/peru-consult-api.svg?style=svg)](https://circleci.com/gh/giansalex/peru-consult-api) [![Travis-CI](https://img.shields.io/travis/giansalex/peru-consult-api.svg?label=build&branch=master&style=flat-square)](https://travis-ci.org/giansalex/peru-consult-api)  
 API para consultar el DNI o RUC - Perú, empleando [peru-consult](https://github.com/giansalex/peru-consult) package.
 
-### Docker
+## Install
+**Using Docker**
 
 Install from [Docker Hub](https://hub.docker.com/r/giansalex/peru-consult-api/)
 ```bash
 docker pull giansalex/peru-consult-api
 ```
 
-### Windows Service
+**As Windows Service**
 
-Install as windows service.  
-Download [installer](https://github.com/giansalex/peru-consult-api/releases/latest).  
-After install go to http://127.0.0.1:8099/
+- Install as windows service.  
+- Download [installer](https://github.com/giansalex/peru-consult-api/releases/latest).  
+- After install go to http://127.0.0.1:8099/
 
+**From Source code**
+
+Clone the source code.
+```
+git clone https://github.com/giansalex/peru-consult-api.git
+```
 ### DNI
 Ejecutar usando Curl.
 ```bash
