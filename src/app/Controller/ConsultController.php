@@ -8,6 +8,7 @@
 
 namespace Peru\Api\Controller;
 
+use Peru\Api\Service\ArrayConverter;
 use Peru\Reniec\Dni;
 use Peru\Sunat\Ruc;
 use Psr\Container\ContainerInterface;
@@ -51,7 +52,7 @@ class ConsultController
             return $response->withStatus(500);
         }
 
-        return $response->withJson(get_object_vars($company));
+        return $response->withJson($this->container->get(ArrayConverter::class)->convert($company));
     }
 
     /**
@@ -74,7 +75,7 @@ class ConsultController
             return $response->withStatus(500);
         }
 
-        return $response->withJson(get_object_vars($person));
+        return $response->withJson($this->container->get(ArrayConverter::class)->convert($person));
     }
 
     /**

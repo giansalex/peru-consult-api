@@ -1,6 +1,9 @@
 <?php
 // DIC configuration
 
+use Peru\Api\Service\ArrayConverter;
+use Peru\Api\Service\DniMultiple;
+use Peru\Api\Service\RucMultiple;
 use Peru\Reniec\Dni;
 use Peru\Sunat\Ruc;
 
@@ -26,4 +29,16 @@ $container[Ruc::class] = function () {
 
 $container[Dni::class] = function () {
     return new Dni();
+};
+
+$container[RucMultiple::class] = function ($c) {
+    return new RucMultiple($c->get(Ruc::class));
+};
+
+$container[DniMultiple::class] = function ($c) {
+    return new DniMultiple($c->get(Dni::class));
+};
+
+$container[ArrayConverter::class] = function () {
+    return new ArrayConverter();
 };
