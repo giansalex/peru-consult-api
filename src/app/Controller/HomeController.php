@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Giansalex
  * Date: 28/12/2017
- * Time: 20:53
+ * Time: 20:53.
  */
 
 namespace Peru\Api\Controller;
@@ -16,7 +16,6 @@ use Slim\Views\PhpRenderer;
 
 class HomeController
 {
-
     /**
      * @var ContainerInterface
      */
@@ -24,6 +23,7 @@ class HomeController
 
     /**
      * ConsultController constructor.
+     *
      * @param ContainerInterface $container
      */
     public function __construct(ContainerInterface $container)
@@ -32,33 +32,37 @@ class HomeController
     }
 
     /**
-     * @param Request $request
+     * @param Request  $request
      * @param Response $response
-     * @param array $args
+     * @param array    $args
+     *
      * @return ResponseInterface
+     *
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
      */
     public function index($request, $response, array $args)
     {
-        /**@var $uri \Slim\Http\Uri */
+        /** @var $uri \Slim\Http\Uri */
         $uri = $request->getUri();
-        /**@var $router \Slim\Router */
+        /** @var $router \Slim\Router */
         $router = $this->container->get('router');
-        /**@var $renderer PhpRenderer*/
+        /** @var $renderer PhpRenderer */
         $renderer = $this->container->get('renderer');
 
         return $renderer->render($response, 'index.phtml', [
             'url' => $uri->getBasePath(),
-            'json' => $router->pathFor('swagger')
+            'json' => $router->pathFor('swagger'),
         ]);
     }
 
     /**
-     * @param Request $request
+     * @param Request  $request
      * @param Response $response
-     * @param array $args
+     * @param array    $args
+     *
      * @return Response
+     *
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
      */
@@ -72,9 +76,9 @@ class HomeController
         $uri = $request->getUri();
         $url = $uri->getHost();
         if ($uri->getPort() && $uri->getPort() !== 80) {
-            $url .= ':' . $uri->getPort();
+            $url .= ':'.$uri->getPort();
         }
-        /**@var $uri \Slim\Http\Uri */
+        /** @var $uri \Slim\Http\Uri */
         $url .= $uri->getBasePath();
 
         $jsonContent = file_get_contents($filename);

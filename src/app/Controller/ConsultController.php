@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Giansalex
  * Date: 28/12/2017
- * Time: 20:53
+ * Time: 20:53.
  */
 
 namespace Peru\Api\Controller;
@@ -25,6 +25,7 @@ class ConsultController
 
     /**
      * ConsultController constructor.
+     *
      * @param ContainerInterface $container
      */
     public function __construct(ContainerInterface $container)
@@ -33,22 +34,25 @@ class ConsultController
     }
 
     /**
-     * @param Request $request
+     * @param Request  $request
      * @param Response $response
-     * @param array $args
+     * @param array    $args
+     *
      * @return Response
+     *
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
      */
     public function ruc($request, $response, array $args)
     {
         $ruc = $args['ruc'];
-        /**@var $service Ruc */
+        /** @var $service Ruc */
         $service = $this->container->get(Ruc::class);
         $company = $service->get($ruc);
         if ($company === false) {
             $this->getLogger()->error($service->getError());
             $response->getBody()->write($service->getError());
+
             return $response->withStatus(500);
         }
 
@@ -56,22 +60,25 @@ class ConsultController
     }
 
     /**
-     * @param Request $request
+     * @param Request  $request
      * @param Response $response
-     * @param array $args
+     * @param array    $args
+     *
      * @return Response
+     *
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
      */
     public function dni($request, $response, array $args)
     {
         $dni = $args['dni'];
-        /**@var $service Dni */
+        /** @var $service Dni */
         $service = $this->container->get(Dni::class);
         $person = $service->get($dni);
         if ($person === false) {
             $this->getLogger()->error($service->getError());
             $response->getBody()->write($service->getError());
+
             return $response->withStatus(500);
         }
 
@@ -80,6 +87,7 @@ class ConsultController
 
     /**
      * @return LoggerInterface
+     *
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
      */
