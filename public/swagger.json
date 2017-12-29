@@ -76,6 +76,9 @@
             }
           }
         ],
+        "consumes": [
+          "application/json"
+        ],
         "produces": [
           "application/json"
         ],
@@ -149,6 +152,9 @@
             }
           }
         ],
+        "consumes": [
+          "application/json"
+        ],
         "produces": [
           "application/json"
         ],
@@ -161,6 +167,41 @@
           },
           "404": {
             "description": "No es una lista de dnis"
+          }
+        }
+      }
+    },
+    "/graph": {
+      "post": {
+        "tags": [
+          "consult"
+        ],
+        "summary": "Retorna resultado de GraphQL",
+        "description": "Retorna informacion de RUC y/o DNI",
+        "operationId": "getByGraph",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "consumes": [
+          "text/plain"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operacion exitosa",
+            "schema": {
+              "$ref": "#/definitions/QueryResponse"
+            }
           }
         }
       }
@@ -261,6 +302,55 @@
         },
         "codVerifica": {
           "type": "string"
+        }
+      }
+    },
+    "ErrorQuery": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "locations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "line": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "column": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        }
+      }
+    },
+    "QueryResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "person": {
+              "$ref": "#/definitions/DniResponse"
+            },
+            "company": {
+              "$ref": "#/definitions/RucResponse"
+            }
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ErrorQuery"
+          }
         }
       }
     }
