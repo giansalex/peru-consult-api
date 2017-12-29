@@ -12,7 +12,7 @@ $app->group('/api/v1', function () {
     $this->get('/ruc/{ruc:\d{11}}', 'Peru\Api\Controller\ConsultController:ruc');
     $this->get('/dni/{dni:\d{8}}', 'Peru\Api\Controller\ConsultController:dni');
     $this->post('/ruc', 'Peru\Api\Controller\ConsultMultipleController:ruc');
-    $this->get('/dni', 'Peru\Api\Controller\ConsultMultipleController:dni');
+    $this->post('/dni', 'Peru\Api\Controller\ConsultMultipleController:dni');
 });
 
 $app->get('/', 'Peru\Api\Controller\HomeController:index');
