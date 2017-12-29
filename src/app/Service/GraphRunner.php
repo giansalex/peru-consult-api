@@ -12,6 +12,7 @@ use GraphQL\GraphQL;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Schema;
+use Peru\Api\Repository\ConsultTypes;
 use Peru\Reniec\Dni;
 use Peru\Sunat\Ruc;
 use Psr\Container\ContainerInterface;
@@ -31,6 +32,8 @@ class GraphRunner
     /**
      * GraphRunner constructor.
      * @param ContainerInterface $container
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
      */
     public function __construct(ContainerInterface $container)
     {
@@ -57,52 +60,19 @@ class GraphRunner
         return $output;
     }
 
+    /**
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
+     */
     private function buildSchema()
     {
-        $personType = new ObjectType([
-            'name' => 'Person',
-            'description' => 'Consulta DNI',
-            'fields' => [
-                'dni' => Type::string(),
-                'nombres' => Type::string(),
-                'apellidoPaterno' => Type::string(),
-                'apellidoMaterno' => Type::string(),
-                'codVerifica' => Type::string(),
-            ],
-            // using defaultFieldResolver
-        ]);
-
-        $companyType = new ObjectType([
-            'name' => 'Company',
-            'description' => 'Consulta RUC',
-            'fields' => [
-                'ruc' => Type::string(),
-                'razonSocial' => Type::string(),
-                'nombreComercial' => Type::string(),
-                'telefonos' => Type::string(),
-                'tipo' => Type::string(),
-                'estado' => Type::string(),
-                'condicion' => Type::string(),
-                'direccion' => Type::string(),
-                'fechaInscripcion' => Type::string(),
-                'sistEmsion' => Type::string(),
-                'sistContabilidad' => Type::string(),
-                'actExterior' => Type::string(),
-                'actEconomicas' => Type::string(),
-                'cpPago' => Type::string(),
-                'sistElectronica' => Type::string(),
-                'fechaEmisorFe' => Type::string(),
-                'cpeElectronico' => Type::string(),
-                'fechaPle' => Type::string(),
-                'padrones' => Type::string(),
-            ],
-        ]);
+        $registry = $this->container->get(ConsultTypes::class);
 
         $queryType = new ObjectType([
             'name' => 'Query',
             'fields' => [
                 'person' => [
-                    'type' => $personType,
+                    'type' => $registry->get('Person'),
                     'args' => [
                         'dni' => Type::nonNull(Type::string()),
                     ],
@@ -117,7 +87,7 @@ class GraphRunner
                     }
                 ],
                 'company' => [
-                    'type' => $companyType,
+                    'type' => $registry->get('Company'),
                     'args' => [
                         'ruc' => Type::nonNull(Type::string()),
                     ],
