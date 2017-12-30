@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Administrador
- * Date: 29/12/2017
- * Time: 12:57 PM
+ * Date: 30/12/2017
+ * Time: 09:57 AM
  */
 
 namespace Peru\Api\Repository;
@@ -11,46 +11,15 @@ namespace Peru\Api\Repository;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 
-class ConsultTypes
+class CompanyType extends ObjectType
 {
-    private $types = [];
 
-    public function get($name)
+    /**
+     * CompanyType constructor.
+     */
+    public function __construct()
     {
-        if (!isset($this->types[$name])) {
-            $this->types[$name] = $this->{$name}();
-        }
-        return $this->types[$name];
-    }
-
-    private function Person()
-    {
-        return new ObjectType([
-            'name' => 'Person',
-            'description' => 'Persona',
-            'fields' => [
-                'dni' => Type::string(),
-                'nombres' => Type::string(),
-                'apellidoPaterno' => [
-                    'type' => Type::string(),
-                    'description' => 'Apellido Paterno',
-                ],
-                'apellidoMaterno' => [
-                    'type' => Type::string(),
-                    'description' => 'Apellido Materno',
-                ],
-                'codVerifica' => [
-                    'type' => Type::string(),
-                    'description' => 'Código de verificación',
-                ],
-            ],
-            // using defaultFieldResolver
-        ]);
-    }
-
-    private function Company()
-    {
-        return new ObjectType([
+        $config = [
             'name' => 'Company',
             'description' => 'Empresa',
             'fields' => [
@@ -110,6 +79,8 @@ class ConsultTypes
                 ],
                 'padrones' => Type::listOf(Type::string()),
             ],
-        ]);
+        ];
+
+        parent::__construct($config);
     }
 }

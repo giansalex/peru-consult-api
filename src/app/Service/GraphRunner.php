@@ -9,21 +9,12 @@
 namespace Peru\Api\Service;
 
 use GraphQL\GraphQL;
-use GraphQL\Type\Definition\ObjectType;
-use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Schema;
-use Peru\Api\Repository\ConsultTypes;
-use Peru\Reniec\Dni;
-use Peru\Sunat\Ruc;
-use Psr\Container\ContainerInterface;
+use Peru\Api\Repository\QueryType;
 use GraphQL\Error\FormattedError;
 
 class GraphRunner
 {
-    /**
-     * @var ContainerInterface
-     */
-    private $container;
     /**
      * @var Schema
      */
@@ -31,16 +22,13 @@ class GraphRunner
 
     /**
      * GraphRunner constructor.
-     *
-     * @param ContainerInterface $container
-     *
-     * @throws \Psr\Container\ContainerExceptionInterface
-     * @throws \Psr\Container\NotFoundExceptionInterface
+     * @param QueryType $queryType
      */
-    public function __construct(ContainerInterface $container)
+    public function __construct(QueryType $queryType)
     {
-        $this->container = $container;
-        $this->buildSchema();
+        $this->schema = new Schema([
+            'query' => $queryType,
+        ]);
     }
 
     /**
@@ -63,57 +51,5 @@ class GraphRunner
         }
 
         return $output;
-    }
-
-    /**
-     * @throws \Psr\Container\ContainerExceptionInterface
-     * @throws \Psr\Container\NotFoundExceptionInterface
-     */
-    private function buildSchema()
-    {
-        $registry = $this->container->get(ConsultTypes::class);
-
-        $queryType = new ObjectType([
-            'name' => 'Query',
-            'description' => 'Query consulta RUC y DNI.',
-            'fields' => [
-                'person' => [
-                    'type' => $registry->get('Person'),
-                    'description' => 'Representa a una persona',
-                    'args' => [
-                        'dni' => Type::nonNull(Type::string()),
-                    ],
-                    'resolve' => function ($root, $args) {
-                        $service = $this->container->get(Dni::class);
-                        $person = $service->get($args['dni']);
-                        if ($person === false) {
-                            return null;
-                        }
-
-                        return $person;
-                    },
-                ],
-                'company' => [
-                    'type' => $registry->get('Company'),
-                    'description' => 'Representa a una empresa',
-                    'args' => [
-                        'ruc' => Type::nonNull(Type::string()),
-                    ],
-                    'resolve' => function ($root, $args) {
-                        $service = $this->container->get(Ruc::class);
-                        $company = $service->get($args['ruc']);
-                        if ($company === false) {
-                            return null;
-                        }
-
-                        return $company;
-                    },
-                ],
-            ],
-        ]);
-
-        $this->schema = new Schema([
-            'query' => $queryType,
-        ]);
     }
 }

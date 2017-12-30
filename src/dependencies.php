@@ -2,7 +2,9 @@
 
 // DIC configuration
 
-use Peru\Api\Repository\ConsultTypes;
+use Peru\Api\Repository\CompanyType;
+use Peru\Api\Repository\PersonType;
+use Peru\Api\Repository\QueryType;
 use Peru\Api\Service\ArrayConverter;
 use Peru\Api\Service\DniMultiple;
 use Peru\Api\Service\GraphRunner;
@@ -47,10 +49,18 @@ $container[ArrayConverter::class] = function () {
     return new ArrayConverter();
 };
 
-$container[ConsultTypes::class] = function () {
-    return new ConsultTypes();
+$container[PersonType::class] = function () {
+    return new PersonType();
+};
+
+$container[CompanyType::class] = function () {
+    return new CompanyType();
+};
+
+$container[QueryType::class] = function ($c) {
+    return new QueryType($c);
 };
 
 $container[GraphRunner::class] = function ($c) {
-    return new GraphRunner($c);
+    return new GraphRunner($c->get(QueryType::class));
 };
