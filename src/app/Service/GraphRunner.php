@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Administrador
  * Date: 29/12/2017
- * Time: 10:53 AM
+ * Time: 10:53 AM.
  */
 
 namespace Peru\Api\Service;
@@ -31,7 +31,9 @@ class GraphRunner
 
     /**
      * GraphRunner constructor.
+     *
      * @param ContainerInterface $container
+     *
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
      */
@@ -42,18 +44,21 @@ class GraphRunner
     }
 
     /**
-     * @param $query
+     * @param string $query
+     * @param $variables
+     *
      * @return array
+     *
      * @throws \Throwable
      */
-    public function execute($query)
+    public function execute($query, $variables)
     {
         try {
-            $result = GraphQL::executeQuery($this->schema, $query);
+            $result = GraphQL::executeQuery($this->schema, $query, null, null, $variables);
             $output = $result->toArray();
         } catch (\Exception $e) {
             $output = [
-                'errors' => [FormattedError::createFromException($e)]
+                'errors' => [FormattedError::createFromException($e)],
             ];
         }
 
@@ -70,9 +75,11 @@ class GraphRunner
 
         $queryType = new ObjectType([
             'name' => 'Query',
+            'description' => 'Query consulta RUC y DNI.',
             'fields' => [
                 'person' => [
                     'type' => $registry->get('Person'),
+                    'description' => 'Representa a una persona',
                     'args' => [
                         'dni' => Type::nonNull(Type::string()),
                     ],
@@ -84,10 +91,11 @@ class GraphRunner
                         }
 
                         return $person;
-                    }
+                    },
                 ],
                 'company' => [
                     'type' => $registry->get('Company'),
+                    'description' => 'Representa a una empresa',
                     'args' => [
                         'ruc' => Type::nonNull(Type::string()),
                     ],
@@ -99,13 +107,13 @@ class GraphRunner
                         }
 
                         return $company;
-                    }
+                    },
                 ],
-            ]
+            ],
         ]);
 
         $this->schema = new Schema([
-            'query' => $queryType
+            'query' => $queryType,
         ]);
     }
 }

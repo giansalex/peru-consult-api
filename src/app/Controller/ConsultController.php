@@ -85,9 +85,9 @@ class ConsultController
     }
 
     /**
-     * @param Request $request
+     * @param Request  $request
      * @param Response $response
-     * @param array $args
+     * @param array    $args
      *
      * @return Response
      *
@@ -97,8 +97,13 @@ class ConsultController
      */
     public function graph($request, $response, array $args)
     {
+        $data = $request->getParsedBody();
+        if (!isset($data['query'])) {
+            return $response->withStatus('400');
+        }
+
         $service = $this->container->get(GraphRunner::class);
-        $result = $service->execute($request->getBody()->getContents());
+        $result = $service->execute($data['query'], isset($data['variables']) ? $data['variables'] : null);
 
         return $response->withJson($result);
     }
