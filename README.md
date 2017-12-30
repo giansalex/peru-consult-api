@@ -13,8 +13,8 @@ docker pull giansalex/peru-consult-api
 
 ### As Windows Service
 
-- Install as windows service.  
 - Download [installer](https://github.com/giansalex/peru-consult-api/releases/latest).  
+- Run setup as Administrator Level.    
 - After install go to http://127.0.0.1:8099/
 
 ### From Source code
@@ -26,7 +26,7 @@ git clone https://github.com/giansalex/peru-consult-api.git
 
 ## Examples
 ### GraphQL
-Empleando [graphql](http://graphql.org/) enviar el siguiente query por POST.
+Implementando soporte para [graphql](http://graphql.org/) utilizar el endpoint `/api/v1/graph`   
 
 ```
 query { 

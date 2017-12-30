@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Consulta de DNI y RUC",
-    "version": "1.1",
+    "version": "1.2",
     "title": "PERU CONSULT",
     "contact": {
       "email": "giansalex@gmail.com"
@@ -186,12 +186,12 @@
             "description": "Query",
             "required": true,
             "schema": {
-              "type": "string"
+              "$ref": "#/definitions/QueryRequest"
             }
           }
         ],
         "consumes": [
-          "text/plain"
+          "application/json"
         ],
         "produces": [
           "application/json"
@@ -281,7 +281,10 @@
           "type": "string"
         },
         "padrones": {
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -329,6 +332,18 @@
               }
             }
           }
+        }
+      }
+    },
+    "QueryRequest": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "GraphQL query"
+        },
+        "variables": {
+          "type": "object"
         }
       }
     },
