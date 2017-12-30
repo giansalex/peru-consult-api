@@ -76,7 +76,7 @@ query {
 
 QL;
 
-        $response = $this->runApp('POST', '/api/v1/graph', $q);
+        $response = $this->runApp('POST', '/api/v1/graph', ['query' => $q]);
 
         $this->assertEquals(200, $response->getStatusCode());
         /**@var $company Company */
