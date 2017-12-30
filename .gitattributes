@@ -8,5 +8,6 @@ circle.yml export-ignore
 phpunit.xml export-ignore
 CONTRIBUTING.md export-ignore
 LICENSE export-ignore
+docker-compose.yml export-ignore
 Dockerfile export-ignore
 README.md export-ignore
