@@ -1,0 +1,18 @@
+{
+  "name": "Consult API Perú",
+  "description": "API para consultar el DNI o RUC - Perú.",
+  "keywords": [
+    "php",
+    "peru"
+  ],
+  "website": "https://github.com/giansalex/peru-consult-api",
+  "repository": "https://github.com/giansalex/peru-consult-api",
+  "success_url": "/",
+  "scripts": {
+    "test": "vendor/bin/phpunit --configuration phpunit.xml"
+  },
+  "env": {
+    "APP_LOG": "php://stderr"
+  },
+  "image": "heroku/php"
+}
