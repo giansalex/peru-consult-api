@@ -6,4 +6,5 @@ vendor
 .gitattributes
 .gitignore
 /*.md
+Procfile
 phpunit.xml
