@@ -67,10 +67,25 @@ class ConsultApiTest extends BaseTestCase
         $q = <<<QL
 query { 
     company(ruc: "20131312955") {
-    	ruc
-    	razonSocial
-    	condicion
-    	estado
+        ruc
+        razonSocial
+        nombreComercial
+        telefonos
+        tipo
+        estado
+        condicion
+        direccion
+        fechaInscripcion
+        sistEmsion
+        sistContabilidad
+        actExterior
+        actEconomicas
+        cpPago
+        sistElectronica
+        fechaEmisorFe
+        cpeElectronico
+        fechaPle
+        padrones
     }
 }
 
@@ -79,13 +94,16 @@ QL;
         $response = $this->runApp('POST', '/api/v1/graph', ['query' => $q]);
 
         $this->assertEquals(200, $response->getStatusCode());
-        /**@var $company Company */
-        $company = json_decode((string)$response->getBody())->data->company;
+        $obj = json_decode((string)$response->getBody());
 
+        /**@var $company Company */
+        $company = $obj->data->company;
+
+        $this->assertFalse(isset($obj->errors));
         $this->assertContains('SUPERINTENDENCIA NACIONAL', $company->razonSocial);
         $this->assertEquals('HABIDO', $company->condicion);
         $this->assertEquals('ACTIVO', $company->estado);
-        $this->assertFalse(isset($company->direccion));
-        $this->assertFalse(isset($company->fechaInscripcion));
+        $this->assertNotEmpty($company->direccion);
+        $this->assertNotEmpty($company->fechaInscripcion);
     }
 }
