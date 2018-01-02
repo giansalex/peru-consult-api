@@ -14,10 +14,10 @@ use Peru\Reniec\Dni;
 use Peru\Sunat\Ruc;
 use Psr\Container\ContainerInterface;
 
-class QueryType extends ObjectType
+class RootType extends ObjectType
 {
     /**
-     * QueryType constructor.
+     * RootType constructor.
      * @param ContainerInterface $container
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
@@ -25,8 +25,8 @@ class QueryType extends ObjectType
     public function __construct(ContainerInterface $container)
     {
         $config = [
-            'name' => 'Query',
-            'description' => 'Query consulta RUC y DNI.',
+            'name' => 'Root',
+            'description' => 'Consultas RUC y DNI.',
             'fields' => [
                 'person' => [
                     'type' => $container->get(PersonType::class),

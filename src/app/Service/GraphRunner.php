@@ -10,7 +10,7 @@ namespace Peru\Api\Service;
 
 use GraphQL\GraphQL;
 use GraphQL\Type\Schema;
-use Peru\Api\Repository\QueryType;
+use Peru\Api\Repository\RootType;
 use GraphQL\Error\FormattedError;
 
 class GraphRunner
@@ -22,9 +22,9 @@ class GraphRunner
 
     /**
      * GraphRunner constructor.
-     * @param QueryType $queryType
+     * @param RootType $queryType
      */
-    public function __construct(QueryType $queryType)
+    public function __construct(RootType $queryType)
     {
         $this->schema = new Schema([
             'query' => $queryType,

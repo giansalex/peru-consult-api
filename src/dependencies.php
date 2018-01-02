@@ -4,7 +4,7 @@
 
 use Peru\Api\Repository\CompanyType;
 use Peru\Api\Repository\PersonType;
-use Peru\Api\Repository\QueryType;
+use Peru\Api\Repository\RootType;
 use Peru\Api\Service\ArrayConverter;
 use Peru\Api\Service\DniMultiple;
 use Peru\Api\Service\GraphRunner;
@@ -57,10 +57,10 @@ $container[CompanyType::class] = function () {
     return new CompanyType();
 };
 
-$container[QueryType::class] = function ($c) {
-    return new QueryType($c);
+$container[RootType::class] = function ($c) {
+    return new RootType($c);
 };
 
 $container[GraphRunner::class] = function ($c) {
-    return new GraphRunner($c->get(QueryType::class));
+    return new GraphRunner($c->get(RootType::class));
 };
