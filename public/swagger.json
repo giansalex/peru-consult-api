@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Consulta de DNI y RUC",
-    "version": "1.2",
+    "version": "1.3",
     "title": "PERU CONSULT",
     "contact": {
       "email": "giansalex@gmail.com"
