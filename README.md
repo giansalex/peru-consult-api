@@ -23,6 +23,11 @@ Clone the source code.
 ```
 git clone https://github.com/giansalex/peru-consult-api.git
 ```
+
+**Requirements**
+- dom extension for Ruc class.
+- gd, pdo_sqlite extension for Dni class.
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Examples

@@ -39,28 +39,30 @@
         },
         {
             "name": "giansalex/peru-consult",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giansalex/peru-consult.git",
-                "reference": "25d7f4a671d2da1ce533bb7dae194ec3a0392b1e"
+                "reference": "38ccc7c7cd41be7825882ce4f188e334e8ecdf80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giansalex/peru-consult/zipball/25d7f4a671d2da1ce533bb7dae194ec3a0392b1e",
-                "reference": "25d7f4a671d2da1ce533bb7dae194ec3a0392b1e",
+                "url": "https://api.github.com/repos/giansalex/peru-consult/zipball/38ccc7c7cd41be7825882ce4f188e334e8ecdf80",
+                "reference": "38ccc7c7cd41be7825882ce4f188e334e8ecdf80",
                 "shasum": ""
             },
             "require": {
-                "ext-dom": "*",
-                "ext-gd": "*",
-                "ext-pdo_sqlite": "*",
                 "php": ">=5.5.9",
                 "php-curl-class/php-curl-class": "^8.0"
             },
             "require-dev": {
                 "behat/behat": "^3.4",
                 "phpunit/phpunit": ">=4.8 < 6.0"
+            },
+            "suggest": {
+                "ext-dom": "Needed to use class Ruc",
+                "ext-gd": "Needed to use class Dni",
+                "ext-pdo_sqlite": "Needed to use class Dni"
             },
             "type": "library",
             "autoload": {
@@ -84,7 +86,7 @@
                 "reniec",
                 "sunat"
             ],
-            "time": "2017-12-26T20:33:00+00:00"
+            "time": "2018-01-06T16:19:30+00:00"
         },
         {
             "name": "katzgrau/klogger",
@@ -1919,16 +1921,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.2",
+            "version": "v3.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "afe0cd38486505c9703707707d91450cfc1bd536"
+                "reference": "25c192f25721a74084272671f658797d9e0e0146"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/afe0cd38486505c9703707707d91450cfc1bd536",
-                "reference": "afe0cd38486505c9703707707d91450cfc1bd536",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/25c192f25721a74084272671f658797d9e0e0146",
+                "reference": "25c192f25721a74084272671f658797d9e0e0146",
                 "shasum": ""
             },
             "require": {
@@ -1973,7 +1975,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-12-11T20:38:23+00:00"
+            "time": "2018-01-03T07:37:34+00:00"
         },
         {
             "name": "webmozart/assert",
