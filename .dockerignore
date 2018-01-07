@@ -5,6 +5,10 @@ tests
 vendor
 .gitattributes
 .gitignore
+.php_cs.cache
+app.json
+box.bat
+box.json
 /*.md
 Procfile
 phpunit.xml
