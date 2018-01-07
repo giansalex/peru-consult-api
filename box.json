@@ -1,0 +1,19 @@
+{
+    "alias": "composer.phar",
+    "chmod": "0755",
+    "directories": ["public", "src", "templates"],
+    "finder": [
+        {
+            "name": "*.php",
+            "exclude": ["tests"],
+            "in": "vendor"
+        }
+    ],
+    "compression" : "GZ",
+    "main" : "public/index.php",
+    "output": "peru-consult.phar",
+    "stub": true,
+    "web": true,
+    "banner": "Peru Consult API",
+    "shebang": false
+}
