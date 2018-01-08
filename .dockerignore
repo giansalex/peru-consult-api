@@ -5,7 +5,7 @@ tests
 vendor
 .gitattributes
 .gitignore
-.php_cs.cache
+.php_cs.dist
 app.json
 box.bat
 box.json
