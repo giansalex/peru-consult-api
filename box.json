@@ -1,7 +1,7 @@
 {
     "alias": "composer.phar",
     "chmod": "0755",
-    "directories": ["public", "src", "templates"],
+    "directories": ["public", "src", "templates", "assets"],
     "finder": [
         {
             "name": "*.php",
@@ -9,6 +9,7 @@
             "in": "vendor"
         }
     ],
+    "files": ["vendor/giansalex/peru-consult/src/Peru/Reniec/solver.db"],
     "compression" : "GZ",
     "main" : "public/index.php",
     "not-found" : "public/index.php",
