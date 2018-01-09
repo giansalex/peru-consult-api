@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Consulta de DNI y RUC",
-    "version": "1.3",
+    "version": "1.4",
     "title": "PERU CONSULT",
     "contact": {
       "email": "giansalex@gmail.com"
@@ -241,7 +241,8 @@
           "type": "string"
         },
         "fechaInscripcion": {
-          "type": "string"
+          "type": "string",
+          "format": "date"
         },
         "sistEmsion": {
           "type": "string"
@@ -271,7 +272,8 @@
           }
         },
         "fechaEmisorFe": {
-          "type": "string"
+          "type": "string",
+          "format": "date"
         },
         "cpeElectronico": {
           "type": "array",
@@ -280,7 +282,8 @@
           }
         },
         "fechaPle": {
-          "type": "string"
+          "type": "string",
+          "format": "date"
         },
         "padrones": {
           "type": "array",
