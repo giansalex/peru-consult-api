@@ -1,4 +1,5 @@
 /vendor/
 /logs/*
 !/logs/README.md
+/.php_cs.cache
 /.idea/

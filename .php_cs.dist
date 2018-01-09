@@ -4,13 +4,7 @@ $config = PhpCsFixer\Config::create()
     ->setRules([
         '@Symfony' => true,
         'yoda_style' => false
-    ])
-    ->setFinder(
-        PhpCsFixer\Finder::create()
-            ->exclude('templates')
-            ->in(__DIR__)
-    )
-;
+    ]);
 // special handling of fabbot.io service if it's using too old PHP CS Fixer version
 try {
     PhpCsFixer\FixerFactory::create()
