@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Administrador
  * Date: 30/12/2017
- * Time: 10:01 AM
+ * Time: 10:01 AM.
  */
 
 namespace Peru\Api\Repository;
@@ -18,7 +18,9 @@ class RootType extends ObjectType
 {
     /**
      * RootType constructor.
+     *
      * @param ContainerInterface $container
+     *
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
      */
@@ -39,6 +41,7 @@ class RootType extends ObjectType
                         $person = $service->get($args['dni']);
                         if ($person === false) {
                             $container->get('logger')->error($service->getError());
+
                             return null;
                         }
 
@@ -56,6 +59,7 @@ class RootType extends ObjectType
                         $company = $service->get($args['ruc']);
                         if ($company === false) {
                             $container->get('logger')->error($service->getError());
+
                             return null;
                         }
 

@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Administrador
  * Date: 30/12/2017
- * Time: 09:57 AM
+ * Time: 09:57 AM.
  */
 
 namespace Peru\Api\Repository;
@@ -13,7 +13,6 @@ use GraphQL\Type\Definition\Type;
 
 class CompanyType extends ObjectType
 {
-
     /**
      * CompanyType constructor.
      */
@@ -56,7 +55,7 @@ class CompanyType extends ObjectType
                     'type' => Type::string(),
                     'description' => 'Actividad de Comercio Exterior',
                 ],
-                'actEconomicas' =>[
+                'actEconomicas' => [
                     'type' => Type::listOf(Type::string()),
                     'description' => 'Actividad(es) Económica(s)',
                 ],
