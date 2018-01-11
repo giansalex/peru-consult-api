@@ -1,5 +1,9 @@
 # API Consulta - Perú
-[![CircleCI](https://circleci.com/gh/giansalex/peru-consult-api.svg?style=svg)](https://circleci.com/gh/giansalex/peru-consult-api) [![Travis-CI](https://img.shields.io/travis/giansalex/peru-consult-api.svg?label=build&branch=master&style=flat-square)](https://travis-ci.org/giansalex/peru-consult-api) [![Docker Build Status](https://img.shields.io/docker/build/giansalex/peru-consult-api.svg?style=flat-square)](https://hub.docker.com/r/giansalex/peru-consult-api/builds/) [![Docker Pulls](https://img.shields.io/docker/pulls/giansalex/peru-consult-api.svg?style=flat-square)]() [![GitHub issues](https://img.shields.io/github/issues/giansalex/peru-consult-api.svg?style=flat-square)]()  
+[![CircleCI](https://circleci.com/gh/giansalex/peru-consult-api.svg?style=svg)](https://circleci.com/gh/giansalex/peru-consult-api)
+[![Travis-CI](https://img.shields.io/travis/giansalex/peru-consult-api.svg?label=build&branch=master&style=flat-square)](https://travis-ci.org/giansalex/peru-consult-api)
+[![Docker Build Status](https://img.shields.io/docker/build/giansalex/peru-consult-api.svg?style=flat-square)](https://hub.docker.com/r/giansalex/peru-consult-api/builds/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/giansalex/peru-consult-api.svg?style=flat-square)](https://hub.docker.com/r/giansalex/peru-consult-api)
+[![GitHub issues](https://img.shields.io/github/issues/giansalex/peru-consult-api.svg?style=flat-square)](https://github.com/giansalex/peru-consult-api/issues)  
 API para consultar el DNI o RUC - Perú, empleando [peru-consult](https://github.com/giansalex/peru-consult) package.
 
 ## Install
@@ -102,11 +106,11 @@ Respuesta:
   "tipo": "INSTITUCIONES PUBLICAS",
   "estado": "ACTIVO",
   "condicion": "HABIDO",
-  "direccion": "AV. GARCILASO DE LA VEGA NRO. 1472 LIMA - LIMA - LIMA",
+  "direccion": "AV. GARCILASO DE LA VEGA NRO. 1472",
   "departamento":"LIMA",
   "provincia":"LIMA",
   "distrito":"LIMA",
-  "fechaInscripcion": "04/05/1993",
+  "fechaInscripcion": "1993-05-04T00:00:00.000Z",
   "sistEmsion": "MANUAL/COMPUTARIZADO",
   "sistContabilidad": "COMPUTARIZADO",
   "actExterior": "SIN ACTIVIDAD",
@@ -126,12 +130,12 @@ Respuesta:
     "FACTURA PORTAL                      DESDE 07/08/2013",
     "BOLETA PORTAL                       DESDE 01/04/2016"
   ],
-  "fechaEmisorFe": "07/08/2013",
+  "fechaEmisorFe": "2013-08-07T00:00:00.000Z",
   "cpeElectronico": [
     "FACTURA (desde 07/08/2013)",
     "BOLETA (desde 01/04/2016)"
   ],
-  "fechaPle": "01/01/2013",
+  "fechaPle": "2013-01-01T00:00:00.000Z",
   "padrones": [
     "Incorporado al Régimen de Agentes de Retención de IGV (R.S.037-2002) a partir del 01/06/2002"
   ]
