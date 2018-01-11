@@ -240,6 +240,15 @@
         "direccion": {
           "type": "string"
         },
+        "departamento": {
+          "type": "string"
+        },
+        "provincia": {
+          "type": "string"
+        },
+        "distrito": {
+          "type": "string"
+        },
         "fechaInscripcion": {
           "type": "string",
           "format": "date"
