@@ -13,6 +13,7 @@ docker pull giansalex/peru-consult-api
 
 ### As Windows Service
 
+> Before uninstall previous installations
 - Download [installer](https://github.com/giansalex/peru-consult-api/releases/latest).  
 - Run setup as Administrator Level.    
 - After install go to http://127.0.0.1:8099/
