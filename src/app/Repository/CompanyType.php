@@ -40,6 +40,9 @@ class CompanyType extends ObjectType
                 'estado' => Type::string(),
                 'condicion' => Type::string(),
                 'direccion' => Type::string(),
+                'departamento' => Type::string(),
+                'provincia' => Type::string(),
+                'distrito' => Type::string(),
                 'fechaInscripcion' => Type::string(),
                 'sistEmsion' => [
                     'type' => Type::string(),

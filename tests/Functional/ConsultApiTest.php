@@ -75,6 +75,9 @@ query {
         estado
         condicion
         direccion
+        departamento
+        provincia
+        distrito
         fechaInscripcion
         sistEmsion
         sistContabilidad
@@ -104,6 +107,9 @@ QL;
         $this->assertEquals('HABIDO', $company->condicion);
         $this->assertEquals('ACTIVO', $company->estado);
         $this->assertNotEmpty($company->direccion);
+        $this->assertNotEmpty($company->departamento);
+        $this->assertNotEmpty($company->provincia);
+        $this->assertNotEmpty($company->distrito);
         $this->assertNotEmpty($company->fechaInscripcion);
     }
 }
