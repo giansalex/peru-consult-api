@@ -39,16 +39,16 @@
         },
         {
             "name": "giansalex/peru-consult",
-            "version": "v1.0.7",
+            "version": "v1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giansalex/peru-consult.git",
-                "reference": "a0f60f24a9178e2ad406ea65035fd5d57e6935e7"
+                "reference": "c20a8ccd03b8772e90a70173925afeb527f7555e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giansalex/peru-consult/zipball/a0f60f24a9178e2ad406ea65035fd5d57e6935e7",
-                "reference": "a0f60f24a9178e2ad406ea65035fd5d57e6935e7",
+                "url": "https://api.github.com/repos/giansalex/peru-consult/zipball/c20a8ccd03b8772e90a70173925afeb527f7555e",
+                "reference": "c20a8ccd03b8772e90a70173925afeb527f7555e",
                 "shasum": ""
             },
             "require": {
@@ -86,7 +86,7 @@
                 "reniec",
                 "sunat"
             ],
-            "time": "2018-01-09T15:10:47+00:00"
+            "time": "2018-01-11T00:11:19+00:00"
         },
         {
             "name": "katzgrau/klogger",
