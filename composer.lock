@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "46fb09d3d2a8a9fb25a1c21352f09d70",
+    "content-hash": "d300864fd27a7cca67843e724a32197b",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -39,21 +39,20 @@
         },
         {
             "name": "giansalex/peru-consult",
-            "version": "v1.0.9",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giansalex/peru-consult.git",
-                "reference": "cb34eb495815321a626532d2cbe1994e9449e5c9"
+                "reference": "f58bd0940ef8ce8c0e7fc3ea9a9d818aea1cd881"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giansalex/peru-consult/zipball/cb34eb495815321a626532d2cbe1994e9449e5c9",
-                "reference": "cb34eb495815321a626532d2cbe1994e9449e5c9",
+                "url": "https://api.github.com/repos/giansalex/peru-consult/zipball/f58bd0940ef8ce8c0e7fc3ea9a9d818aea1cd881",
+                "reference": "f58bd0940ef8ce8c0e7fc3ea9a9d818aea1cd881",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9",
-                "php-curl-class/php-curl-class": "^8.0"
+                "php": ">=5.5.9"
             },
             "require-dev": {
                 "behat/behat": "^3.4",
@@ -61,8 +60,7 @@
             },
             "suggest": {
                 "ext-dom": "Needed to use class Ruc",
-                "ext-gd": "Needed to use class Dni",
-                "ext-pdo_sqlite": "Needed to use class Dni"
+                "ext-gd": "Needed to use class Dni"
             },
             "type": "library",
             "autoload": {
@@ -86,7 +84,7 @@
                 "reniec",
                 "sunat"
             ],
-            "time": "2018-01-11T01:28:40+00:00"
+            "time": "2018-01-13T23:05:50+00:00"
         },
         {
             "name": "katzgrau/klogger",
@@ -235,63 +233,6 @@
                 "routing"
             ],
             "time": "2017-01-19T11:35:12+00:00"
-        },
-        {
-            "name": "php-curl-class/php-curl-class",
-            "version": "8.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-curl-class/php-curl-class.git",
-                "reference": "dc8282d086362d946520781c8908e0b084f01438"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-curl-class/php-curl-class/zipball/dc8282d086362d946520781c8908e0b084f01438",
-                "reference": "dc8282d086362d946520781c8908e0b084f01438",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "php": ">=5.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "*",
-                "squizlabs/php_codesniffer": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Curl\\": "src/Curl/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Unlicense"
-            ],
-            "authors": [
-                {
-                    "name": "Zach Borboa"
-                }
-            ],
-            "description": "PHP Curl Class makes it easy to send HTTP requests and integrate with web APIs.",
-            "homepage": "https://github.com/php-curl-class/php-curl-class",
-            "keywords": [
-                "api",
-                "class",
-                "client",
-                "curl",
-                "framework",
-                "http",
-                "http client",
-                "json",
-                "php",
-                "requests",
-                "rest",
-                "restful",
-                "web service",
-                "xml"
-            ],
-            "time": "2017-11-02T06:07:25+00:00"
         },
         {
             "name": "pimple/pimple",

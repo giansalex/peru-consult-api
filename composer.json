@@ -15,7 +15,7 @@
         "slim/slim": "^3.1",
         "slim/php-view": "^2.0",
         "katzgrau/klogger": "^1.2",
-        "giansalex/peru-consult": "^1.0",
+        "giansalex/peru-consult": "^1.1",
         "tuupola/cors-middleware": "^0.5.2",
         "webonyx/graphql-php": "^0.11.5"
     },

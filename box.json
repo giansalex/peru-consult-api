@@ -9,7 +9,6 @@
             "in": "vendor"
         }
     ],
-    "files": ["vendor/giansalex/peru-consult/src/Peru/Reniec/solver.db"],
     "compression" : "GZ",
     "main" : "public/index.php",
     "not-found" : "public/index.php",
