@@ -1,7 +1,11 @@
 {
     "alias": "composer.phar",
     "chmod": "0755",
-    "directories": ["public", "src", "templates", "assets"],
+    "directories": ["src", "templates"],
+    "files": [
+        "public/index.php",
+        "public/swagger.json"
+    ],
     "finder": [
         {
             "name": "*.php",
@@ -12,9 +16,9 @@
     "compression" : "GZ",
     "main" : "public/index.php",
     "not-found" : "public/index.php",
-    "output": "peru-consult.phar",
+    "output": "consult.phar",
     "stub": true,
-    "web": true,
+    "web": false,
     "banner": "Peru Consult API",
     "shebang": false
 }

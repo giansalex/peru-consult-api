@@ -1,5 +1,6 @@
 .git
 .idea
+box2
 docs
 tests
 vendor
