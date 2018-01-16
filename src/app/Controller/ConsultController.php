@@ -53,7 +53,7 @@ class ConsultController
             $this->getLogger()->error($service->getError());
             $response->getBody()->write($service->getError());
 
-            return $response->withStatus(500);
+            return $response->withStatus(400);
         }
 
         return $response->withJson($this->container->get(ArrayConverter::class)->convert($company));
@@ -78,7 +78,7 @@ class ConsultController
             $this->getLogger()->error($service->getError());
             $response->getBody()->write($service->getError());
 
-            return $response->withStatus(500);
+            return $response->withStatus(400);
         }
 
         return $response->withJson($this->container->get(ArrayConverter::class)->convert($person));
@@ -99,7 +99,7 @@ class ConsultController
     {
         $data = $request->getParsedBody();
         if (!isset($data['query'])) {
-            return $response->withStatus('400');
+            return $response->withStatus(400);
         }
 
         $service = $this->container->get(GraphRunner::class);
