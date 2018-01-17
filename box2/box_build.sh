@@ -7,7 +7,7 @@ composer install --no-dev --optimize-autoloader
 box build
 mkdir dist
 mv consult.phar dist/consult.phar
-mv public/assets dist/assets
+mv public/favicon.ico dist/favicon.ico
 cp public/.htaccess dist/.htaccess
 cp box2/index.php dist/index.php
 git checkout .
