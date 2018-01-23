@@ -15,7 +15,6 @@
     ],
     "compression" : "GZ",
     "main" : "public/index.php",
-    "not-found" : "public/index.php",
     "output": "consult.phar",
     "stub": true,
     "web": false,
