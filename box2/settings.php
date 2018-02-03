@@ -10,6 +10,10 @@ return [
             'template_path' => __DIR__.'/../templates/',
         ],
 
+        'auth' => [
+            'token' => getenv('API_TOKEN'),
+        ],
+
         'swagger_path' => __DIR__.'/../public/swagger.json',
 
         // Monolog settings
