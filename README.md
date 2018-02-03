@@ -33,6 +33,9 @@ git clone https://github.com/giansalex/peru-consult-api.git
 - dom extension for Ruc class.
 - gd extension for Dni class.
 
+### Heroku Deploy
+Default token: `abcxyz`
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Examples
