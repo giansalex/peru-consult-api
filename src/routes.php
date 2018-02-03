@@ -1,5 +1,7 @@
 <?php
 
+$container = $app->getContainer();
+
 // Routes
 $app->group('/api/v1', function () {
     /* @var $this Slim\App */
@@ -8,7 +10,7 @@ $app->group('/api/v1', function () {
     $this->post('/ruc', 'Peru\Api\Controller\ConsultMultipleController:ruc');
     $this->post('/dni', 'Peru\Api\Controller\ConsultMultipleController:dni');
     $this->post('/graph', 'Peru\Api\Controller\ConsultController:graph');
-});
+})->add(new \Peru\Api\Middleware\TokenMiddleware($container['settings']['auth']['token']));
 
 $app->get('/', 'Peru\Api\Controller\HomeController:index');
 

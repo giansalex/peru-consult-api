@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Consulta de DNI y RUC",
-    "version": "1.5",
+    "version": "1.6",
     "title": "PERU CONSULT",
     "contact": {
       "email": "giansalex@gmail.com"
@@ -52,7 +52,12 @@
           "404": {
             "description": "Ruc invalido o no encontrado"
           }
-        }
+        },
+        "security": [
+          {
+            "ApiToken": []
+          }
+        ]
       }
     },
     "/ruc": {
@@ -95,7 +100,12 @@
           "404": {
             "description": "No es una lista de rucs"
           }
-        }
+        },
+        "security": [
+          {
+            "ApiToken": []
+          }
+        ]
       }
     },
     "/dni/{dni}": {
@@ -129,7 +139,12 @@
           "404": {
             "description": "Dni invalido o no encontrado"
           }
-        }
+        },
+        "security": [
+          {
+            "ApiToken": []
+          }
+        ]
       }
     },
     "/dni": {
@@ -170,7 +185,12 @@
           "404": {
             "description": "No es una lista de dnis"
           }
-        }
+        },
+        "security": [
+          {
+            "ApiToken": []
+          }
+        ]
       }
     },
     "/graph": {
@@ -205,8 +225,21 @@
               "$ref": "#/definitions/QueryResponse"
             }
           }
-        }
+        },
+        "security": [
+          {
+            "ApiToken": []
+          }
+        ]
       }
+    }
+  },
+  "securityDefinitions": {
+    "ApiToken": {
+      "name": "token",
+      "type": "apiKey",
+      "in": "query",
+      "description": "Api Token"
     }
   },
   "definitions": {

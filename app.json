@@ -12,7 +12,8 @@
     "test": "vendor/bin/phpunit --configuration phpunit.xml"
   },
   "env": {
-    "APP_LOG": "php://stderr"
+    "APP_LOG": "php://stderr",
+    "API_TOKEN": "abcxyz"
   },
   "image": "heroku/php"
 }

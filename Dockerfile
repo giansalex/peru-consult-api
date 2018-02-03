@@ -9,6 +9,8 @@ RUN apt-get update && \
     apt-get clean && \
     curl --silent --show-error -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+ENV API_TOKEN ""
+
 # Copy configuration
 COPY docker/config/opcache.ini $PHP_INI_DIR/conf.d/
 RUN a2enmod rewrite

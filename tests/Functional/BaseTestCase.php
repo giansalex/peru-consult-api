@@ -32,11 +32,12 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
      */
     public function runApp($requestMethod, $requestUri, $requestData = null)
     {
+        $settings = require __DIR__ . '/../../src/settings.php';
         // Create a mock environment for testing with
         $environment = Environment::mock(
             [
                 'REQUEST_METHOD' => $requestMethod,
-                'REQUEST_URI' => $requestUri
+                'REQUEST_URI' => $requestUri.'?token='.$settings['settings']['auth']['token'],
             ]
         );
 
@@ -57,7 +58,6 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
         $response = new Response();
 
         // Use the application settings
-        $settings = require __DIR__ . '/../../src/settings.php';
 
         // Instantiate the application
         $app = new App($settings);
