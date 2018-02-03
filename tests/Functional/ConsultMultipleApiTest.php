@@ -65,6 +65,7 @@ class ConsultMultipleApiTest extends BaseTestCase
         $arr = ['00000012', '00000005', '46658592'];
         $response = $this->runApp('POST', '/api/v1/dni', $arr);
 
+        echo (string)$response->getBody();
         $this->assertEquals(200, $response->getStatusCode());
         /**@var $persons Person[] */
         $persons = json_decode((string)$response->getBody());
