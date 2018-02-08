@@ -39,6 +39,10 @@ Default token: `abcxyz`
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Examples
+
+### KataCoda Interactive Tutorial
+https://www.katacoda.com/giansalex/scenarios/peru-consult-api
+
 ### GraphQL
 Implementando soporte para [graphql](http://graphql.org/) utilizar el endpoint `/api/v1/graph`   
 
