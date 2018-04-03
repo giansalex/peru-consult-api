@@ -31,6 +31,7 @@ git clone https://github.com/giansalex/peru-consult-api.git
 
 **Requirements**
 - dom extension for Ruc class.
+- dom extension for UserSol class.
 - gd extension for Dni class.
 
 ### Heroku Deploy

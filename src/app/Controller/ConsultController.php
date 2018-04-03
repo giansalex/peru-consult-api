@@ -73,10 +73,10 @@ class ConsultController
     public function userSol($request, $response, array $args)
     {
         $ruc = $args['ruc'];
-        $user = $args['pass'];
+        $user = strtoupper($args['user']);
 
         $service = $this->container->get(UserValidator::class);
-        $valid = $service->vaild($ruc, $user);
+        $valid = $service->valid($ruc, $user);
 
         return $response->withJson($valid);
     }
