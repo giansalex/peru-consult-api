@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Consulta de DNI y RUC",
-    "version": "1.6",
+    "version": "2.0",
     "title": "PERU CONSULT",
     "contact": {
       "email": "giansalex@gmail.com"
@@ -52,12 +52,7 @@
           "404": {
             "description": "Ruc invalido o no encontrado"
           }
-        },
-        "security": [
-          {
-            "ApiToken": []
-          }
-        ]
+        }
       }
     },
     "/ruc": {
@@ -100,12 +95,7 @@
           "404": {
             "description": "No es una lista de rucs"
           }
-        },
-        "security": [
-          {
-            "ApiToken": []
-          }
-        ]
+        }
       }
     },
     "/dni/{dni}": {
@@ -139,12 +129,7 @@
           "404": {
             "description": "Dni invalido o no encontrado"
           }
-        },
-        "security": [
-          {
-            "ApiToken": []
-          }
-        ]
+        }
       }
     },
     "/dni": {
@@ -185,12 +170,46 @@
           "404": {
             "description": "No es una lista de dnis"
           }
-        },
-        "security": [
+        }
+      }
+    },
+    "/user-sol/{ruc}/{user}": {
+      "get": {
+        "tags": [
+          "consult"
+        ],
+        "summary": "Verifica que un usuario SOL es válido",
+        "description": "Retorna la válidez del usuario SOL",
+        "operationId": "getValidUserSol",
+        "parameters": [
           {
-            "ApiToken": []
+            "name": "ruc",
+            "in": "path",
+            "description": "Ruc del contribuyente",
+            "required": true,
+            "type": "string",
+            "minLength": 11
+          },
+          {
+            "name": "user",
+            "in": "path",
+            "description": "usuario Clave SOL",
+            "required": true,
+            "type": "string",
+            "minLength": 8
           }
-        ]
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Operacion exitosa",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        }
       }
     },
     "/graph": {
@@ -225,15 +244,15 @@
               "$ref": "#/definitions/QueryResponse"
             }
           }
-        },
-        "security": [
-          {
-            "ApiToken": []
-          }
-        ]
+        }
       }
     }
   },
+  "security": [
+    {
+      "ApiToken": []
+    }
+  ],
   "securityDefinitions": {
     "ApiToken": {
       "name": "token",
