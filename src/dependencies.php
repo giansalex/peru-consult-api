@@ -9,8 +9,11 @@ use Peru\Api\Service\ArrayConverter;
 use Peru\Api\Service\DniMultiple;
 use Peru\Api\Service\GraphRunner;
 use Peru\Api\Service\RucMultiple;
+use Peru\Http\ClientInterface;
+use Peru\Http\ContextClient;
 use Peru\Reniec\Dni;
 use Peru\Sunat\Ruc;
+use Peru\Sunat\UserValidator;
 
 $container = $app->getContainer();
 
@@ -29,12 +32,26 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 
-$container[Ruc::class] = function () {
-    return new Ruc();
+$container[ClientInterface::class] = function () {
+    return new ContextClient();
 };
 
-$container[Dni::class] = function () {
-    return new Dni();
+$container[Ruc::class] = function ($c) {
+    $cs = new Ruc();
+    $cs->setClient($c->get(ClientInterface::class));
+
+    return $cs;
+};
+
+$container[Dni::class] = function ($c) {
+    $cs = new Dni();
+    $cs->setClient($c->get(ClientInterface::class));
+
+    return $cs;
+};
+
+$container[UserValidator::class] = function ($c) {
+    return new UserValidator($c->get(ClientInterface::class));
 };
 
 $container[RucMultiple::class] = function ($c) {

@@ -12,6 +12,7 @@ use Peru\Api\Service\ArrayConverter;
 use Peru\Api\Service\GraphRunner;
 use Peru\Reniec\Dni;
 use Peru\Sunat\Ruc;
+use Peru\Sunat\UserValidator;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Slim\Http\Request;
@@ -57,6 +58,27 @@ class ConsultController
         }
 
         return $response->withJson($this->container->get(ArrayConverter::class)->convert($company));
+    }
+
+    /**
+     * @param Request  $request
+     * @param Response $response
+     * @param array    $args
+     *
+     * @return Response
+     *
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
+     */
+    public function userSol($request, $response, array $args)
+    {
+        $ruc = $args['ruc'];
+        $user = $args['pass'];
+
+        $service = $this->container->get(UserValidator::class);
+        $valid = $service->vaild($ruc, $user);
+
+        return $response->withJson($valid);
     }
 
     /**

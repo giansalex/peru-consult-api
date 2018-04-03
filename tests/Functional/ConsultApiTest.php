@@ -112,4 +112,12 @@ QL;
         $this->assertNotEmpty($company->distrito);
         $this->assertNotEmpty($company->fechaInscripcion);
     }
+
+    public function testConsultUserSol()
+    {
+        $response = $this->runApp('GET', '/api/v1/user-sol/20123456789/ABC1245');
+
+        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertTrue(in_array((string)$response->getBody(), ['true', 'false']));
+    }
 }

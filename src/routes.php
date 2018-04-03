@@ -9,6 +9,7 @@ $app->group('/api/v1', function () {
     $this->get('/dni/{dni:\d{8}}', 'Peru\Api\Controller\ConsultController:dni');
     $this->post('/ruc', 'Peru\Api\Controller\ConsultMultipleController:ruc');
     $this->post('/dni', 'Peru\Api\Controller\ConsultMultipleController:dni');
+    $this->get('/user-sol/{ruc}/{pass}', 'Peru\Api\Controller\ConsultController:userSol');
     $this->post('/graph', 'Peru\Api\Controller\ConsultController:graph');
 })->add(new \Peru\Api\Middleware\TokenMiddleware($container['settings']['auth']['token']));
 
