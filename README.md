@@ -78,7 +78,7 @@ Respuest:
 ### DNI
 Ejecutar usando Curl.
 ```bash
-curl -H "Accept: application/json" http://localhost:8090/api/v1/dni/48004836
+curl -H "Accept: application/json" http://localhost:8090/api/v1/dni/48004836?token=abcxyz
 ```
 
 Respuesta:
@@ -96,7 +96,7 @@ Respuesta:
 ### RUC
 Ejecutar usando Curl.
 ```bash
-curl -H "Accept: application/json" http://localhost:8090/api/v1/ruc/20131312955
+curl -H "Accept: application/json" http://localhost:8090/api/v1/ruc/20131312955?token=abcxyz
 ```
 
 Respuesta:
@@ -148,6 +148,18 @@ Respuesta:
     "Incorporado al Régimen de Agentes de Retención de IGV (R.S.037-2002) a partir del 01/06/2002"
   ]
 }
+```
+
+### Consulta Validez Usuario SOL
+Ejecutar usando Curl.
+```bash
+curl http://localhost:8090/api/v1/user-sol/20000000001/GMABCI?token=abcxyz
+```
+
+Respuesta:
+
+```text
+true
 ```
 
 
