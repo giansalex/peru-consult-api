@@ -10,6 +10,7 @@ RUN apt-get update && \
     curl --silent --show-error -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 ENV API_TOKEN ""
+ENV docker "true"
 
 # Copy configuration
 COPY docker/config/opcache.ini $PHP_INI_DIR/conf.d/
