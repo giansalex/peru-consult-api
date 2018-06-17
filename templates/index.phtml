@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>API Consult Peru</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.9.0/swagger-ui.css" >
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.13.4/swagger-ui.css" >
     <link rel="icon" href="<?=$url ?>/favicon.ico"/>
     <style>
         html
@@ -59,13 +59,13 @@
     </defs>
 </svg>
 <div id="swagger-ui"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.9.0/swagger-ui-bundle.js"> </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.9.0/swagger-ui-standalone-preset.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.13.4/swagger-ui-bundle.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.13.4/swagger-ui-standalone-preset.js"> </script>
 <script>
     window.onload = function() {
 
         // Build a system
-        const ui = SwaggerUIBundle({
+        var ui = SwaggerUIBundle({
             url: "<?=$json?>",
             dom_id: '#swagger-ui',
             deepLinking: true,
@@ -77,10 +77,13 @@
                 SwaggerUIBundle.plugins.DownloadUrl
             ],
             layout: "StandaloneLayout",
-            validatorUrl: null
+            validatorUrl: null,
+            onComplete: function() {
+                window.ui.preauthorizeApiKey('ApiToken', 'abcxyz');
+            }
         });
 
-        window.ui = ui
+        window.ui = ui;
     }
 </script>
 </body>
