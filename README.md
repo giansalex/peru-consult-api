@@ -4,7 +4,7 @@
 [![Docker Build Status](https://img.shields.io/docker/build/giansalex/peru-consult-api.svg?style=flat-square)](https://hub.docker.com/r/giansalex/peru-consult-api/builds/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/giansalex/peru-consult-api.svg?style=flat-square)](https://hub.docker.com/r/giansalex/peru-consult-api)
 [![GitHub issues](https://img.shields.io/github/issues/giansalex/peru-consult-api.svg?style=flat-square)](https://github.com/giansalex/peru-consult-api/issues)  
-API para consultar el DNI o RUC - Perú, empleando [peru-consult](https://github.com/giansalex/peru-consult) package.
+API para consultar RUC - Perú, empleando [peru-consult](https://github.com/giansalex/peru-consult) package.
 
 ## Install
 
@@ -32,7 +32,6 @@ git clone https://github.com/giansalex/peru-consult-api.git
 **Requirements**
 - dom extension for Ruc class.
 - dom extension for UserSol class.
-- gd extension for Dni class.
 
 ### Heroku Deploy
 Default token: `abcxyz`
@@ -48,11 +47,7 @@ https://www.katacoda.com/giansalex/scenarios/peru-consult-api
 Implementando soporte para [graphql](http://graphql.org/) utilizar el endpoint `/api/v1/graph`   
 
 ```
-query { 
-    person(dni: "48004836") {
-    	dni
-    	nombres
-    },
+query {
     company(ruc: "20131312955") {
     	ruc
     	razonSocial
@@ -63,33 +58,11 @@ Respuest:
 ```json
 {
     "data": {
-        "person": {
-            "dni": "48004836",
-            "nombres": "ROBERTO CARLOS"
-        },
         "company": {
             "ruc": "20131312955",
             "razonSocial": "SUPERINTENDENCIA NACIONAL DE ADUANAS Y DE ADMINISTRACION TRIBUTARIA - SUNAT"
         }
     }
-}
-```
-
-### DNI
-Ejecutar usando Curl.
-```bash
-curl -H "Accept: application/json" http://localhost:8090/api/v1/dni/48004836?token=abcxyz
-```
-
-Respuesta:
-
-```json
-{
-  "dni": "48004836",
-  "nombres": "ROBERTO CARLOS",
-  "apellidoPaterno": "SULCA",
-  "apellidoMaterno": "BASILIO",
-  "codVerifica": "4"
 }
 ```
 
