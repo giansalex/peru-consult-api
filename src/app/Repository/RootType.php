@@ -10,7 +10,6 @@ namespace Peru\Api\Repository;
 
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
-use Peru\Reniec\Dni;
 use Peru\Sunat\Ruc;
 use Psr\Container\ContainerInterface;
 
@@ -28,26 +27,8 @@ class RootType extends ObjectType
     {
         $config = [
             'name' => 'Root',
-            'description' => 'Consultas RUC y DNI.',
+            'description' => 'Consultas RUC.',
             'fields' => [
-                'person' => [
-                    'type' => $container->get(PersonType::class),
-                    'description' => 'Representa a una persona',
-                    'args' => [
-                        'dni' => Type::nonNull(Type::string()),
-                    ],
-                    'resolve' => function ($root, $args) use ($container) {
-                        $service = $container->get(Dni::class);
-                        $person = $service->get($args['dni']);
-                        if ($person === false) {
-                            $container->get('logger')->error($service->getError());
-
-                            return null;
-                        }
-
-                        return $person;
-                    },
-                ],
                 'company' => [
                     'type' => $container->get(CompanyType::class),
                     'description' => 'Representa a una empresa',
