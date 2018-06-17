@@ -1,7 +1,7 @@
 {
-  "swagger": "2.0",
+  "swagger": "2.1",
   "info": {
-    "description": "Consulta de DNI y RUC",
+    "description": "Consulta de RUC",
     "version": "2.0",
     "title": "PERU CONSULT",
     "contact": {
@@ -94,81 +94,6 @@
           },
           "404": {
             "description": "No es una lista de rucs"
-          }
-        }
-      }
-    },
-    "/dni/{dni}": {
-      "get": {
-        "tags": [
-          "consult"
-        ],
-        "summary": "Retorna datos de la persona",
-        "description": "Retorna informacion segun el dni",
-        "operationId": "getByDni",
-        "parameters": [
-          {
-            "name": "dni",
-            "in": "path",
-            "description": "Dni de la persona",
-            "required": true,
-            "type": "string",
-            "minLength": 8
-          }
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "Operacion exitosa",
-            "schema": {
-              "$ref": "#/definitions/DniResponse"
-            }
-          },
-          "404": {
-            "description": "Dni invalido o no encontrado"
-          }
-        }
-      }
-    },
-    "/dni": {
-      "post": {
-        "tags": [
-          "consult"
-        ],
-        "summary": "Retorna datos de las personas",
-        "description": "Retorna informacion segun los dnis",
-        "operationId": "getByDnis",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "description": "Lista de Dnis",
-            "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          }
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "Operacion exitosa",
-            "schema": {
-              "$ref": "#/definitions/DniResponse"
-            }
-          },
-          "404": {
-            "description": "No es una lista de dnis"
           }
         }
       }
@@ -354,26 +279,6 @@
         }
       }
     },
-    "DniResponse": {
-      "type": "object",
-      "properties": {
-        "dni": {
-          "type": "string"
-        },
-        "nombres": {
-          "type": "string"
-        },
-        "apellidoPaterno": {
-          "type": "string"
-        },
-        "apellidoMaterno": {
-          "type": "string"
-        },
-        "codVerifica": {
-          "type": "string"
-        }
-      }
-    },
     "ErrorQuery": {
       "type": "object",
       "properties": {
@@ -419,9 +324,6 @@
         "data": {
           "type": "object",
           "properties": {
-            "person": {
-              "$ref": "#/definitions/DniResponse"
-            },
             "company": {
               "$ref": "#/definitions/RucResponse"
             }
