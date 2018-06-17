@@ -1,15 +1,17 @@
-FROM php:7.0-apache
+FROM php:7.1-apache
+
+LABEL owner="Giancarlos Salas"
+LABEL maintainer="giansalex@gmail.com"
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends git libfreetype6-dev libjpeg62-turbo-dev && \
+    apt-get install -y --no-install-recommends git && \
     docker-php-ext-configure opcache --enable-opcache && \
     docker-php-ext-install opcache && \
-    docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
-    docker-php-ext-install -j$(nproc) gd && \
     apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
     curl --silent --show-error -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-ENV API_TOKEN ""
+ENV API_TOKEN abcxyz
 ENV docker "true"
 
 # Copy configuration
@@ -17,6 +19,8 @@ COPY docker/config/opcache.ini $PHP_INI_DIR/conf.d/
 RUN a2enmod rewrite
 
 COPY . /var/www/html/
+
+VOLUME /var/www/html/logs
 
 RUN cd /var/www/html && \
     chmod -R 777 ./logs && \
