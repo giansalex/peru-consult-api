@@ -34,6 +34,28 @@ class ConsultApiTest extends BaseTestCase
         $this->assertEquals('ACTIVO', $company->estado);
     }
 
+    public function testConsult()
+    {
+        $response = $this->runApp('GET', '/api/v1/dni/123456788');
+        $this->assertEquals(404, $response->getStatusCode());
+    }
+    public function testConsultDni()
+    {
+        $response = $this->runApp('GET', '/api/v1/dni/48004836');
+        if ($response->getStatusCode() == 500) {
+            echo (string)$response->getBody();
+            return;
+        }
+        $this->assertEquals(200, $response->getStatusCode());
+        /**@var $person Person*/
+        $person = json_decode((string)$response->getBody());
+        if (!empty(getenv('CI'))) {
+            return;
+        }
+        $this->assertEquals('ROBERTO CARLOS', $person->nombres);
+        $this->assertEquals('4', $person->codVerifica);
+    }
+
     public function testConsultGraph()
     {
         $q = <<<QL
