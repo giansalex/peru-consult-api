@@ -4,42 +4,45 @@
 [![Docker Build Status](https://img.shields.io/docker/build/giansalex/peru-consult-api.svg?style=flat-square)](https://hub.docker.com/r/giansalex/peru-consult-api/builds/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/giansalex/peru-consult-api.svg?style=flat-square)](https://hub.docker.com/r/giansalex/peru-consult-api)
 [![GitHub issues](https://img.shields.io/github/issues/giansalex/peru-consult-api.svg?style=flat-square)](https://github.com/giansalex/peru-consult-api/issues)  
-API para consultar el DNI o RUC - Perú, empleando [peru-consult](https://github.com/giansalex/peru-consult) package.
+API para consultar el DNI y RUC - Perú, empleando [peru-consult](https://github.com/giansalex/peru-consult) package.
 
-## Install
+## Instalar
 
-### Using Docker
+### Docker
 
-Install from [Docker Hub](https://hub.docker.com/r/giansalex/peru-consult-api/)
+Usar la imagen desde [Docker Hub](https://hub.docker.com/r/giansalex/peru-consult-api/)
 ```bash
 docker pull giansalex/peru-consult-api
 ```
 
-### As Windows Service
+### Como windows service
 
-> Before uninstall previous installations
+> Antes, desinstalar la versión previa.
 - Download [installer](https://github.com/giansalex/peru-consult-api/releases/latest).  
 - Run setup as Administrator Level.    
 - After install go to http://127.0.0.1:8099/
+> Descontinuado.
 
-### From Source code
+### Desde el código fuente
 
-Clone the source code.
 ```
 git clone https://github.com/giansalex/peru-consult-api.git
+cd peru-consult-api
+composer install
+composer start
 ```
 
-**Requirements**
-- dom extension for Ruc class.
-- dom extension for UserSol class.
-- gd extension for Dni class.
+**Requerimientos**
+- dom extension para Ruc class.
+- dom extension para UserSol class.
+- gd extension para Dni class.
 
-### Heroku Deploy
-Default token: `abcxyz`
+### Desplegar en Heroku
+Token por defecto: `abcxyz`
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-## Examples
+## Ejemplos
 
 ### KataCoda Interactive Tutorial
 https://www.katacoda.com/giansalex/scenarios/peru-consult-api
@@ -59,7 +62,7 @@ query {
     }
 }
 ```
-Respuest:
+Respuesta:
 ```json
 {
     "data": {
