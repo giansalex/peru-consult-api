@@ -11,7 +11,7 @@ use Peru\Api\Service\GraphRunner;
 use Peru\Api\Service\RucMultiple;
 use Peru\Http\ClientInterface;
 use Peru\Http\ContextClient;
-use Peru\Reniec\Dni;
+use Peru\Jne\Dni;
 use Peru\Sunat\Ruc;
 use Peru\Sunat\UserValidator;
 

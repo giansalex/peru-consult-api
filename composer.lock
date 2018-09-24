@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "d6cb7dcf1b29f8034c7c0d0d746bb83c",
@@ -39,16 +39,16 @@
         },
         {
             "name": "giansalex/peru-consult",
-            "version": "v2.2.0",
+            "version": "V2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giansalex/peru-consult.git",
-                "reference": "6dcec0e5bce078f2a470a7521ae40dd6946d57e2"
+                "reference": "04e081e99bdaef220c5ba4897f18c93720c11c62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giansalex/peru-consult/zipball/6dcec0e5bce078f2a470a7521ae40dd6946d57e2",
-                "reference": "6dcec0e5bce078f2a470a7521ae40dd6946d57e2",
+                "url": "https://api.github.com/repos/giansalex/peru-consult/zipball/04e081e99bdaef220c5ba4897f18c93720c11c62",
+                "reference": "04e081e99bdaef220c5ba4897f18c93720c11c62",
                 "shasum": ""
             },
             "require": {
@@ -88,7 +88,7 @@
                 "ruc",
                 "sunat"
             ],
-            "time": "2018-07-23T20:50:10+00:00"
+            "time": "2018-09-24T17:33:20+00:00"
         },
         {
             "name": "katzgrau/klogger",

@@ -8,7 +8,7 @@
 
 namespace Peru\Api\Service;
 
-use Peru\Reniec\Dni;
+use Peru\Jne\Dni;
 
 class DniMultiple
 {
