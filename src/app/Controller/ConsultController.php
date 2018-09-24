@@ -10,7 +10,7 @@ namespace Peru\Api\Controller;
 
 use Peru\Api\Service\ArrayConverter;
 use Peru\Api\Service\GraphRunner;
-use Peru\Reniec\Dni;
+use Peru\Jne\Dni;
 use Peru\Sunat\Ruc;
 use Peru\Sunat\UserValidator;
 use Psr\Container\ContainerInterface;
