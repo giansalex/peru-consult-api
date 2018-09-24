@@ -62,6 +62,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.13.4/swagger-ui-bundle.js"> </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.13.4/swagger-ui-standalone-preset.js"> </script>
 <script>
+    var findReact = function(dom) {
+        for (var key in dom) {
+            if (key.startsWith("__reactInternalInstance$")) {
+                var compInternals = dom[key]._currentElement;
+                var compWrapper = compInternals._owner;
+                var comp = compWrapper._instance;
+                return comp;
+            }
+        }
+        return null;
+    };
+
     window.onload = function() {
 
         // Build a system
@@ -80,6 +92,8 @@
             validatorUrl: null,
             onComplete: function() {
                 window.ui.preauthorizeApiKey('ApiToken', 'abcxyz');
+                var schemeSelect = document.querySelector('.scheme-container select');
+                FindReact(schemeSelect).setScheme('https');
             }
         });
 
