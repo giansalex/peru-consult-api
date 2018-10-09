@@ -93,7 +93,8 @@
             onComplete: function() {
                 window.ui.preauthorizeApiKey('ApiToken', 'abcxyz');
                 var schemeSelect = document.querySelector('.scheme-container select');
-                findReact(schemeSelect).setScheme(window.location.protocol);
+                var scheme = window.location.protocol === 'https:' ? 'https' : 'http';
+                findReact(schemeSelect).setScheme(scheme);
             }
         });
 
