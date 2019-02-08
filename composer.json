@@ -1,7 +1,7 @@
 {
     "name": "giansalex/peru-consult-api",
-    "description": "Consult RUC, DNI - Peru",
-    "keywords": ["peru", "rest"],
+    "description": "Consulta RUC, DNI - Perú",
+    "keywords": ["peru", "rest", "ruc", "dni"],
     "homepage": "https://github.com/giansalex/peru-consult-api",
     "license": "MIT",
     "authors": [
@@ -11,18 +11,18 @@
         }
     ],
     "require": {
-        "php": ">=5.5.0",
+        "php": "^7.1",
         "ext-gd": "*",
         "ext-openssl": "*",
         "slim/slim": "^3.1",
         "slim/php-view": "^2.0",
         "katzgrau/klogger": "^1.2",
-        "giansalex/peru-consult": "^2.2",
-        "tuupola/cors-middleware": "^0.5.2",
-        "webonyx/graphql-php": "^0.11.5"
+        "giansalex/peru-consult": "^3.0",
+        "tuupola/cors-middleware": "^0.9.2",
+        "webonyx/graphql-php": "^0.13.0"
     },
     "require-dev": {
-        "phpunit/phpunit": ">=4.8 < 6.0"
+        "phpunit/phpunit": "^7"
     },
     "autoload": {
         "psr-4": {
