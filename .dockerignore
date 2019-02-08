@@ -1,3 +1,4 @@
+.circleci
 .git
 .idea
 box2
@@ -12,4 +13,4 @@ box.bat
 box.json
 /*.md
 Procfile
-phpunit.xml
+phpunit.xml.dist
