@@ -33,6 +33,7 @@ composer start
 ```
 
 **Requerimientos**
+- PHP 7.1 o superior.
 - dom extension para Ruc class.
 - dom extension para UserSol class.
 - gd extension para Dni class.
