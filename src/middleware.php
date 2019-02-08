@@ -3,7 +3,7 @@
 // Application middleware
 
 // CORS
-$app->add(new \Tuupola\Middleware\Cors([
+$app->add(new \Tuupola\Middleware\CorsMiddleware([
     'origin' => ['*'],
     'methods' => ['GET', 'POST'],
     'headers.allow' => ['Authorization', 'Accept', 'Content-Type'],
