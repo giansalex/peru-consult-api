@@ -1,0 +1,466 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Consultas de DNI y RUC - **Perú**",
+    "version": "3.0",
+    "title": "PERU CONSULTAS",
+    "contact": {
+      "name": "Giancarlos Salas",
+      "email": "giansalex@gmail.com"
+    }
+  },
+  "tags": [
+    {
+      "name": "RENIEC",
+      "description": "Registro Nacional de Identificación y Estado Civil."
+    },
+    {
+      "name": "SUNAT",
+      "description": "Superintendencia Nacional de Aduanas y de Administración Tributaria."
+    },
+    {
+      "name": "GraphQL",
+      "description": "Lenguaje de consulta para APIs, disponible para RUC y DNI."
+    }
+  ],
+  "paths": {
+    "/ruc/{ruc}": {
+      "get": {
+        "tags": [
+          "SUNAT"
+        ],
+        "summary": "RUC",
+        "description": "Retorna información segun el ruc",
+        "operationId": "getByRuc",
+        "parameters": [
+          {
+            "name": "ruc",
+            "in": "path",
+            "description": "Ruc de la empresa",
+            "required": true,
+            "example": "20100070970",
+            "schema": {
+              "type": "string",
+              "minLength": 11,
+              "maxLength": 11
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operacion exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RucResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Ruc invalido o no encontrado"
+          }
+        }
+      }
+    },
+    "/ruc": {
+      "post": {
+        "tags": [
+          "SUNAT"
+        ],
+        "summary": "RUC Multiple",
+        "description": "Retorna informacion segun los rucs",
+        "operationId": "getByRucs",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 11,
+                  "maxLength": 11
+                }
+              }
+            }
+          },
+          "description": "Lista de Rucs",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Operacion exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/RucResponse"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No es una lista de rucs"
+          }
+        }
+      }
+    },
+    "/dni/{dni}": {
+      "get": {
+        "tags": [
+          "RENIEC"
+        ],
+        "summary": "DNI",
+        "description": "Retorna informacion segun el dni",
+        "operationId": "getByDni",
+        "parameters": [
+          {
+            "name": "dni",
+            "in": "path",
+            "description": "Dni de la persona",
+            "required": true,
+            "example": "46658592",
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 8
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operacion exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DniResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Dni invalido o no encontrado"
+          }
+        }
+      }
+    },
+    "/dni": {
+      "post": {
+        "tags": [
+          "RENIEC"
+        ],
+        "summary": "DNI Multiple",
+        "description": "Retorna informacion segun los dnis",
+        "operationId": "getByDnis",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 8,
+                  "maxLength": 8
+                }
+              }
+            }
+          },
+          "description": "Lista de Dnis",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Operacion exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DniResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No es una lista de dnis"
+          }
+        }
+      }
+    },
+    "/user-sol/{ruc}/{user}": {
+      "get": {
+        "tags": [
+          "SUNAT"
+        ],
+        "summary": "Verificación usuario SOL",
+        "description": "Retorna la válidez del usuario SOL",
+        "operationId": "getValidUserSol",
+        "parameters": [
+          {
+            "name": "ruc",
+            "in": "path",
+            "description": "Ruc del contribuyente",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 11,
+              "maxLength": 11
+            }
+          },
+          {
+            "name": "user",
+            "in": "path",
+            "description": "usuario Clave SOL",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 8
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operacion exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/graph": {
+      "post": {
+        "tags": [
+          "GraphQL"
+        ],
+        "summary": "GraphQL",
+        "description": "Retorna informacion de RUC y/o DNI",
+        "operationId": "getByGraph",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryRequest"
+              }
+            }
+          },
+          "description": "Query",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Operacion exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiToken": []
+    }
+  ],
+  "servers": [
+    {
+      "url": "http://consult.api/api/v1",
+      "description": "PRODUCTION"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "ApiToken": {
+        "name": "token",
+        "type": "apiKey",
+        "in": "query",
+        "description": "Token de acceso"
+      }
+    },
+    "schemas": {
+      "RucResponse": {
+        "type": "object",
+        "properties": {
+          "ruc": {
+            "type": "string",
+            "example": "20123456789"
+          },
+          "razonSocial": {
+            "type": "string"
+          },
+          "nombreComercial": {
+            "type": "string"
+          },
+          "telefonos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tipo": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "condicion": {
+            "type": "string"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "departamento": {
+            "type": "string"
+          },
+          "provincia": {
+            "type": "string"
+          },
+          "distrito": {
+            "type": "string"
+          },
+          "fechaInscripcion": {
+            "type": "string",
+            "format": "date"
+          },
+          "sistEmsion": {
+            "type": "string"
+          },
+          "sistContabilidad": {
+            "type": "string"
+          },
+          "actExterior": {
+            "type": "string"
+          },
+          "actEconomicas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "cpPago": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sistElectronica": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fechaEmisorFe": {
+            "type": "string",
+            "format": "date"
+          },
+          "cpeElectronico": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fechaPle": {
+            "type": "string",
+            "format": "date"
+          },
+          "padrones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "DniResponse": {
+        "type": "object",
+        "properties": {
+          "dni": {
+            "type": "string",
+            "example": "00000001"
+          },
+          "nombres": {
+            "type": "string"
+          },
+          "apellidoPaterno": {
+            "type": "string"
+          },
+          "apellidoMaterno": {
+            "type": "string"
+          },
+          "codVerifica": {
+            "type": "string"
+          }
+        }
+      },
+      "ErrorQuery": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "locations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "line": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "column": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      },
+      "QueryRequest": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "GraphQL query"
+          },
+          "variables": {
+            "type": "object"
+          }
+        }
+      },
+      "QueryResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "person": {
+                "$ref": "#/components/schemas/DniResponse"
+              },
+              "company": {
+                "$ref": "#/components/schemas/RucResponse"
+              }
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorQuery"
+            }
+          }
+        }
+      }
+    }
+  }
+}
