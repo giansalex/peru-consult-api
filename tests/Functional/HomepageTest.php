@@ -36,8 +36,8 @@ class HomepageTest extends BaseTestCase
         $this->assertEquals(200, $response->getStatusCode());
         $obj = json_decode((string)$response->getBody());
         $this->assertEquals(0, json_last_error());
-        $this->assertTrue(isset($obj->swagger));
-        $this->assertTrue(isset($obj->host));
+        $this->assertTrue(isset($obj->openapi));
+        $this->assertTrue(isset($obj->servers));
         $this->assertTrue(isset($obj->paths));
     }
 
