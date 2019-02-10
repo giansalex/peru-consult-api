@@ -4,7 +4,7 @@
     "directories": ["src", "templates"],
     "files": [
         "public/index.php",
-        "public/swagger.json"
+        "public/openapi.json"
     ],
     "finder": [
         {
