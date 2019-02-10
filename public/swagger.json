@@ -1,9 +1,9 @@
 {
-  "swagger": "2.2",
+  "swagger": "2.0",
   "info": {
-    "description": "Consulta de DNI y RUC",
-    "version": "2.0",
-    "title": "PERU CONSULT",
+    "description": "Consultas de DNI y RUC - Perú",
+    "version": "3.0",
+    "title": "PERU CONSULTAS",
     "contact": {
       "email": "giansalex@gmail.com"
     }
@@ -12,8 +12,16 @@
   "basePath": "/api/v1",
   "tags": [
     {
-      "name": "consult",
-      "description": "Consultas Perú"
+      "name": "RENIEC",
+      "description": "Registro Nacional de Identificación y Estado Civil."
+    },
+    {
+      "name": "SUNAT",
+      "description": "Superintendencia Nacional de Aduanas y de Administración Tributaria."
+    },
+    {
+      "name": "GraphQL",
+      "description": "Lenguaje de consulta para APIs, disponible para RUC y DNI."
     }
   ],
   "schemes": [
@@ -24,10 +32,10 @@
     "/ruc/{ruc}": {
       "get": {
         "tags": [
-          "consult"
+          "SUNAT"
         ],
-        "summary": "Retorna datos de la empresa",
-        "description": "Retorna informacion segun el ruc",
+        "summary": "RUC",
+        "description": "Retorna información segun el ruc",
         "operationId": "getByRuc",
         "parameters": [
           {
@@ -58,9 +66,9 @@
     "/ruc": {
       "post": {
         "tags": [
-          "consult"
+          "SUNAT"
         ],
-        "summary": "Retorna datos de las empresas",
+        "summary": "RUC Multiple",
         "description": "Retorna informacion segun los rucs",
         "operationId": "getByRucs",
         "parameters": [
@@ -101,9 +109,9 @@
     "/dni/{dni}": {
       "get": {
         "tags": [
-          "consult"
+          "RENIEC"
         ],
-        "summary": "Retorna datos de la persona",
+        "summary": "DNI",
         "description": "Retorna informacion segun el dni",
         "operationId": "getByDni",
         "parameters": [
@@ -135,9 +143,9 @@
     "/dni": {
       "post": {
         "tags": [
-          "consult"
+          "RENIEC"
         ],
-        "summary": "Retorna datos de las personas",
+        "summary": "DNI Multiple",
         "description": "Retorna informacion segun los dnis",
         "operationId": "getByDnis",
         "parameters": [
@@ -176,9 +184,9 @@
     "/user-sol/{ruc}/{user}": {
       "get": {
         "tags": [
-          "consult"
+          "SUNAT"
         ],
-        "summary": "Verifica que un usuario SOL es válido",
+        "summary": "Verificación usuario SOL",
         "description": "Retorna la válidez del usuario SOL",
         "operationId": "getValidUserSol",
         "parameters": [
@@ -215,9 +223,9 @@
     "/graph": {
       "post": {
         "tags": [
-          "consult"
+          "GraphQL"
         ],
-        "summary": "Retorna resultado de GraphQL",
+        "summary": "GraphQL",
         "description": "Retorna informacion de RUC y/o DNI",
         "operationId": "getByGraph",
         "parameters": [
