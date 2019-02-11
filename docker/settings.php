@@ -14,12 +14,12 @@ return [
             'token' => isset($_ENV['API_TOKEN']) ? getenv('API_TOKEN') : '',
         ],
 
-        'swagger_path' => __DIR__.'/../public/swagger.json',
+        'swagger_path' => __DIR__.'/../public/openapi.json',
 
         // Monolog settings
         'logger' => [
             'name' => 'slim-app',
-            'path' => isset($_ENV['docker']) ? 'php://stdout' : __DIR__.'/../logs',
+            'path' => 'php://stdout',
             'level' => Psr\Log\LogLevel::INFO,
         ],
     ],
