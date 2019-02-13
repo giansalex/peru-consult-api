@@ -81,3 +81,12 @@ $container[RootType::class] = function ($c) {
 $container[GraphRunner::class] = function ($c) {
     return new GraphRunner($c->get(RootType::class));
 };
+
+$container['errorHandler'] = function ($container) {
+    $showErrors = $container->get('settings')['displayErrorDetails'];
+    if ($showErrors) {
+        return new Slim\Handlers\Error(true);
+    }
+
+    return new \Peru\Api\Handler\CustomError();
+};
