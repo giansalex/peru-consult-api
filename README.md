@@ -6,6 +6,12 @@
 [![GitHub issues](https://img.shields.io/github/issues/giansalex/peru-consult-api.svg?style=flat-square)](https://github.com/giansalex/peru-consult-api/issues)  
 API para consultar el DNI y RUC - Perú, empleando [peru-consult](https://github.com/giansalex/peru-consult) package.
 
+
+## Requerimientos
+
+- PHP 7.1 o superior.
+- dom extension activada
+
 ## Instalar
 
 ### Docker
@@ -15,28 +21,14 @@ Usar la imagen desde [Docker Hub](https://hub.docker.com/r/giansalex/peru-consul
 docker pull giansalex/peru-consult-api
 ```
 
-### Como windows service
-
-> Antes, desinstalar la versión previa.
-- Download [installer](https://github.com/giansalex/peru-consult-api/releases/latest).  
-- Run setup as Administrator Level.    
-- After install go to http://127.0.0.1:8099/
-> Descontinuado.
-
-### Desde el código fuente
+### Clonar Repositorio
 
 ```
 git clone https://github.com/giansalex/peru-consult-api.git
 cd peru-consult-api
 composer install
-composer start
+php -S 127.0.0.1:8090 -t public
 ```
-
-**Requerimientos**
-- PHP 7.1 o superior.
-- dom extension para Ruc class.
-- dom extension para UserSol class.
-- gd extension para Dni class.
 
 ### Desplegar en Heroku
 Token por defecto: `abcxyz`
