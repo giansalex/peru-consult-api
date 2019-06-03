@@ -9,7 +9,6 @@
 namespace Peru\Api\Controller;
 
 use Peru\Api\Service\ArrayConverter;
-use Peru\Api\Service\GraphRunner;
 use Peru\Jne\Dni;
 use Peru\Sunat\Ruc;
 use Peru\Sunat\UserValidator;
@@ -104,30 +103,6 @@ class ConsultController
         }
 
         return $response->withJson($this->container->get(ArrayConverter::class)->convert($person));
-    }
-
-    /**
-     * @param Request  $request
-     * @param Response $response
-     * @param array    $args
-     *
-     * @return Response
-     *
-     * @throws \Psr\Container\ContainerExceptionInterface
-     * @throws \Psr\Container\NotFoundExceptionInterface
-     * @throws \Throwable
-     */
-    public function graph($request, $response, array $args)
-    {
-        $data = $request->getParsedBody();
-        if (!isset($data['query'])) {
-            return $response->withStatus(400);
-        }
-
-        $service = $this->container->get(GraphRunner::class);
-        $result = $service->execute($data['query'], isset($data['variables']) ? $data['variables'] : null);
-
-        return $response->withJson($result);
     }
 
     /**

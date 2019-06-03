@@ -2,6 +2,7 @@
 
 // DIC configuration
 
+use Peru\Api\Controller\GraphController;
 use Peru\Api\Repository\CompanyType;
 use Peru\Api\Repository\PersonType;
 use Peru\Api\Repository\RootType;
@@ -79,7 +80,11 @@ $container[RootType::class] = function ($c) {
 };
 
 $container[GraphRunner::class] = function ($c) {
-    return new GraphRunner($c->get(RootType::class));
+    return new GraphRunner($c->get(RootType::class), $c->get('logger'));
+};
+
+$container[GraphController::class] = function ($c) {
+    return new GraphController($c->get(GraphRunner::class));
 };
 
 $container['errorHandler'] = function ($container) {
