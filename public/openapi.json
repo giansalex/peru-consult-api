@@ -362,67 +362,6 @@
             "type": "string"
           }
         }
-      },
-      "ErrorQuery": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string"
-          },
-          "category": {
-            "type": "string"
-          },
-          "locations": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "line": {
-                  "type": "integer",
-                  "format": "int32"
-                },
-                "column": {
-                  "type": "integer",
-                  "format": "int32"
-                }
-              }
-            }
-          }
-        }
-      },
-      "QueryRequest": {
-        "type": "object",
-        "properties": {
-          "query": {
-            "type": "string",
-            "description": "GraphQL query"
-          },
-          "variables": {
-            "type": "object"
-          }
-        }
-      },
-      "QueryResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "person": {
-                "$ref": "#/components/schemas/DniResponse"
-              },
-              "company": {
-                "$ref": "#/components/schemas/RucResponse"
-              }
-            }
-          },
-          "errors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ErrorQuery"
-            }
-          }
-        }
       }
     }
   }
