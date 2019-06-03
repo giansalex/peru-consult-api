@@ -1,4 +1,3 @@
-.circleci
 .git
 .idea
 box2
@@ -9,7 +8,6 @@ vendor
 .gitignore
 .php_cs.dist
 app.json
-box.bat
 box.json
 /*.md
 Procfile
