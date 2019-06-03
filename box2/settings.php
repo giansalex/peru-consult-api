@@ -14,7 +14,7 @@ return [
             'token' => getenv('API_TOKEN'),
         ],
 
-        'swagger_path' => __DIR__.'/../public/swagger.json',
+        'swagger_path' => __DIR__.'/../public/openapi.json',
 
         // Monolog settings
         'logger' => [
