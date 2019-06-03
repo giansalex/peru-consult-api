@@ -91,7 +91,6 @@
             layout: "StandaloneLayout",
             validatorUrl: null,
             onComplete: function() {
-                window.ui.preauthorizeApiKey('ApiToken', 'abcxyz');
                 var schemeSelect = document.querySelector('.scheme-container select');
                 var scheme = window.location.protocol === 'https:' ? 'https' : 'http';
                 findReact(schemeSelect).setScheme(scheme);
