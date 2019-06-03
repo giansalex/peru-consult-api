@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Peru\Api\Controller;
 
 use Peru\Api\Service\GraphRunner;

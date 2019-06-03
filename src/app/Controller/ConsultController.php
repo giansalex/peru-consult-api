@@ -6,6 +6,8 @@
  * Time: 20:53.
  */
 
+declare(strict_types=1);
+
 namespace Peru\Api\Controller;
 
 use Peru\Api\Service\ArrayConverter;

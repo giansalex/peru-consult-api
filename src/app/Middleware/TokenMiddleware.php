@@ -6,6 +6,8 @@
  * Time: 14:38.
  */
 
+declare(strict_types=1);
+
 namespace Peru\Api\Middleware;
 
 use Slim\Http\Request;

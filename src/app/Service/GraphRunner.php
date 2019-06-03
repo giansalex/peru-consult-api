@@ -6,6 +6,8 @@
  * Time: 10:53 AM.
  */
 
+declare(strict_types=1);
+
 namespace Peru\Api\Service;
 
 use GraphQL\GraphQL;

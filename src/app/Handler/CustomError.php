@@ -6,6 +6,8 @@
  * Time: 11:40
  */
 
+declare(strict_types=1);
+
 namespace Peru\Api\Handler;
 
 use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};

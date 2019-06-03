@@ -6,6 +6,8 @@
  * Time: 21:25.
  */
 
+declare(strict_types=1);
+
 namespace Peru\Api\Service;
 
 class ArrayConverter

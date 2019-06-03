@@ -6,6 +6,8 @@
  * Time: 21:17.
  */
 
+declare(strict_types=1);
+
 namespace Peru\Api\Service;
 
 use Peru\Jne\Dni;
