@@ -2,6 +2,7 @@
 
 // DIC configuration
 
+use GraphQL\Type\Schema;
 use Peru\Api\Controller\GraphController;
 use Peru\Api\Repository\CompanyType;
 use Peru\Api\Repository\PersonType;
@@ -79,8 +80,14 @@ $container[RootType::class] = function ($c) {
     return new RootType($c);
 };
 
+$container[Schema::class] = function ($c) {
+    return new Schema([
+        'query' => $c->get(RootType::class),
+    ]);
+};
+
 $container[GraphRunner::class] = function ($c) {
-    return new GraphRunner($c->get(RootType::class), $c->get('logger'));
+    return new GraphRunner($c->get(Schema::class), $c->get('logger'));
 };
 
 $container[GraphController::class] = function ($c) {

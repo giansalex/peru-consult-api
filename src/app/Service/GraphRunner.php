@@ -10,7 +10,6 @@ namespace Peru\Api\Service;
 
 use GraphQL\GraphQL;
 use GraphQL\Type\Schema;
-use Peru\Api\Repository\RootType;
 use GraphQL\Error\FormattedError;
 use Psr\Log\LoggerInterface;
 
@@ -27,14 +26,12 @@ class GraphRunner
 
     /**
      * GraphRunner constructor.
-     * @param RootType $queryType
+     * @param Schema $schema
      * @param LoggerInterface $logger
      */
-    public function __construct(RootType $queryType, LoggerInterface $logger)
+    public function __construct(Schema $schema, LoggerInterface $logger)
     {
-        $this->schema = new Schema([
-            'query' => $queryType,
-        ]);
+        $this->schema = $schema;
         $this->logger = $logger;
     }
 
