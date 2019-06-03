@@ -10,7 +10,7 @@ namespace Peru\Api\Repository;
 
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
-use Peru\Reniec\Dni;
+use Peru\Jne\Dni;
 use Peru\Sunat\Ruc;
 use Psr\Container\ContainerInterface;
 
