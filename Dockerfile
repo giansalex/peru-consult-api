@@ -1,4 +1,4 @@
-FROM php:7.1-alpine AS build-env
+FROM php:7.3-alpine AS build-env
 
 LABEL owner="Giancarlos Salas"
 LABEL maintainer="giansalex@gmail.com"
@@ -21,10 +21,9 @@ RUN composer install --no-interaction --no-dev --optimize-autoloader --ignore-pl
     composer dump-autoload --optimize --no-dev --classmap-authoritative && \
     find vendor/ -type f  ! -name "*.php"  -delete
 
-FROM php:7.1-apache
+FROM php:7.3-apache
 
 ENV API_TOKEN abcxyz
-ENV docker "true"
 
 RUN apt-get update && \
     docker-php-ext-configure opcache --enable-opcache && \
