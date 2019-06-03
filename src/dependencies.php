@@ -7,6 +7,8 @@ use Peru\Api\Controller\GraphController;
 use Peru\Api\Repository\CompanyType;
 use Peru\Api\Repository\PersonType;
 use Peru\Api\Repository\RootType;
+use Peru\Api\Resolver\DniResolver;
+use Peru\Api\Resolver\RucResolver;
 use Peru\Api\Service\ArrayConverter;
 use Peru\Api\Service\DniMultiple;
 use Peru\Api\Service\GraphRunner;
@@ -66,6 +68,14 @@ $container[DniMultiple::class] = function ($c) {
 
 $container[ArrayConverter::class] = function () {
     return new ArrayConverter();
+};
+
+$container[DniResolver::class] = function ($c) {
+    return new DniResolver($c->get(Dni::class), $c->get('logger'));
+};
+
+$container[RucResolver::class] = function ($c) {
+    return new RucResolver($c->get(Ruc::class), $c->get('logger'));
 };
 
 $container[PersonType::class] = function () {
