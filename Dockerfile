@@ -13,8 +13,7 @@ RUN apk update && apk add --no-cache \
 
 COPY . .
 
-RUN chmod -R 777 ./logs && \
-    cp -f docker/.htaccess . && \
+RUN cp -f docker/.htaccess . && \
     cp -f docker/settings.php src/ && \
     rm -rf docker
 
