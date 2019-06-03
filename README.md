@@ -49,7 +49,7 @@ Token por defecto: `abcxyz`
 https://www.katacoda.com/giansalex/scenarios/peru-consult-api
 
 ### GraphQL
-Implementando soporte para [graphql](http://graphql.org/) utilizar el endpoint `/api/v1/graph`   
+Implementando soporte para [graphql](http://graphql.org/) utilizar el endpoint `/api/graph`   
 
 ```
 query {

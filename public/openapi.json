@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "Consultas de DNI y RUC - **Perú**",
-    "version": "3.0",
+    "description": "Consultas de DNI y RUC - **Perú**\n\n## GraphQL\nEndpoint `api/graphql`\n",
+    "version": "4.0",
     "title": "PERU CONSULTAS",
     "contact": {
       "name": "Giancarlos Salas",
@@ -17,10 +17,6 @@
     {
       "name": "SUNAT",
       "description": "Superintendencia Nacional de Aduanas y de Administración Tributaria."
-    },
-    {
-      "name": "GraphQL",
-      "description": "Lenguaje de consulta para APIs, disponible para RUC y DNI."
     }
   ],
   "paths": {
@@ -224,39 +220,6 @@
               "application/json": {
                 "schema": {
                   "type": "boolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/graph": {
-      "post": {
-        "tags": [
-          "GraphQL"
-        ],
-        "summary": "GraphQL",
-        "description": "Retorna informacion de RUC y/o DNI",
-        "operationId": "getByGraph",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/QueryRequest"
-              }
-            }
-          },
-          "description": "Query",
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Operacion exitosa",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/QueryResponse"
                 }
               }
             }
