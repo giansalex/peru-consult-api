@@ -4,19 +4,14 @@
 
 use GraphQL\Type\Schema;
 use Peru\Api\Controller\GraphController;
-use Peru\Api\Repository\CompanyType;
-use Peru\Api\Repository\PersonType;
-use Peru\Api\Repository\RootType;
-use Peru\Api\Resolver\DniResolver;
-use Peru\Api\Resolver\RucResolver;
-use Peru\Api\Service\ArrayConverter;
-use Peru\Api\Service\DniMultiple;
-use Peru\Api\Service\GraphRunner;
-use Peru\Api\Service\RucMultiple;
-use Peru\Http\ClientInterface;
-use Peru\Http\ContextClient;
-use Peru\Jne\Dni;
-use Peru\Sunat\Ruc;
+use Peru\Api\Handler\CustomError;
+use Peru\Api\Repository\{CompanyType, PersonType, RootType};
+use Peru\Api\Resolver\{DniResolver, RucResolver};
+use Peru\Api\Service\{ArrayConverter, DniMultiple, GraphRunner, RucMultiple};
+use Peru\Http\{ClientInterface, ContextClient, EmptyResponseDecorator};
+use Peru\Jne\{Dni, DniParser};
+use Peru\Services\{DniInterface, RucInterface};
+use Peru\Sunat\{HtmlParser, Ruc, RucParser};
 use Peru\Sunat\UserValidator;
 
 $container = $app->getContainer();
@@ -37,21 +32,15 @@ $container['logger'] = function ($c) {
 };
 
 $container[ClientInterface::class] = function () {
-    return new ContextClient();
+    return new EmptyResponseDecorator(new ContextClient());
 };
 
-$container[Ruc::class] = function ($c) {
-    $cs = new Ruc();
-    $cs->setClient($c->get(ClientInterface::class));
-
-    return $cs;
+$container[RucInterface::class] = function ($c) {
+    return new Ruc($c->get(ClientInterface::class), new RucParser(new HtmlParser()));
 };
 
-$container[Dni::class] = function ($c) {
-    $cs = new Dni();
-    $cs->setClient($c->get(ClientInterface::class));
-
-    return $cs;
+$container[DniInterface::class] = function ($c) {
+    return new Dni($c->get(ClientInterface::class), new DniParser());
 };
 
 $container[UserValidator::class] = function ($c) {
@@ -59,11 +48,11 @@ $container[UserValidator::class] = function ($c) {
 };
 
 $container[RucMultiple::class] = function ($c) {
-    return new RucMultiple($c->get(Ruc::class));
+    return new RucMultiple($c->get(RucInterface::class));
 };
 
 $container[DniMultiple::class] = function ($c) {
-    return new DniMultiple($c->get(Dni::class));
+    return new DniMultiple($c->get(DniInterface::class));
 };
 
 $container[ArrayConverter::class] = function () {
@@ -71,11 +60,11 @@ $container[ArrayConverter::class] = function () {
 };
 
 $container[DniResolver::class] = function ($c) {
-    return new DniResolver($c->get(Dni::class), $c->get('logger'));
+    return new DniResolver($c->get(DniInterface::class));
 };
 
 $container[RucResolver::class] = function ($c) {
-    return new RucResolver($c->get(Ruc::class), $c->get('logger'));
+    return new RucResolver($c->get(RucInterface::class));
 };
 
 $container[PersonType::class] = function () {
@@ -110,5 +99,5 @@ $container['errorHandler'] = function ($container) {
         return new Slim\Handlers\Error(true);
     }
 
-    return new \Peru\Api\Handler\CustomError();
+    return new CustomError();
 };

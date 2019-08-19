@@ -10,21 +10,21 @@ declare(strict_types=1);
 
 namespace Peru\Api\Service;
 
-use Peru\Sunat\Ruc;
+use Peru\Services\RucInterface;
 
 class RucMultiple
 {
     /**
-     * @var Ruc
+     * @var RucInterface
      */
     private $service;
 
     /**
      * RucMultiple constructor.
      *
-     * @param Ruc $service
+     * @param RucInterface $service
      */
-    public function __construct(Ruc $service)
+    public function __construct(RucInterface $service)
     {
         $this->service = $service;
     }
@@ -39,7 +39,7 @@ class RucMultiple
         $all = [];
         foreach ($rucs as $ruc) {
             $company = $this->service->get($ruc);
-            if ($company === false) {
+            if (!$company) {
                 continue;
             }
 

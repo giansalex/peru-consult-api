@@ -10,21 +10,21 @@ declare(strict_types=1);
 
 namespace Peru\Api\Service;
 
-use Peru\Jne\Dni;
+use Peru\Services\DniInterface;
 
 class DniMultiple
 {
     /**
-     * @var Dni
+     * @var DniInterface
      */
     private $service;
 
     /**
      * DniMultiple constructor.
      *
-     * @param Dni $service
+     * @param DniInterface $service
      */
-    public function __construct(Dni $service)
+    public function __construct(DniInterface $service)
     {
         $this->service = $service;
     }
@@ -39,7 +39,7 @@ class DniMultiple
         $all = [];
         foreach ($dnis as $dni) {
             $person = $this->service->get($dni);
-            if ($person === false) {
+            if (!$person) {
                 continue;
             }
 

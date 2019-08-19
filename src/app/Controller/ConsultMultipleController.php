@@ -11,11 +11,9 @@ declare(strict_types=1);
 namespace Peru\Api\Controller;
 
 use Peru\Api\Service\ArrayConverter;
-use Peru\Api\Service\DniMultiple;
-use Peru\Api\Service\RucMultiple;
+use Peru\Api\Service\{DniMultiple, RucMultiple};
 use Psr\Container\ContainerInterface;
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\{Request, Response};
 
 class ConsultMultipleController
 {

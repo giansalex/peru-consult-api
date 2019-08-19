@@ -5,19 +5,15 @@
  * Date: 28/12/2017
  * Time: 20:53.
  */
-
 declare(strict_types=1);
 
 namespace Peru\Api\Controller;
 
 use Peru\Api\Service\ArrayConverter;
-use Peru\Jne\Dni;
-use Peru\Sunat\Ruc;
+use Peru\Services\{DniInterface, RucInterface};
 use Peru\Sunat\UserValidator;
 use Psr\Container\ContainerInterface;
-use Psr\Log\LoggerInterface;
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\{Request, Response};
 
 class ConsultController
 {
@@ -49,12 +45,9 @@ class ConsultController
     public function ruc($request, $response, array $args)
     {
         $ruc = $args['ruc'];
-        $service = $this->container->get(Ruc::class);
+        $service = $this->container->get(RucInterface::class);
         $company = $service->get($ruc);
-        if ($company === false) {
-            $this->getLogger()->error($service->getError());
-            $response->getBody()->write($service->getError());
-
+        if (!$company) {
             return $response->withStatus(400);
         }
 
@@ -95,26 +88,12 @@ class ConsultController
     public function dni($request, $response, array $args)
     {
         $dni = $args['dni'];
-        $service = $this->container->get(Dni::class);
+        $service = $this->container->get(DniInterface::class);
         $person = $service->get($dni);
-        if ($person === false) {
-            $this->getLogger()->error($service->getError());
-            $response->getBody()->write($service->getError());
-
+        if (!$person) {
             return $response->withStatus(400);
         }
 
         return $response->withJson($this->container->get(ArrayConverter::class)->convert($person));
-    }
-
-    /**
-     * @return LoggerInterface
-     *
-     * @throws \Psr\Container\ContainerExceptionInterface
-     * @throws \Psr\Container\NotFoundExceptionInterface
-     */
-    private function getLogger()
-    {
-        return $this->container->get('logger');
     }
 }
