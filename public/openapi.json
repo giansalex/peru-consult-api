@@ -48,7 +48,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RucResponse"
+                  "$ref": "#/components/schemas/Company"
                 }
               }
             }
@@ -90,7 +90,7 @@
               "application/json": {
                 "schema": {
                   "items": {
-                    "$ref": "#/components/schemas/RucResponse"
+                    "$ref": "#/components/schemas/Company"
                   }
                 }
               }
@@ -130,7 +130,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DniResponse"
+                  "$ref": "#/components/schemas/Person"
                 }
               }
             }
@@ -171,7 +171,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DniResponse"
+                  "$ref": "#/components/schemas/Person"
                 }
               }
             }
@@ -249,7 +249,7 @@
       }
     },
     "schemas": {
-      "RucResponse": {
+      "Company": {
         "type": "object",
         "properties": {
           "ruc": {
@@ -348,7 +348,7 @@
           }
         }
       },
-      "DniResponse": {
+      "Person": {
         "type": "object",
         "properties": {
           "dni": {
