@@ -10,21 +10,23 @@ declare(strict_types=1);
 
 namespace Peru\Api\Service;
 
-use Peru\Services\DniInterface;
+use Peru\Jne\Async\Dni;
+use function React\Promise\all;
+use React\Promise\PromiseInterface;
 
 class DniMultiple
 {
     /**
-     * @var DniInterface
+     * @var Dni
      */
     private $service;
 
     /**
      * DniMultiple constructor.
      *
-     * @param DniInterface $service
+     * @param Dni $service
      */
-    public function __construct(DniInterface $service)
+    public function __construct(Dni $service)
     {
         $this->service = $service;
     }
@@ -32,20 +34,17 @@ class DniMultiple
     /**
      * @param array $dnis
      *
-     * @return array
+     * @return PromiseInterface
      */
-    public function get(array $dnis)
+    public function get(array $dnis): PromiseInterface
     {
         $all = [];
         foreach ($dnis as $dni) {
-            $person = $this->service->get($dni);
-            if (!$person) {
-                continue;
-            }
+            $promise = $this->service->get($dni);
 
-            $all[] = $person;
+            $all[] = $promise;
         }
 
-        return $all;
+        return all($all);
     }
 }

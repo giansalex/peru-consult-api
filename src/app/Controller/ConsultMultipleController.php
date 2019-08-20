@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Peru\Api\Controller;
 
 use Peru\Api\Http\AppResponse;
-use Peru\Api\Service\ArrayConverter;
 use Peru\Api\Service\{DniMultiple, RucMultiple};
 use Psr\Container\ContainerInterface;
 use Slim\Http\{Request, Response};
@@ -77,8 +76,11 @@ class ConsultMultipleController
         }
 
         $service = $this->container->get(DniMultiple::class);
-        $persons = $service->get($dnis);
+        $promise = $service->get($dnis)
+            ->then(function ($persons) use ($response) {
+                return $response->withJson($persons);
+            });
 
-        return $response->withJson($this->container->get(ArrayConverter::class)->convert($persons));
+        return (new AppResponse())->withPromise($promise);
     }
 }
