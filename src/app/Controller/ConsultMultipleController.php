@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Peru\Api\Controller;
 
+use Peru\Api\Http\AppResponse;
 use Peru\Api\Service\ArrayConverter;
 use Peru\Api\Service\{DniMultiple, RucMultiple};
 use Psr\Container\ContainerInterface;
@@ -48,11 +49,14 @@ class ConsultMultipleController
         if (!is_array($rucs)) {
             return $response->withStatus(400);
         }
-        /** @var $service RucMultiple */
-        $service = $this->container->get(RucMultiple::class);
-        $companies = $service->get($rucs);
 
-        return $response->withJson($this->container->get(ArrayConverter::class)->convert($companies));
+        $service = $this->container->get(RucMultiple::class);
+        $promise = $service->get($rucs)
+            ->then(function ($companies) use ($response) {
+                return $response->withJson($companies);
+            });
+
+        return (new AppResponse())->withPromise($promise);
     }
 
     /**
@@ -71,7 +75,7 @@ class ConsultMultipleController
         if (!is_array($dnis)) {
             return $response->withStatus(400);
         }
-        /** @var $service DniMultiple */
+
         $service = $this->container->get(DniMultiple::class);
         $persons = $service->get($dnis);
 

@@ -10,21 +10,23 @@ declare(strict_types=1);
 
 namespace Peru\Api\Service;
 
-use Peru\Services\RucInterface;
+use Peru\Sunat\Async\Ruc;
+use function React\Promise\all;
+use React\Promise\PromiseInterface;
 
 class RucMultiple
 {
     /**
-     * @var RucInterface
+     * @var Ruc
      */
     private $service;
 
     /**
      * RucMultiple constructor.
      *
-     * @param RucInterface $service
+     * @param Ruc $service
      */
-    public function __construct(RucInterface $service)
+    public function __construct(Ruc $service)
     {
         $this->service = $service;
     }
@@ -32,20 +34,17 @@ class RucMultiple
     /**
      * @param array $rucs
      *
-     * @return array
+     * @return PromiseInterface
      */
-    public function get(array $rucs)
+    public function get(array $rucs): PromiseInterface
     {
         $all = [];
         foreach ($rucs as $ruc) {
-            $company = $this->service->get($ruc);
-            if (!$company) {
-                continue;
-            }
+            $promise = $this->service->get($ruc);
 
-            $all[] = $company;
+            $all[] = $promise;
         }
 
-        return $all;
+        return all($all);
     }
 }
