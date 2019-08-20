@@ -34,6 +34,8 @@ query {
         cpeElectronico
         fechaPle
         padrones
+        fechaBaja
+        profesion
     }
 }
 
