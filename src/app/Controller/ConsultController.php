@@ -9,8 +9,11 @@ declare(strict_types=1);
 
 namespace Peru\Api\Controller;
 
-use Peru\Api\Service\ArrayConverter;
-use Peru\Services\{DniInterface, RucInterface};
+use Peru\Api\Http\AppResponse;
+use Peru\Jne\Async\Dni;
+use Peru\Reniec\Person;
+use Peru\Sunat\Async\Ruc;
+use Peru\Sunat\Company;
 use Peru\Sunat\UserValidator;
 use Psr\Container\ContainerInterface;
 use Slim\Http\{Request, Response};
@@ -45,13 +48,17 @@ class ConsultController
     public function ruc($request, $response, array $args)
     {
         $ruc = $args['ruc'];
-        $service = $this->container->get(RucInterface::class);
-        $company = $service->get($ruc);
-        if (!$company) {
-            return $response->withStatus(400);
-        }
+        $service = $this->container->get(Ruc::class);
+        $promise = $service->get($ruc)
+            ->then(function (?Company $company) use ($response) {
+                if (!$company) {
+                    return $response->withStatus(400);
+                }
 
-        return $response->withJson($this->container->get(ArrayConverter::class)->convert($company));
+                return $response->withJson($company);
+            });
+
+        return (new AppResponse())->withPromise($promise);
     }
 
     /**
@@ -88,12 +95,16 @@ class ConsultController
     public function dni($request, $response, array $args)
     {
         $dni = $args['dni'];
-        $service = $this->container->get(DniInterface::class);
-        $person = $service->get($dni);
-        if (!$person) {
-            return $response->withStatus(400);
-        }
+        $service = $this->container->get(Dni::class);
+        $promise = $service->get($dni)
+            ->then(function (?Person $person) use ($response) {
+                if (!$person) {
+                    return $response->withStatus(400);
+                }
 
-        return $response->withJson($this->container->get(ArrayConverter::class)->convert($person));
+                return $response->withJson($person);
+            });
+
+        return (new AppResponse())->withPromise($promise);
     }
 }
