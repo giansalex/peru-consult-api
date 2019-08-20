@@ -50,11 +50,11 @@ $container[UserValidator::class] = function ($c) {
 };
 
 $container[RucMultiple::class] = function ($c) {
-    return new RucMultiple($c->get(RucInterface::class));
+    return new RucMultiple($c->get(\Peru\Sunat\Async\Ruc::class));
 };
 
 $container[DniMultiple::class] = function ($c) {
-    return new DniMultiple($c->get(DniInterface::class));
+    return new DniMultiple($c->get(\Peru\Jne\Async\Dni::class));
 };
 
 $container[ArrayConverter::class] = function () {
