@@ -8,11 +8,13 @@ use Peru\Api\Handler\CustomError;
 use Peru\Api\Repository\{CompanyType, PersonType, RootType};
 use Peru\Api\Resolver\{DniResolver, RucResolver};
 use Peru\Api\Service\{ArrayConverter, DniMultiple, GraphRunner, RucMultiple};
-use Peru\Http\{ClientInterface, ContextClient, EmptyResponseDecorator};
+use Peru\Http\{Async\HttpClient, ClientInterface, ContextClient, EmptyResponseDecorator};
 use Peru\Jne\{Dni, DniParser};
 use Peru\Services\{DniInterface, RucInterface};
 use Peru\Sunat\{HtmlParser, Ruc, RucParser};
 use Peru\Sunat\UserValidator;
+use React\EventLoop\Factory;
+use React\EventLoop\LoopInterface;
 
 $container = $app->getContainer();
 
@@ -100,4 +102,20 @@ $container['errorHandler'] = function ($container) {
     }
 
     return new CustomError();
+};
+
+$container[LoopInterface::class] = function () {
+    return Factory::create();
+};
+
+$container[\Peru\Http\Async\ClientInterface::class] = function ($c) {
+    return new HttpClient($c->get(LoopInterface::class));
+};
+
+$container[\Peru\Sunat\Async\Ruc::class] = function ($c) {
+    return new \Peru\Sunat\Async\Ruc($c->get(\Peru\Http\Async\ClientInterface::class), new RucParser(new HtmlParser()));
+};
+
+$container[\Peru\Jne\Async\Dni::class] = function ($c) {
+    return new \Peru\Jne\Async\Dni($c->get(\Peru\Http\Async\ClientInterface::class), new DniParser());
 };
