@@ -11,4 +11,15 @@ require $dir.'/../src/middleware.php';
 require $dir.'/../src/routes.php';
 
 // Run app
-$app->run();
+$response = $app->run(true);
+
+if ($response instanceof \Peru\Api\Http\AppResponse) {
+    $response->getPromise()->then(function ($response) use ($app) {
+        $app->respond($response);
+    });
+    $app->getContainer()->get(\React\EventLoop\LoopInterface::class)->run();
+
+    return;
+}
+
+$app->respond($response);
