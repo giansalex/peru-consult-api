@@ -1,5 +1,8 @@
 <?php
 
+use Peru\Api\Handler\ResponseWriter;
+use Peru\Api\Http\AppResponse;
+
 $dir = __DIR__;
 require $dir.'/../vendor/autoload.php';
 
@@ -11,4 +14,11 @@ require $dir.'/../src/middleware.php';
 require $dir.'/../src/routes.php';
 
 // Run app
-$app->run();
+$response = $app->run(true);
+
+if ($response instanceof AppResponse) {
+    $app->getContainer()->get(ResponseWriter::class)->process($app, $response);
+    return;
+}
+
+$app->respond($response);

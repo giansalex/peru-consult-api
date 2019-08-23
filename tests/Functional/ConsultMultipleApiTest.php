@@ -30,7 +30,7 @@ class ConsultMultipleApiTest extends BaseTestCase
 
     public function testConsultRuc()
     {
-        $arr = ['20101266819', '20508316985', '20537979381'];
+        $arr = ['20440374248', '20550263948', '20493919271'];
         $response = $this->runApp('POST', '/api/v1/ruc', $arr);
 
         $this->assertEquals(200, $response->getStatusCode());

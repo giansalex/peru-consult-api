@@ -10,7 +10,7 @@ API para consultar el DNI y RUC - Perú, empleando [peru-consult](https://github
 ## Requerimientos
 
 - PHP 7.1 o superior.
-- dom extension activada
+- ext-dom
 
 ## Instalar
 
@@ -142,7 +142,9 @@ Respuesta:
   "fechaPle": "2013-01-01T00:00:00.000Z",
   "padrones": [
     "Incorporado al Régimen de Agentes de Retención de IGV (R.S.037-2002) a partir del 01/06/2002"
-  ]
+  ],
+  "fechaBaja": null,
+  "profesion": ""
 }
 ```
 

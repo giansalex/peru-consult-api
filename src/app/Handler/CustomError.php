@@ -18,7 +18,7 @@ class CustomError extends AbstractError
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, \Exception $exception) {
 
         $contentType = $this->determineContentType($request);
-        $output = 'API Error';
+        $output = 'Ocurrió un Error';
         switch ($contentType) {
             case 'application/json':
                 $output = '{"message":"'.$output.'"}';

@@ -11,7 +11,7 @@ class GraphApiTest extends BaseTestCase
     {
         $q = <<<QL
 query { 
-    company(ruc: "20131312955") {
+    company(ruc: "20493919271") {
         ruc
         razonSocial
         nombreComercial
@@ -34,6 +34,8 @@ query {
         cpeElectronico
         fechaPle
         padrones
+        fechaBaja
+        profesion
     }
 }
 
@@ -48,9 +50,9 @@ QL;
         $company = $obj->data->company;
 
         $this->assertFalse(isset($obj->errors));
-        $this->assertContains('SUPERINTENDENCIA NACIONAL', $company->razonSocial);
-        $this->assertEquals('HABIDO', $company->condicion);
-        $this->assertEquals('ACTIVO', $company->estado);
+        $this->assertContains('EMPRESA CONSTRUCTORA', $company->razonSocial);
+        $this->assertEquals('NO HABIDO', $company->condicion);
+        $this->assertEquals('SUSPENSION TEMPORAL', $company->estado);
         $this->assertNotEmpty($company->direccion);
         $this->assertNotEmpty($company->departamento);
         $this->assertNotEmpty($company->provincia);

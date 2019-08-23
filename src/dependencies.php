@@ -5,14 +5,17 @@
 use GraphQL\Type\Schema;
 use Peru\Api\Controller\GraphController;
 use Peru\Api\Handler\CustomError;
+use Peru\Api\Handler\ResponseWriter;
 use Peru\Api\Repository\{CompanyType, PersonType, RootType};
 use Peru\Api\Resolver\{DniResolver, RucResolver};
 use Peru\Api\Service\{ArrayConverter, DniMultiple, GraphRunner, RucMultiple};
-use Peru\Http\{ClientInterface, ContextClient, EmptyResponseDecorator};
+use Peru\Http\{Async\HttpClient, ClientInterface, ContextClient, EmptyResponseDecorator};
 use Peru\Jne\{Dni, DniParser};
 use Peru\Services\{DniInterface, RucInterface};
 use Peru\Sunat\{HtmlParser, Ruc, RucParser};
 use Peru\Sunat\UserValidator;
+use React\EventLoop\Factory;
+use React\EventLoop\LoopInterface;
 
 $container = $app->getContainer();
 
@@ -48,11 +51,11 @@ $container[UserValidator::class] = function ($c) {
 };
 
 $container[RucMultiple::class] = function ($c) {
-    return new RucMultiple($c->get(RucInterface::class));
+    return new RucMultiple($c->get(\Peru\Sunat\Async\Ruc::class));
 };
 
 $container[DniMultiple::class] = function ($c) {
-    return new DniMultiple($c->get(DniInterface::class));
+    return new DniMultiple($c->get(\Peru\Jne\Async\Dni::class));
 };
 
 $container[ArrayConverter::class] = function () {
@@ -99,5 +102,25 @@ $container['errorHandler'] = function ($container) {
         return new Slim\Handlers\Error(true);
     }
 
-    return new CustomError();
+    return new CustomError($showErrors);
+};
+
+$container[LoopInterface::class] = function () {
+    return Factory::create();
+};
+
+$container[\Peru\Http\Async\ClientInterface::class] = function ($c) {
+    return new HttpClient($c->get(LoopInterface::class));
+};
+
+$container[\Peru\Sunat\Async\Ruc::class] = function ($c) {
+    return new \Peru\Sunat\Async\Ruc($c->get(\Peru\Http\Async\ClientInterface::class), new RucParser(new HtmlParser()));
+};
+
+$container[\Peru\Jne\Async\Dni::class] = function ($c) {
+    return new \Peru\Jne\Async\Dni($c->get(\Peru\Http\Async\ClientInterface::class), new DniParser());
+};
+
+$container[ResponseWriter::class] = function ($c) {
+    return new ResponseWriter($c);
 };

@@ -82,6 +82,14 @@ class CompanyType extends ObjectType
                     'description' => 'Fecha desde que esta afiliado al PLE',
                 ],
                 'padrones' => Type::listOf(Type::string()),
+                'fechaBaja' => [
+                    'type' => Type::string(),
+                    'description' => 'Fecha de Baja',
+                ],
+                'profesion' => [
+                    'type' => Type::string(),
+                    'description' => 'Profesión u Oficio',
+                ],
             ],
         ];
 

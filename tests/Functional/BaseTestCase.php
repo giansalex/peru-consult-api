@@ -2,7 +2,15 @@
 
 namespace Tests\Functional;
 
+use function Clue\React\Block\await;
+use Peru\Api\Http\AppResponse;
+use Peru\Http\ClientInterface;
+use Peru\Sunat\HtmlParser;
+use Peru\Sunat\Ruc;
+use Peru\Sunat\RucParser;
 use PHPUnit\Framework\TestCase;
+use Psr\Container\ContainerInterface;
+use React\EventLoop\LoopInterface;
 use Slim\App;
 use Slim\Http\{Request, Response, Environment};
 
@@ -63,6 +71,8 @@ class BaseTestCase extends TestCase
 
         // Set up dependencies
         require __DIR__ . '/../../src/dependencies.php';
+        $container = $app->getContainer();
+        $this->loadDevDependencies($container);
 
         // Register middleware
         if ($this->withMiddleware) {
@@ -74,8 +84,23 @@ class BaseTestCase extends TestCase
 
         // Process the application
         $response = $app->process($request, $response);
+        if ($response instanceof AppResponse) {
+            $loop = $container->get(LoopInterface::class);
+            $response = await($response->getPromise(), $loop);
+        }
 
         // Return the response
         return $response;
+    }
+
+    private function loadDevDependencies(ContainerInterface $container)
+    {
+        $container[\Peru\Sunat\Async\Ruc::class] = function ($c) {
+            return new \Peru\Sunat\Async\Ruc(new HttpClientStub($c->get(\Peru\Http\Async\ClientInterface::class)), new RucParser(new HtmlParser()));
+        };
+
+        $container[Ruc::class] = function ($c) {
+            return new Ruc(new ClientStubDecorator($c->get(ClientInterface::class)), new RucParser(new HtmlParser()));
+        };
     }
 }
