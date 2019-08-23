@@ -5,6 +5,7 @@
 use GraphQL\Type\Schema;
 use Peru\Api\Controller\GraphController;
 use Peru\Api\Handler\CustomError;
+use Peru\Api\Handler\ResponseWriter;
 use Peru\Api\Repository\{CompanyType, PersonType, RootType};
 use Peru\Api\Resolver\{DniResolver, RucResolver};
 use Peru\Api\Service\{ArrayConverter, DniMultiple, GraphRunner, RucMultiple};
@@ -101,7 +102,7 @@ $container['errorHandler'] = function ($container) {
         return new Slim\Handlers\Error(true);
     }
 
-    return new CustomError();
+    return new CustomError($showErrors);
 };
 
 $container[LoopInterface::class] = function () {
@@ -118,4 +119,8 @@ $container[\Peru\Sunat\Async\Ruc::class] = function ($c) {
 
 $container[\Peru\Jne\Async\Dni::class] = function ($c) {
     return new \Peru\Jne\Async\Dni($c->get(\Peru\Http\Async\ClientInterface::class), new DniParser());
+};
+
+$container[ResponseWriter::class] = function ($c) {
+    return new ResponseWriter($c);
 };
