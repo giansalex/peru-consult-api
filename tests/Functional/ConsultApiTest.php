@@ -22,16 +22,16 @@ class ConsultApiTest extends BaseTestCase
 
     public function testConsultRuc()
     {
-        $response = $this->runApp('GET', '/api/v1/ruc/20131312955');
+        $response = $this->runApp('GET', '/api/v1/ruc/20550263948');
 
         $this->assertEquals(200, $response->getStatusCode());
 
         /**@var $company Company */
         $company = json_decode((string)$response->getBody());
 
-        $this->assertContains('SUPERINTENDENCIA NACIONAL', $company->razonSocial);
+        $this->assertContains('SOCIEDAD COMERCIAL', $company->razonSocial);
         $this->assertEquals('HABIDO', $company->condicion);
-        $this->assertEquals('ACTIVO', $company->estado);
+        $this->assertEquals('BAJA DE OFICIO', $company->estado);
     }
 
     public function testConsult()
@@ -42,10 +42,7 @@ class ConsultApiTest extends BaseTestCase
     public function testConsultDni()
     {
         $response = $this->runApp('GET', '/api/v1/dni/48004836');
-        if ($response->getStatusCode() == 500) {
-            echo (string)$response->getBody();
-            return;
-        }
+
         $this->assertEquals(200, $response->getStatusCode());
         /**@var $person Person*/
         $person = json_decode((string)$response->getBody());
@@ -57,7 +54,7 @@ class ConsultApiTest extends BaseTestCase
 
     public function testConsultUserSol()
     {
-        $response = $this->runApp('GET', '/api/v1/user-sol/20123456789/ABC1245');
+        $response = $this->runApp('GET', '/api/v1/user-sol/20000000001/HUAFDSMU');
 
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertTrue(in_array((string)$response->getBody(), ['true', 'false']));
