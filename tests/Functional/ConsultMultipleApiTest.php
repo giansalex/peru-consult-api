@@ -66,9 +66,6 @@ class ConsultMultipleApiTest extends BaseTestCase
         $this->assertEquals(200, $response->getStatusCode());
         /**@var $persons Person[] */
         $persons = json_decode((string)$response->getBody());
-        if (!empty(getenv('CI'))) {
-            return;
-        }
         $this->assertEquals(3, count($persons));
         foreach ($persons as $person) {
             $this->assertTrue(in_array($person->dni, $arr));

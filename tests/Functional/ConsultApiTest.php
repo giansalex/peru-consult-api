@@ -46,9 +46,6 @@ class ConsultApiTest extends BaseTestCase
         $this->assertEquals(200, $response->getStatusCode());
         /**@var $person Person*/
         $person = json_decode((string)$response->getBody());
-        if (!empty(getenv('CI'))) {
-            return;
-        }
         $this->assertEquals('ROBERTO CARLOS', $person->nombres);
     }
 
