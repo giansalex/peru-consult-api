@@ -1,6 +1,6 @@
 .git
 .idea
-box2
+.github
 docs
 tests
 vendor
@@ -8,7 +8,6 @@ vendor
 .gitignore
 .php_cs.dist
 app.json
-box.json
 /*.md
 Procfile
 phpunit.xml.dist
