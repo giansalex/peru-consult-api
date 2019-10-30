@@ -1,6 +1,6 @@
 <phpunit bootstrap="vendor/autoload.php">
     <php>
-        <env name="MOCK_URL" value="http://localhost"/>
+        <env name="MOCK_URL" value=""/>
     </php>
     <testsuites>
         <testsuite name="SlimSkeleton">
