@@ -26,16 +26,25 @@ class ResponseWriter
         $this->container = $container;
     }
 
-    public function process(App $app, AppResponse $response)
+    public function process(App $app, AppResponse $appResponse)
     {
-        $response->getPromise()
-            ->then(function ($response) use ($app) {
-                $app->respond($response);
+        $appResponse->getPromise()
+            ->then(function ($response) use ($appResponse, $app) {
+                $app->respond($this->fromCopyHeaders($appResponse, $response));
             }, function (Exception $e) use ($app) {
                 $this->container->get('errorHandler')($this->container->get('request'), new Response(500), $e);
             });
 
         $this->container->get(LoopInterface::class)
             ->run();
+    }
+
+    private function fromCopyHeaders(Response $source, Response $target)
+    {
+        foreach ($source->getHeaders() as $header => $value) {
+            $target = $target->withHeader($header, $value);
+        }
+
+        return $target;
     }
 }
