@@ -34,7 +34,7 @@ class ConsultMultipleController
      */
     public function ruc(Request $request)
     {
-        $rucs = json_encode($request->getContent());
+        $rucs = json_decode($request->getContent());
         if (!is_array($rucs)) {
             throw new BadRequestHttpException();
         }
@@ -53,7 +53,7 @@ class ConsultMultipleController
      */
     public function dni(Request $request)
     {
-        $dnis = json_encode($request->getContent());
+        $dnis = json_decode($request->getContent());
         if (!is_array($dnis)) {
             throw new BadRequestHttpException();
         }
