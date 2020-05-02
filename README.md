@@ -18,7 +18,7 @@ API para consultar el DNI y RUC - Perú, empleando [peru-consult](https://github
 
 Usar la imagen desde [Docker Hub](https://hub.docker.com/r/giansalex/peru-consult-api/)
 ```bash
-docker pull giansalex/peru-consult-api
+docker run -d -p 8080:8080 --name peru-consult -e API_TOKEN=your_key giansalex/peru-consult-api
 ```
 
 ### Clonar Repositorio
