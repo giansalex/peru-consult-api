@@ -14,7 +14,7 @@ RUN apk update && apk add --no-cache \
 COPY . .
 
 RUN composer install --no-interaction --no-dev --optimize-autoloader --ignore-platform-reqs && \
-    composer dump-autoload --optimize --no-dev --classmap-authoritative && \
+    composer dump-autoload --optimize --no-dev --classmap-authoritative
 
 FROM php:7.4-alpine
 
@@ -33,4 +33,4 @@ COPY docker/docker-entrypoint.sh .
 
 COPY --from=build-env /app .
 
-ENTRYPOINT ['./docker-entrypoint.sh']
+CMD ["sh", "./docker-entrypoint.sh"]
