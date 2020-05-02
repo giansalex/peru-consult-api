@@ -21,6 +21,8 @@
         "webonyx/graphql-php": "^0.13.8"
     },
     "require-dev": {
+        "symfony/browser-kit": "5.0.*",
+        "symfony/phpunit-bridge": "^5.0"
     },
     "config": {
         "preferred-install": {
@@ -35,7 +37,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "App\\Tests\\": "tests/"
         }
     },
     "replace": {
