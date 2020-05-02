@@ -3,31 +3,28 @@ app_index:
     controller: App\Controller\HomeController::index
 
 app_ruc_individual:
-  path: /api/v1/ruc/{ruc}
+  path: /api/v1/ruc/{ruc<\d{11}>}
   controller: App\Controller\ConsultController::ruc
-  requirements:
-    ruc: '\d{11}'
 
 app_userSol:
-  path: /api/v1/user-sol/{ruc}/{user}
+  path: /api/v1/user-sol/{ruc<\d{11}>}/{user}
   controller: App\Controller\ConsultController::userSol
-  requirements:
-    ruc: '\d{11}'
 
 app_dni_individual:
-  path: /api/v1/dni/{dni}
+  path: /api/v1/dni/{dni<\d{8}>}
   controller: App\Controller\ConsultController::dni
-  requirements:
-    dni: '\d{8}'
 
 app_ruc_multiple:
   path: /api/v1/ruc
   controller: App\Controller\ConsultMultipleController::ruc
+  methods: POST
 
 app_dni_multiple:
   path: /api/v1/dni
   controller: App\Controller\ConsultMultipleController::dni
+  methods: POST
 
 app_graphql:
   path: /api/graph
   controller: App\Controller\GraphController::query
+  methods: POST
