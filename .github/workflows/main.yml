@@ -7,14 +7,15 @@ jobs:
     name: PHP Tests
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
       with:
         fetch-depth: 1
     - name: Setup PHP
-      uses: shivammathur/setup-php@1.1.1
+      uses: shivammathur/setup-php@v2
       with:
-        php-version: 7.1
+        php-version: 7.3
+        extensions: pcntl
     - run: composer install
-    - run: vendor/bin/phpunit
+    - run: php bin/phpunit
       env:
         MOCK_URL: ${{ secrets.MockServer }}

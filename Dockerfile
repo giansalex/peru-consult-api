@@ -1,4 +1,4 @@
-FROM php:7.3-alpine AS build-env
+FROM php:7.4-alpine AS build-env
 
 LABEL owner="Giancarlos Salas"
 LABEL maintainer="giansalex@gmail.com"
@@ -13,28 +13,25 @@ RUN apk update && apk add --no-cache \
 
 COPY . .
 
-RUN cp -f docker/.htaccess . && \
-    cp -f docker/settings.php src/ && \
-    rm -rf docker
-
 RUN composer install --no-interaction --no-dev --optimize-autoloader --ignore-platform-reqs && \
-    composer dump-autoload --optimize --no-dev --classmap-authoritative && \
-    find vendor/ -type f  ! -name "*.php"  -delete
+    composer dump-autoload --optimize --no-dev --classmap-authoritative
 
-FROM php:7.3-apache
+FROM php:7.4-alpine
 
+ENV APP_ENV prod
 ENV API_TOKEN abcxyz
+EXPOSE 8080
+WORKDIR /var/www
 
-RUN apt-get update && \
+RUN apk update && \
     docker-php-ext-configure opcache --enable-opcache && \
     docker-php-ext-install opcache && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    docker-php-ext-install pcntl
 
 # Copy configuration
 COPY docker/config/opcache.ini $PHP_INI_DIR/conf.d/
-RUN a2enmod rewrite
+COPY docker/docker-entrypoint.sh .
 
-COPY --from=build-env /app /var/www/html
+COPY --from=build-env /app .
 
-VOLUME /var/www/html/logs
+CMD ["sh", "./docker-entrypoint.sh"]

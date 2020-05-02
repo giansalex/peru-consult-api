@@ -3,41 +3,71 @@
     "description": "Consulta RUC, DNI - Perú",
     "keywords": ["peru", "rest", "ruc", "dni", "graphql"],
     "homepage": "https://github.com/giansalex/peru-consult-api",
+    "type": "project",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Giancarlos Salas",
-            "email": "giansalex@gmail.com"
-        }
-    ],
     "require": {
-        "php": "^7.1",
-        "slim/slim": "^3.1",
-        "slim/php-view": "^2.0",
-        "katzgrau/klogger": "^1.2",
-        "giansalex/peru-consult": "^4.0",
-        "tuupola/cors-middleware": "^0.9.2",
-        "webonyx/graphql-php": "^0.13.4"
+        "php": "^7.3",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "ext-json": "*",
+        "drift/http-kernel": "^0.1.10",
+        "drift/server": "^0.1.12",
+        "giansalex/peru-consult": "^4.1",
+        "symfony/console": "5.0.*",
+        "symfony/dotenv": "5.0.*",
+        "symfony/flex": "^1.3.1",
+        "symfony/framework-bundle": "5.0.*",
+        "symfony/yaml": "5.0.*",
+        "webonyx/graphql-php": "^0.13.8"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7",
-        "clue/block-react": "^1.3"
+        "symfony/browser-kit": "5.0.*",
+        "symfony/phpunit-bridge": "^5.0"
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
     },
     "autoload": {
         "psr-4": {
-            "Peru\\Api\\": "src/app/"
+            "App\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "App\\Tests\\": "tests/"
         }
     },
-    "config": {
-        "process-timeout" : 0
+    "replace": {
+        "paragonie/random_compat": "2.*",
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php71": "*",
+        "symfony/polyfill-php70": "*",
+        "symfony/polyfill-php56": "*"
     },
     "scripts": {
-        "test": "phpunit"
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "5.0.*"
+        }
     }
-
 }
