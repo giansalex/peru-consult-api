@@ -1,4 +1,4 @@
-FROM php:7.3-alpine AS build-env
+FROM php:7.4-alpine AS build-env
 
 LABEL owner="Giancarlos Salas"
 LABEL maintainer="giansalex@gmail.com"
@@ -15,9 +15,8 @@ COPY . .
 
 RUN composer install --no-interaction --no-dev --optimize-autoloader --ignore-platform-reqs && \
     composer dump-autoload --optimize --no-dev --classmap-authoritative && \
-    find vendor/ -type f  ! -name "*.php"  -delete
 
-FROM php:7.3-alpine
+FROM php:7.4-alpine
 
 ENV API_TOKEN abcxyz
 EXPOSE 8080
