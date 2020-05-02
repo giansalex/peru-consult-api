@@ -14,6 +14,7 @@ class Kernel extends \App\Kernel
      */
     public function handle(Request $request, int $type = HttpKernelInterface::MASTER_REQUEST, bool $catch = true)
     {
+        $this->boot();
         $loop = $this->getContainer()->get('reactphp.event_loop');
         $promise = $this->handleAsync($request);
         $response = null;
