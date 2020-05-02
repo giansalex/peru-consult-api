@@ -1,14 +1,15 @@
 <?php
 
+declare(strict_types=1);
 
 namespace App\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\KernelEvents;
 
-class AuthTokenSubscriber implements EventSubscriberInterface
+class TokenSubscriber implements EventSubscriberInterface
 {
     /**
      * @var string
@@ -20,12 +21,11 @@ class AuthTokenSubscriber implements EventSubscriberInterface
         $this->token = $token;
     }
 
-    public function onKernelRequest(RequestEvent  $event)
+    public function onKernelController(ControllerEvent $event)
     {
         $path = $event->getRequest()->getPathInfo();
 
-        $isApi = substr($path, 0, 4) === "/api";
-
+        $isApi = substr($path, 0, 4) === '/api';
         if (!$isApi) {
             return;
         }
@@ -36,10 +36,13 @@ class AuthTokenSubscriber implements EventSubscriberInterface
         }
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public static function getSubscribedEvents()
     {
-        return array(
-            KernelEvents::REQUEST => 'onKernelRequest',
-        );
+        return [
+            KernelEvents::CONTROLLER => 'onKernelController',
+        ];
     }
 }

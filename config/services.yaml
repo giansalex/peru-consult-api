@@ -57,6 +57,6 @@ services:
     GraphQL\Type\Schema:
         factory: ['@App\Factory\GraphqlSchemaFactory', 'create']
 
-    App\EventSubscriber\AuthTokenSubscriber:
+    App\EventSubscriber\TokenSubscriber:
         arguments:
             $token: '%token%'
