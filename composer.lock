@@ -4,8 +4,56 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5cb70042aa466b7bf3937a25aab915cf",
+    "content-hash": "c79b2c9f0a0a980cfcd72afd6501fcdf",
     "packages": [
+        {
+            "name": "alecrabbit/php-cli-snake",
+            "version": "0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alecrabbit/php-cli-snake.git",
+                "reference": "d4aa6ab9880c708b6a35abb43f3113566ca71c38"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alecrabbit/php-cli-snake/zipball/d4aa6ab9880c708b6a35abb43f3113566ca71c38",
+                "reference": "d4aa6ab9880c708b6a35abb43f3113566ca71c38",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^3.0",
+                "phpunit/phpunit": "^8.0",
+                "react/event-loop": "^1.1",
+                "symfony/var-dumper": "^4.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AlecRabbit\\Snake\\": "src\\Snake"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Lightweight cli spinner with zero dependencies",
+            "keywords": [
+                "256color",
+                "8bit",
+                "ansi",
+                "cli",
+                "color",
+                "colorful",
+                "console",
+                "php",
+                "snake",
+                "spinner"
+            ],
+            "time": "2019-11-01T19:34:36+00:00"
+        },
         {
             "name": "cakephp/core",
             "version": "3.8.11",
@@ -163,6 +211,127 @@
             "time": "2019-04-09T11:45:04+00:00"
         },
         {
+            "name": "clue/stream-filter",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/clue/php-stream-filter.git",
+                "reference": "5a58cc30a8bd6a4eb8f856adf61dd3e013f53f71"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/clue/php-stream-filter/zipball/5a58cc30a8bd6a4eb8f856adf61dd3e013f53f71",
+                "reference": "5a58cc30a8bd6a4eb8f856adf61dd3e013f53f71",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.0 || ^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Clue\\StreamFilter\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Lück",
+                    "email": "christian@lueck.tv"
+                }
+            ],
+            "description": "A simple and modern approach to stream filtering in PHP",
+            "homepage": "https://github.com/clue/php-stream-filter",
+            "keywords": [
+                "bucket brigade",
+                "callback",
+                "filter",
+                "php_user_filter",
+                "stream",
+                "stream_filter_append",
+                "stream_filter_register"
+            ],
+            "time": "2019-04-09T12:31:48+00:00"
+        },
+        {
+            "name": "clue/zlib-react",
+            "version": "v0.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/clue/reactphp-zlib.git",
+                "reference": "e6a77eee88d8fbf22d1a90530dd0c810fa2d3ad3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/clue/reactphp-zlib/zipball/e6a77eee88d8fbf22d1a90530dd0c810fa2d3ad3",
+                "reference": "e6a77eee88d8fbf22d1a90530dd0c810fa2d3ad3",
+                "shasum": ""
+            },
+            "require": {
+                "clue/stream-filter": "~1.3",
+                "php": ">=5.3",
+                "react/stream": "^1.0 || ^0.7 || ^0.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.0 || ^4.8",
+                "react/event-loop": "^1.0 || ^0.5 || ^0.4 || ^0.3"
+            },
+            "suggest": {
+                "ext-zlib": "Requires ext-zlib extension"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Clue\\React\\Zlib\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Lück",
+                    "email": "christian@clue.engineering"
+                }
+            ],
+            "description": "Streaming zlib compressor and decompressor for ReactPHP, supporting compression and decompression of GZIP, ZLIB and raw DEFLATE formats.",
+            "homepage": "https://github.com/clue/reactphp-zlib",
+            "keywords": [
+                "RFC 1950",
+                "RFC 1951",
+                "RFC 1952",
+                "compression",
+                "decompression",
+                "deflate",
+                "gz",
+                "gzip",
+                "inflate",
+                "reactphp",
+                "zlib"
+            ],
+            "funding": [
+                {
+                    "url": "https://clue.engineering/support",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/clue",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-04-20T11:34:29+00:00"
+        },
+        {
             "name": "doctrine/inflector",
             "version": "1.3.1",
             "source": {
@@ -286,6 +455,85 @@
             "time": "2019-10-21T16:45:58+00:00"
         },
         {
+            "name": "drift/console-bridge",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/driftphp/console-bridge.git",
+                "reference": "3070d4d2686e483b14f7784021e08c408a230b9a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/driftphp/console-bridge/zipball/3070d4d2686e483b14f7784021e08c408a230b9a",
+                "reference": "3070d4d2686e483b14f7784021e08c408a230b9a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3",
+                "symfony/console": "^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Drift\\Console\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marc Morera",
+                    "email": "yuhu@mmoreram.com"
+                }
+            ],
+            "description": "Console bridge for DriftPHP",
+            "time": "2019-12-30T19:58:08+00:00"
+        },
+        {
+            "name": "drift/event-loop-utils",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/driftphp/event-loop-utils.git",
+                "reference": "aeb7bf0b5cf397798fc6e872f808bc7325f77d90"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/driftphp/event-loop-utils/zipball/aeb7bf0b5cf397798fc6e872f808bc7325f77d90",
+                "reference": "aeb7bf0b5cf397798fc6e872f808bc7325f77d90",
+                "shasum": ""
+            },
+            "require": {
+                "clue/block-react": "^1.3",
+                "php": "^7.3",
+                "react/event-loop": "^1.1",
+                "react/promise": "^2.7"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "7.5.17"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Drift\\EventLoop\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marc Morera",
+                    "email": "yuhu@mmoreram.com"
+                }
+            ],
+            "description": "Event loop utils for Drift",
+            "time": "2020-03-09T19:23:16+00:00"
+        },
+        {
             "name": "drift/http-kernel",
             "version": "0.1.10",
             "source": {
@@ -336,6 +584,67 @@
             ],
             "description": "Http Kernel component for Drift, based on Symfony Http Kernel component",
             "time": "2020-05-02T01:17:16+00:00"
+        },
+        {
+            "name": "drift/server",
+            "version": "0.1.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/driftphp/server.git",
+                "reference": "c0331c101a2b038e8adade2a8952271822217463"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/driftphp/server/zipball/c0331c101a2b038e8adade2a8952271822217463",
+                "reference": "c0331c101a2b038e8adade2a8952271822217463",
+                "shasum": ""
+            },
+            "require": {
+                "clue/zlib-react": "^0.2.2",
+                "drift/console-bridge": "0.1.*",
+                "drift/event-loop-utils": "0.1.*",
+                "drift/http-kernel": "0.1.*, >=0.1.3",
+                "ext-pcntl": "*",
+                "php": ">=7.3",
+                "react/event-loop": "^1.0",
+                "react/filesystem": "^0.1",
+                "react/http": "^0.8",
+                "react/promise": "^2.7",
+                "react/socket": "^1.0",
+                "seregazhuk/php-watcher": "^0.5.2",
+                "symfony/console": "^5.0",
+                "symfony/finder": "^4.4 || ^5.0",
+                "symfony/http-kernel": "^5.0"
+            },
+            "require-dev": {
+                "drift/event-bus-bundle": "0.1.*, >=0.1.2",
+                "ext-fileinfo": "*",
+                "phpunit/phpunit": "7.5.17",
+                "symfony/config": "^5.0",
+                "symfony/framework-bundle": "^5.0",
+                "symfony/process": "^5.0"
+            },
+            "bin": [
+                "bin/server"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Drift\\Server\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marc Morera",
+                    "email": "yuhu@mmoreram.com"
+                }
+            ],
+            "description": "ReactPHP based server for DriftPHP",
+            "time": "2020-05-02T00:06:42+00:00"
         },
         {
             "name": "evenement/evenement",
@@ -1348,6 +1657,74 @@
                 "uri"
             ],
             "time": "2018-01-15T21:00:49+00:00"
+        },
+        {
+            "name": "seregazhuk/php-watcher",
+            "version": "v0.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/seregazhuk/php-watcher.git",
+                "reference": "b1ad89f5df17c50118731cf121469cefa13ff553"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/seregazhuk/php-watcher/zipball/b1ad89f5df17c50118731cf121469cefa13ff553",
+                "reference": "b1ad89f5df17c50118731cf121469cefa13ff553",
+                "shasum": ""
+            },
+            "require": {
+                "alecrabbit/php-cli-snake": "^0.5",
+                "ext-json": "*",
+                "ext-pcntl": "*",
+                "php": "^7.2",
+                "react/child-process": "^0.6.1",
+                "react/event-loop": "^1.1",
+                "react/stream": "^1.0.0",
+                "symfony/console": "^4.3 || ^5.0",
+                "symfony/finder": "^4.3 || ^5.0",
+                "symfony/yaml": "^4.3 || ^5.0",
+                "yosymfony/resource-watcher": "^2.0"
+            },
+            "require-dev": {
+                "clue/block-react": "^1.3",
+                "phpunit/phpunit": "^8.0",
+                "symfony/process": "^4.3"
+            },
+            "bin": [
+                "php-watcher"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "seregazhuk\\PhpWatcher\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sergey Zhuk",
+                    "email": "seregazhuk88@gmail.com",
+                    "homepage": "http://sergeyzhuk.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Automatically restart PHP application once the source code changes",
+            "keywords": [
+                "asynchronous",
+                "bash",
+                "cli",
+                "clock",
+                "console",
+                "php",
+                "php-watcher",
+                "scripts",
+                "shell",
+                "watcher"
+            ],
+            "time": "2019-12-07T08:45:28+00:00"
         },
         {
             "name": "symfony/cache",
@@ -3704,6 +4081,59 @@
             ],
             "description": "Wrapping ticks into a promise",
             "time": "2018-04-05T12:36:50+00:00"
+        },
+        {
+            "name": "yosymfony/resource-watcher",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yosymfony/resource-watcher.git",
+                "reference": "a8c34f704e6bd4f786c97f3c0ba65bd86cb2bd73"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yosymfony/resource-watcher/zipball/a8c34f704e6bd4f786c97f3c0ba65bd86cb2bd73",
+                "reference": "a8c34f704e6bd4f786c97f3c0ba65bd86cb2bd73",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6",
+                "symfony/finder": "^2.7|^3.0|^4.0|^5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "symfony/filesystem": "^2.7|^3.0|^4.0|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yosymfony\\ResourceWatcher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Victor Puertas",
+                    "email": "vpgugr@gmail.com"
+                }
+            ],
+            "description": "A simple resource watcher using Symfony Finder",
+            "homepage": "http://yosymfony.com",
+            "keywords": [
+                "finder",
+                "resources",
+                "symfony",
+                "watcher"
+            ],
+            "time": "2020-01-04T15:36:55+00:00"
         }
     ],
     "packages-dev": [],
@@ -3713,9 +4143,10 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2.5",
+        "php": "^7.3",
         "ext-ctype": "*",
-        "ext-iconv": "*"
+        "ext-iconv": "*",
+        "ext-json": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "1.1.0"
