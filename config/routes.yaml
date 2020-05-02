@@ -1,0 +1,27 @@
+app_index:
+    path: /
+    controller: App\Controller\HomeController::index
+
+app_ruc_invidual:
+  path: /api/v1/ruc/{ruc}
+  controller: App\Controller\ConsultController::ruc
+  requirements:
+    ruc: '\d{11}'
+
+app_userSol:
+  path: /api/v1/user-sol/{ruc}/{user}
+  controller: App\Controller\ConsultController::userSol
+  requirements:
+    ruc: '\d{11}'
+
+app_ruc_multiple:
+  path: /api/v1/ruc
+  controller: App\Controller\ConsultMultipleController::ruc
+
+app_dni_multiple:
+  path: /api/v1/dni
+  controller: App\Controller\ConsultMultipleController::dni
+
+app_graphql:
+  path: /api/v1/dni
+  controller: App\Controller\GraphController::query

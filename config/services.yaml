@@ -1,0 +1,57 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']
+
+    App\Resolver\:
+        resource: '../src/Resolver'
+        public: true
+    App\Service\:
+        resource: '../src/Service'
+        public: true
+    App\Types\:
+        resource: '../src/Types'
+        public: true
+
+    Peru\Http\ContextClient:
+    Peru\Http\ClientInterface: '@Peru\Http\ContextClient'
+    Peru\Http\Async\HttpClient:
+    Peru\Http\Async\ClientInterface: '@Peru\Http\Async\HttpClient'
+
+    Peru\Sunat\RucParser:
+    Peru\Sunat\HtmlParser:
+    Peru\Sunat\Ruc:
+    Peru\Services\RucInterface: '@Peru\Sunat\Ruc'
+    Peru\Sunat\Async\Ruc:
+        public: true
+    Peru\Sunat\UserValidator:
+        public: true
+
+    Peru\Jne\DniParser:
+    Peru\Jne\Dni:
+    Peru\Services\DniInterface: '@Peru\Jne\Dni'
+    Peru\Jne\Async\Dni:
+        public: true
+
+    GraphQL\Type\Schema:
+        factory: ['@App\Factory\GraphqlSchemaFactory', 'create']
