@@ -18,6 +18,7 @@ RUN composer install --no-interaction --no-dev --optimize-autoloader --ignore-pl
 
 FROM php:7.4-alpine
 
+ENV APP_ENV prod
 ENV API_TOKEN abcxyz
 EXPOSE 8080
 WORKDIR /var/www
