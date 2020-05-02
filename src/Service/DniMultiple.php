@@ -11,8 +11,8 @@ declare(strict_types=1);
 namespace App\Service;
 
 use Peru\Jne\Async\Dni;
-use React\Promise\PromiseInterface;
 use function React\Promise\all;
+use React\Promise\PromiseInterface;
 
 class DniMultiple
 {
@@ -23,8 +23,6 @@ class DniMultiple
 
     /**
      * DniMultiple constructor.
-     *
-     * @param Dni $service
      */
     public function __construct(Dni $service)
     {
@@ -32,8 +30,6 @@ class DniMultiple
     }
 
     /**
-     * @param array $dnis
-     *
      * @return PromiseInterface
      */
     public function get(array $dnis): PromiseInterface

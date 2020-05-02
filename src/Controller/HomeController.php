@@ -11,7 +11,7 @@ class HomeController
     public function index(): JsonResponse
     {
         return new JsonResponse([
-            'app' => 'Peru Consult API'
+            'app' => 'Peru Consult API',
         ]);
     }
 }

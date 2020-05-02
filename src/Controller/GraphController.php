@@ -6,8 +6,7 @@ namespace App\Controller;
 
 use App\Service\GraphRunner;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\{JsonResponse, Request};
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class GraphController extends AbstractController
@@ -19,8 +18,6 @@ class GraphController extends AbstractController
 
     /**
      * GraphController constructor.
-     *
-     * @param GraphRunner $graph
      */
     public function __construct(GraphRunner $graph)
     {
@@ -28,8 +25,8 @@ class GraphController extends AbstractController
     }
 
     /**
-     * @param Request $request
      * @return JsonResponse
+     *
      * @throws \Throwable
      */
     public function query(Request $request)

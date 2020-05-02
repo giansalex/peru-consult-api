@@ -11,8 +11,8 @@ declare(strict_types=1);
 namespace App\Service;
 
 use Peru\Sunat\Async\Ruc;
-use React\Promise\PromiseInterface;
 use function React\Promise\all;
+use React\Promise\PromiseInterface;
 
 class RucMultiple
 {
@@ -23,8 +23,6 @@ class RucMultiple
 
     /**
      * RucMultiple constructor.
-     *
-     * @param Ruc $service
      */
     public function __construct(Ruc $service)
     {
@@ -32,8 +30,6 @@ class RucMultiple
     }
 
     /**
-     * @param array $rucs
-     *
      * @return PromiseInterface
      */
     public function get(array $rucs): PromiseInterface

@@ -20,8 +20,6 @@ class ConsultMultipleController
 
     /**
      * ConsultController constructor.
-     *
-     * @param ContainerInterface $container
      */
     public function __construct(ContainerInterface $container)
     {
@@ -29,7 +27,6 @@ class ConsultMultipleController
     }
 
     /**
-     * @param Request $request
      * @return PromiseInterface
      */
     public function ruc(Request $request)
@@ -48,7 +45,6 @@ class ConsultMultipleController
     }
 
     /**
-     * @param Request $request
      * @return PromiseInterface
      */
     public function dni(Request $request)

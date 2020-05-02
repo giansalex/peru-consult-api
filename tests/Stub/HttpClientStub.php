@@ -16,7 +16,6 @@ class HttpClientStub implements ClientInterface
 
     /**
      * HttpClientStub constructor.
-     * @param ClientInterface $client
      */
     public function __construct(ClientInterface $client)
     {
@@ -25,9 +24,6 @@ class HttpClientStub implements ClientInterface
 
     /**
      * Make GET Request.
-     *
-     * @param string $url
-     * @param array $headers
      *
      * @return PromiseInterface
      */
@@ -39,9 +35,7 @@ class HttpClientStub implements ClientInterface
     /**
      * Post Request.
      *
-     * @param string $url
      * @param mixed $data
-     * @param array $headers
      *
      * @return PromiseInterface
      */

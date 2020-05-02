@@ -10,18 +10,14 @@ declare(strict_types=1);
 
 namespace App\Types;
 
-use GraphQL\Type\Definition\ObjectType;
-use GraphQL\Type\Definition\Type;
-use App\Resolver\DniResolver;
-use App\Resolver\RucResolver;
+use GraphQL\Type\Definition\{ObjectType, Type};
+use App\Resolver\{DniResolver, RucResolver};
 use Psr\Container\ContainerInterface;
 
 class RootType extends ObjectType
 {
     /**
      * RootType constructor.
-     *
-     * @param ContainerInterface $container
      *
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Tests\Functional;
 
@@ -59,9 +61,9 @@ QL;
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $obj = json_decode($client->getResponse()->getContent());
 
-        /**@var $company Company */
+        /** @var $company Company */
         $company = $obj->data->company;
-        /**@var $person Person */
+        /** @var $person Person */
         $person = $obj->data->person;
 
         $this->assertFalse(isset($obj->errors));

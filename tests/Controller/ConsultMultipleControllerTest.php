@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Tests\Functional;
 
@@ -24,7 +26,7 @@ class ConsultMultipleControllerTest extends WebTestCase
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
-        /**@var $companies Company[] */
+        /** @var $companies Company[] */
         $companies = json_decode($client->getResponse()->getContent());
 
         $this->assertEquals(3, count($companies));
@@ -50,7 +52,7 @@ class ConsultMultipleControllerTest extends WebTestCase
         );
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        /**@var $persons Person[] */
+        /** @var $persons Person[] */
         $persons = json_decode($client->getResponse()->getContent());
         $this->assertEquals(1, count($persons));
         foreach ($persons as $person) {

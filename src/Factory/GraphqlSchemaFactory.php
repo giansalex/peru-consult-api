@@ -14,7 +14,6 @@ class GraphqlSchemaFactory
 
     /**
      * GraphqlSchemaFactory constructor.
-     * @param RootType $root
      */
     public function __construct(RootType $root)
     {
@@ -24,7 +23,7 @@ class GraphqlSchemaFactory
     public function create()
     {
         return new Schema([
-            'query' => $this->root
+            'query' => $this->root,
         ]);
     }
 }

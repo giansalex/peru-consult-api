@@ -20,8 +20,6 @@ class ClientStubDecorator implements ClientInterface
 
     /**
      * ClientStubDecorator constructor.
-     *
-     * @param ClientInterface $client
      */
     public function __construct(ClientInterface $client)
     {
@@ -30,9 +28,6 @@ class ClientStubDecorator implements ClientInterface
 
     /**
      * Get Request.
-     *
-     * @param string $url
-     * @param array  $headers
      *
      * @return string|false
      */
@@ -44,9 +39,7 @@ class ClientStubDecorator implements ClientInterface
     /**
      * Post Request.
      *
-     * @param string $url
-     * @param mixed  $data
-     * @param array  $headers
+     * @param mixed $data
      *
      * @return string|false
      */

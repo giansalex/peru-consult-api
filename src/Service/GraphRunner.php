@@ -28,8 +28,6 @@ class GraphRunner
 
     /**
      * GraphRunner constructor.
-     * @param Schema $schema
-     * @param LoggerInterface $logger
      */
     public function __construct(Schema $schema, LoggerInterface $logger)
     {

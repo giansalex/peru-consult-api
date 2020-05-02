@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Tests\Controller;
 
@@ -16,7 +18,7 @@ class ConsultControllerTest extends WebTestCase
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
-        /**@var $company Company */
+        /** @var $company Company */
         $company = json_decode($client->getResponse()->getContent());
 
         $this->assertStringContainsString('SOCIEDAD COMERCIAL', $company->razonSocial);
@@ -31,7 +33,7 @@ class ConsultControllerTest extends WebTestCase
         $client->request('GET', '/api/v1/dni/48004836?token=abcxyz');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        /**@var $person Person*/
+        /** @var $person Person */
         $person = json_decode($client->getResponse()->getContent());
         $this->assertEquals('NOMBRES', $person->nombres);
     }
