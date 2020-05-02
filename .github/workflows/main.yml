@@ -16,6 +16,6 @@ jobs:
         php-version: 7.3
         extensions: pcntl
     - run: composer install
-    - run: vendor/bin/phpunit
+    - run: bin/phpunit
       env:
         MOCK_URL: ${{ secrets.MockServer }}
