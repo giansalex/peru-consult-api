@@ -1,0 +1,15 @@
+services:
+  React\EventLoop\StreamSelectLoop: ~
+  reactphp.event_loop:
+    alias: 'React\EventLoop\StreamSelectLoop'
+    public: true
+
+  App\Tests\Stub\HttpClientStub:
+    arguments:
+      - '@Peru\Http\Async\HttpClient'
+  App\Tests\Stub\ClientStubDecorator:
+    arguments:
+      - '@Peru\Http\ContextClient'
+  Peru\Http\Async\ClientInterface:
+    alias: 'App\Tests\Stub\HttpClientStub'
+  Peru\Http\ClientInterface: '@App\Tests\Stub\ClientStubDecorator'
