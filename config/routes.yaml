@@ -2,7 +2,7 @@ app_index:
     path: /
     controller: App\Controller\HomeController::index
 
-app_ruc_invidual:
+app_ruc_individual:
   path: /api/v1/ruc/{ruc}
   controller: App\Controller\ConsultController::ruc
   requirements:
@@ -14,6 +14,12 @@ app_userSol:
   requirements:
     ruc: '\d{11}'
 
+app_dni_individual:
+  path: /api/v1/dni/{dni}
+  controller: App\Controller\ConsultController::dni
+  requirements:
+    dni: '\d{8}'
+
 app_ruc_multiple:
   path: /api/v1/ruc
   controller: App\Controller\ConsultMultipleController::ruc
@@ -23,5 +29,5 @@ app_dni_multiple:
   controller: App\Controller\ConsultMultipleController::dni
 
 app_graphql:
-  path: /api/v1/dni
+  path: /api/graph
   controller: App\Controller\GraphController::query
