@@ -9,8 +9,8 @@ API para consultar el DNI y RUC - Perú, empleando [peru-consult](https://github
 
 ## Requerimientos
 
-- PHP 7.1 o superior.
-- `ext-dom`
+- PHP 7.3 o superior.
+- `ext-pcntl`
 
 ## Instalar
 
