@@ -4,7 +4,7 @@ services:
     symfony:
         image: php:7.3-alpine
         working_dir: /var/www
-        command: vendor/bin/server watch 0.0.0.0:8080 --adapter=App\MyKernelAdapter
+        command: vendor/bin/server watch 0.0.0.0:8080 --adapter=App\\AppKernelAdapter
         environment:
             docker: "true"
         ports:

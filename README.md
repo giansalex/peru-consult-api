@@ -10,7 +10,7 @@ API para consultar el DNI y RUC - Perú, empleando [peru-consult](https://github
 ## Requerimientos
 
 - PHP 7.1 o superior.
-- ext-dom
+- `ext-dom`
 
 ## Instalar
 
@@ -27,7 +27,7 @@ docker pull giansalex/peru-consult-api
 git clone https://github.com/giansalex/peru-consult-api.git
 cd peru-consult-api
 composer install
-php -S 127.0.0.1:8090 -t public
+vendor/bin/server watch 0.0.0.0:8080 --adapter=App\\AppKernelAdapter
 ```
 
 ### Desplegar en Heroku
@@ -74,7 +74,7 @@ Respuesta:
 ### DNI
 Ejecutar usando Curl.
 ```bash
-curl -H "Accept: application/json" http://localhost:8090/api/v1/dni/48004836?token=abcxyz
+curl -H "Accept: application/json" http://localhost:8080/api/v1/dni/48004836?token=abcxyz
 ```
 
 Respuesta:
@@ -92,7 +92,7 @@ Respuesta:
 ### RUC
 Ejecutar usando Curl.
 ```bash
-curl -H "Accept: application/json" http://localhost:8090/api/v1/ruc/20131312955?token=abcxyz
+curl -H "Accept: application/json" http://localhost:8080/api/v1/ruc/20131312955?token=abcxyz
 ```
 
 Respuesta:
@@ -151,7 +151,7 @@ Respuesta:
 ### Consulta Validez Usuario SOL
 Ejecutar usando Curl.
 ```bash
-curl http://localhost:8090/api/v1/user-sol/20000000001/GMABCI?token=abcxyz
+curl http://localhost:8080/api/v1/user-sol/20000000001/GMABCI?token=abcxyz
 ```
 
 Respuesta:
