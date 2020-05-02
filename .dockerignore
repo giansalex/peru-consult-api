@@ -3,6 +3,7 @@
 .github
 docs
 tests
+var
 vendor
 .gitattributes
 .gitignore
