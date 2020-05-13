@@ -15,7 +15,9 @@ RUN apk update && apk add --no-cache \
 COPY . .
 
 RUN composer install --no-interaction --no-dev --optimize-autoloader --ignore-platform-reqs && \
-    composer dump-autoload --optimize --no-dev --classmap-authoritative
+    composer dump-autoload --optimize --no-dev --classmap-authoritative && \
+    find -name "[Tt]est*" -type d -exec rm -rf {} + && \
+    find -type f -name '*.md' -delete;
 
 FROM php:7.4-alpine
 
