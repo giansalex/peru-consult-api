@@ -1,8 +1,4 @@
 services:
-  React\EventLoop\StreamSelectLoop: ~
-  reactphp.event_loop:
-    alias: 'React\EventLoop\StreamSelectLoop'
-    public: true
 
   App\Tests\Stub\HttpClientStub:
     arguments:
