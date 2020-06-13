@@ -11,7 +11,6 @@
         "ext-iconv": "*",
         "ext-json": "*",
         "drift/http-kernel": "^0.1.10",
-        "drift/server": "^0.1.12",
         "giansalex/peru-consult": "^4.1",
         "symfony/console": "5.0.*",
         "symfony/dotenv": "5.0.*",
