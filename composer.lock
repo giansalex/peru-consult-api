@@ -691,16 +691,16 @@
         },
         {
             "name": "giansalex/peru-consult",
-            "version": "v4.1.0",
+            "version": "v4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giansalex/peru-consult.git",
-                "reference": "48d00e709dc9995060c1a8321f18a00134c958e4"
+                "reference": "8d0fb215b4ccbfa028957ce7e2134ad0235db326"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giansalex/peru-consult/zipball/48d00e709dc9995060c1a8321f18a00134c958e4",
-                "reference": "48d00e709dc9995060c1a8321f18a00134c958e4",
+                "url": "https://api.github.com/repos/giansalex/peru-consult/zipball/8d0fb215b4ccbfa028957ce7e2134ad0235db326",
+                "reference": "8d0fb215b4ccbfa028957ce7e2134ad0235db326",
                 "shasum": ""
             },
             "require": {
@@ -742,7 +742,13 @@
                 "ruc",
                 "sunat"
             ],
-            "time": "2019-10-19T03:28:25+00:00"
+            "funding": [
+                {
+                    "url": "https://yape.giansalex.dev/",
+                    "type": "custom"
+                }
+            ],
+            "time": "2020-06-13T17:34:56+00:00"
         },
         {
             "name": "indigophp/hash-compat",
