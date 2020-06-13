@@ -1,0 +1,6 @@
+services:
+    
+    React\EventLoop\StreamSelectLoop: ~
+    reactphp.event_loop:
+        alias: 'React\EventLoop\StreamSelectLoop'
+        public: true
