@@ -27,7 +27,7 @@ docker run -d -p 8080:8080 --name peru-consult -e API_TOKEN=your_key giansalex/p
 git clone https://github.com/giansalex/peru-consult-api.git
 cd peru-consult-api
 composer install
-vendor/bin/server watch 0.0.0.0:8080 --adapter=App\\AppKernelAdapter
+php -S 0.0.0.0:8080 -t public
 ```
 
 ### Desplegar en Heroku
