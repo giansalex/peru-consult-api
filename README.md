@@ -10,7 +10,6 @@ API para consultar el DNI y RUC - Perú, empleando [peru-consult](https://github
 ## Requerimientos
 
 - PHP 7.3 o superior.
-- `ext-pcntl`
 
 ## Instalar
 
@@ -21,7 +20,7 @@ Usar la imagen desde [Docker Hub](https://hub.docker.com/r/giansalex/peru-consul
 docker run -d -p 8080:8080 --name peru-consult -e API_TOKEN=your_key giansalex/peru-consult-api
 ```
 
-### Clonar Repositorio
+### Construir desde codigo fuente
 
 ```
 git clone https://github.com/giansalex/peru-consult-api.git
@@ -36,9 +35,6 @@ Token por defecto: `abcxyz`
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Ejemplos
-
-### KataCoda Interactive Tutorial
-https://www.katacoda.com/giansalex/scenarios/peru-consult-api
 
 ### GraphQL
 Implementando soporte para [graphql](http://graphql.org/) utilizar el endpoint `/api/graph`   
