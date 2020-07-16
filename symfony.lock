@@ -3,10 +3,10 @@
         "version": "0.5.0"
     },
     "cakephp/core": {
-        "version": "3.8.11"
+        "version": "3.9.0"
     },
     "cakephp/utility": {
-        "version": "3.8.11"
+        "version": "3.9.0"
     },
     "clue/block-react": {
         "version": "v1.3.1"
@@ -18,10 +18,10 @@
         "version": "v0.2.2"
     },
     "doctrine/inflector": {
-        "version": "1.3.1"
+        "version": "1.4.3"
     },
     "doctrine/instantiator": {
-        "version": "1.3.0"
+        "version": "1.3.1"
     },
     "drift/console-bridge": {
         "version": "0.1.0"
@@ -30,7 +30,7 @@
         "version": "0.1.0"
     },
     "drift/http-kernel": {
-        "version": "0.1.10"
+        "version": "0.1.11"
     },
     "drift/server": {
         "version": "0.1.12"
@@ -39,7 +39,7 @@
         "version": "v3.0.1"
     },
     "giansalex/peru-consult": {
-        "version": "v4.1.0"
+        "version": "v4.1.2"
     },
     "indigophp/hash-compat": {
         "version": "v1.1.0"
@@ -69,7 +69,7 @@
         "version": "v0.6.1"
     },
     "react/dns": {
-        "version": "v1.2.0"
+        "version": "v1.3.0"
     },
     "react/event-loop": {
         "version": "v1.1.1"
@@ -78,43 +78,43 @@
         "version": "v0.1.2"
     },
     "react/http": {
-        "version": "v0.8.6"
+        "version": "v1.0.0"
     },
     "react/http-client": {
         "version": "v0.5.10"
     },
     "react/promise": {
-        "version": "v2.7.1"
+        "version": "v2.8.0"
     },
     "react/promise-stream": {
         "version": "v1.2.0"
     },
     "react/promise-timer": {
-        "version": "v1.5.1"
+        "version": "v1.6.0"
     },
     "react/socket": {
-        "version": "v1.4.0"
+        "version": "v1.5.0"
     },
     "react/stream": {
-        "version": "v1.1.0"
+        "version": "v1.1.1"
     },
     "ringcentral/psr7": {
-        "version": "1.2.2"
+        "version": "1.3.0"
     },
     "seregazhuk/php-watcher": {
         "version": "v0.5.2"
     },
     "symfony/browser-kit": {
-        "version": "v5.0.8"
+        "version": "v5.0.10"
     },
     "symfony/cache": {
-        "version": "v5.0.8"
+        "version": "v5.0.10"
     },
     "symfony/cache-contracts": {
-        "version": "v2.0.1"
+        "version": "v2.1.3"
     },
     "symfony/config": {
-        "version": "v5.0.8"
+        "version": "v5.0.10"
     },
     "symfony/console": {
         "version": "4.4",
@@ -130,28 +130,28 @@
         ]
     },
     "symfony/dependency-injection": {
-        "version": "v5.0.8"
+        "version": "v5.0.10"
     },
     "symfony/dom-crawler": {
-        "version": "v5.0.8"
+        "version": "v5.0.10"
     },
     "symfony/dotenv": {
-        "version": "v5.0.8"
+        "version": "v5.0.10"
     },
     "symfony/error-handler": {
-        "version": "v5.0.8"
+        "version": "v5.0.10"
     },
     "symfony/event-dispatcher": {
-        "version": "v5.0.8"
+        "version": "v5.0.10"
     },
     "symfony/event-dispatcher-contracts": {
-        "version": "v2.0.1"
+        "version": "v2.1.3"
     },
     "symfony/filesystem": {
-        "version": "v5.0.8"
+        "version": "v5.0.10"
     },
     "symfony/finder": {
-        "version": "v5.0.8"
+        "version": "v5.0.10"
     },
     "symfony/flex": {
         "version": "1.0",
@@ -186,13 +186,13 @@
         ]
     },
     "symfony/http-foundation": {
-        "version": "v5.0.8"
+        "version": "v5.0.10"
     },
     "symfony/http-kernel": {
-        "version": "v5.0.8"
+        "version": "v5.0.10"
     },
     "symfony/mime": {
-        "version": "v5.0.8"
+        "version": "v5.0.10"
     },
     "symfony/phpunit-bridge": {
         "version": "4.3",
@@ -210,16 +210,19 @@
         ]
     },
     "symfony/polyfill-intl-idn": {
-        "version": "v1.15.0"
+        "version": "v1.18.0"
+    },
+    "symfony/polyfill-intl-normalizer": {
+        "version": "v1.18.0"
     },
     "symfony/polyfill-mbstring": {
-        "version": "v1.15.0"
+        "version": "v1.18.0"
     },
     "symfony/polyfill-php73": {
-        "version": "v1.15.0"
+        "version": "v1.18.0"
     },
     "symfony/polyfill-php80": {
-        "version": "v1.17.0"
+        "version": "v1.18.0"
     },
     "symfony/routing": {
         "version": "4.2",
@@ -236,22 +239,22 @@
         ]
     },
     "symfony/service-contracts": {
-        "version": "v2.0.1"
+        "version": "v2.1.3"
     },
     "symfony/var-dumper": {
-        "version": "v5.0.8"
+        "version": "v5.0.10"
     },
     "symfony/var-exporter": {
-        "version": "v5.0.8"
+        "version": "v5.0.10"
     },
     "symfony/yaml": {
-        "version": "v5.0.8"
+        "version": "v5.0.10"
     },
     "tivie/php-os-detector": {
         "version": "1.1.0"
     },
     "webonyx/graphql-php": {
-        "version": "v0.13.8"
+        "version": "v0.13.9"
     },
     "wyrihaximus/cpu-core-detector": {
         "version": "1.0.2"
