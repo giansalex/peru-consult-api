@@ -14,9 +14,10 @@ RUN apk update && apk add --no-cache \
 
 COPY . .
 
+RUN git apply docker/drift-kernel.patch
 RUN git apply docker/drift-adapter.patch
 RUN composer install --no-interaction --no-dev --optimize-autoloader --ignore-platform-reqs && \
-    composer require drift/server:^0.1.12 --ignore-platform-reqs && \
+    composer require drift/server:^0.1.15 --ignore-platform-reqs && \
     composer dump-autoload --optimize --no-dev --classmap-authoritative && \
     find -name "[Tt]est*" -type d -exec rm -rf {} + && \
     find -type f -name '*.md' -delete;
