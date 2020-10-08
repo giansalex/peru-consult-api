@@ -3,13 +3,13 @@
         "version": "0.5.0"
     },
     "cakephp/core": {
-        "version": "3.9.0"
+        "version": "3.9.3"
     },
     "cakephp/utility": {
-        "version": "3.9.0"
+        "version": "3.9.3"
     },
     "clue/block-react": {
-        "version": "v1.3.1"
+        "version": "v1.4.0"
     },
     "clue/stream-filter": {
         "version": "v1.4.1"
@@ -30,7 +30,7 @@
         "version": "0.1.0"
     },
     "drift/http-kernel": {
-        "version": "0.1.11"
+        "version": "0.1.12"
     },
     "drift/server": {
         "version": "0.1.12"
@@ -39,7 +39,7 @@
         "version": "v3.0.1"
     },
     "giansalex/peru-consult": {
-        "version": "v4.1.2"
+        "version": "v4.2.0"
     },
     "indigophp/hash-compat": {
         "version": "v1.1.0"
@@ -63,13 +63,13 @@
         "version": "1.1.3"
     },
     "react/cache": {
-        "version": "v1.0.0"
+        "version": "v1.1.0"
     },
     "react/child-process": {
         "version": "v0.6.1"
     },
     "react/dns": {
-        "version": "v1.3.0"
+        "version": "v1.4.0"
     },
     "react/event-loop": {
         "version": "v1.1.1"
@@ -78,7 +78,7 @@
         "version": "v0.1.2"
     },
     "react/http": {
-        "version": "v1.0.0"
+        "version": "v1.1.0"
     },
     "react/http-client": {
         "version": "v0.5.10"
@@ -93,7 +93,7 @@
         "version": "v1.6.0"
     },
     "react/socket": {
-        "version": "v1.5.0"
+        "version": "v1.6.0"
     },
     "react/stream": {
         "version": "v1.1.1"
@@ -105,56 +105,55 @@
         "version": "v0.5.2"
     },
     "symfony/browser-kit": {
-        "version": "v5.0.10"
+        "version": "v5.1.7"
     },
     "symfony/cache": {
-        "version": "v5.0.10"
+        "version": "v5.1.7"
     },
     "symfony/cache-contracts": {
-        "version": "v2.1.3"
+        "version": "v2.2.0"
     },
     "symfony/config": {
-        "version": "v5.0.10"
+        "version": "v5.1.7"
     },
     "symfony/console": {
-        "version": "4.4",
+        "version": "5.1",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
-            "version": "4.4",
-            "ref": "ea8c0eda34fda57e7d5cd8cbd889e2a387e3472c"
+            "version": "5.1",
+            "ref": "c6d02bdfba9da13c22157520e32a602dbee8a75c"
         },
         "files": [
-            "./bin/console",
-            "./config/bootstrap.php"
+            "./bin/console"
         ]
     },
     "symfony/dependency-injection": {
-        "version": "v5.0.10"
+        "version": "v5.1.7"
     },
     "symfony/deprecation-contracts": {
         "version": "v2.2.0"
     },
     "symfony/dom-crawler": {
-        "version": "v5.0.10"
+        "version": "v5.1.7"
     },
     "symfony/dotenv": {
-        "version": "v5.0.10"
+        "version": "v5.1.7"
     },
     "symfony/error-handler": {
-        "version": "v5.0.10"
+        "version": "v5.1.7"
     },
     "symfony/event-dispatcher": {
-        "version": "v5.0.10"
+        "version": "v5.1.7"
     },
     "symfony/event-dispatcher-contracts": {
-        "version": "v2.1.3"
+        "version": "v2.2.0"
     },
     "symfony/filesystem": {
-        "version": "v5.0.10"
+        "version": "v5.1.7"
     },
     "symfony/finder": {
-        "version": "v5.0.10"
+        "version": "v5.1.7"
     },
     "symfony/flex": {
         "version": "1.0",
@@ -169,18 +168,18 @@
         ]
     },
     "symfony/framework-bundle": {
-        "version": "4.4",
+        "version": "5.1",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
-            "version": "4.4",
-            "ref": "36d3075b2b8e0c4de0e82356a86e4c4a4eb6681b"
+            "version": "5.1",
+            "ref": "6ee1194b036378b21884e7f57b6a2ac721167f16"
         },
         "files": [
-            "./config/bootstrap.php",
             "./config/packages/cache.yaml",
             "./config/packages/framework.yaml",
             "./config/packages/test/framework.yaml",
+            "./config/preload.php",
             "./config/routes/dev/framework.yaml",
             "./config/services.yaml",
             "./public/index.php",
@@ -192,10 +191,10 @@
         "version": "v2.2.0"
     },
     "symfony/http-foundation": {
-        "version": "v5.0.10"
+        "version": "v5.1.7"
     },
     "symfony/http-kernel": {
-        "version": "v5.0.10"
+        "version": "v5.1.7"
     },
     "symfony/phpunit-bridge": {
         "version": "4.3",
@@ -216,24 +215,24 @@
         "version": "v1.18.1"
     },
     "symfony/polyfill-intl-normalizer": {
-        "version": "v1.18.0"
+        "version": "v1.18.1"
     },
     "symfony/polyfill-mbstring": {
-        "version": "v1.18.0"
+        "version": "v1.18.1"
     },
     "symfony/polyfill-php73": {
-        "version": "v1.18.0"
+        "version": "v1.18.1"
     },
     "symfony/polyfill-php80": {
-        "version": "v1.18.0"
+        "version": "v1.18.1"
     },
     "symfony/routing": {
-        "version": "4.2",
+        "version": "5.1",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
-            "version": "4.2",
-            "ref": "683dcb08707ba8d41b7e34adb0344bfd68d248a7"
+            "version": "5.1",
+            "ref": "b4f3e7c95e38b606eef467e8a42a8408fc460c43"
         },
         "files": [
             "./config/packages/prod/routing.yaml",
@@ -242,19 +241,19 @@
         ]
     },
     "symfony/service-contracts": {
-        "version": "v2.1.3"
+        "version": "v2.2.0"
     },
     "symfony/string": {
         "version": "v5.1.7"
     },
     "symfony/var-dumper": {
-        "version": "v5.0.10"
+        "version": "v5.1.7"
     },
     "symfony/var-exporter": {
-        "version": "v5.0.10"
+        "version": "v5.1.7"
     },
     "symfony/yaml": {
-        "version": "v5.0.10"
+        "version": "v5.1.7"
     },
     "thecodingmachine/safe": {
         "version": "v1.3"
@@ -275,7 +274,7 @@
         "version": "2.0.0"
     },
     "wyrihaximus/json-utilities": {
-        "version": "1.1.0"
+        "version": "1.2.0"
     },
     "wyrihaximus/react-child-process-messenger": {
         "version": "2.10.0"
