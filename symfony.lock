@@ -80,9 +80,6 @@
     "react/http": {
         "version": "v1.1.0"
     },
-    "react/http-client": {
-        "version": "v0.5.10"
-    },
     "react/promise": {
         "version": "v2.8.0"
     },
