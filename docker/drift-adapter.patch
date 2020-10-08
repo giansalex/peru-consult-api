@@ -1,14 +1,3 @@
-From 2fb9a82c39c9366d23b8315fb113fb238203be73 Mon Sep 17 00:00:00 2001
-From: Giancarlos Salas <giansalex@gmail.com>
-Date: Sat, 13 Jun 2020 16:30:38 -0500
-Subject: [PATCH] EAdd dripft adapter
-
----
- src/AppKernelAdapter.php | 66 ++++++++++++++++++++++++++++++++++++++++
- src/Kernel.php           | 18 -----------
- 2 files changed, 66 insertions(+), 18 deletions(-)
- create mode 100644 src/AppKernelAdapter.php
-
 diff --git a/src/AppKernelAdapter.php b/src/AppKernelAdapter.php
 new file mode 100644
 index 0000000..fa693c6
@@ -81,40 +70,3 @@ index 0000000..fa693c6
 +        return [];
 +    }
 +}
-diff --git a/src/Kernel.php b/src/Kernel.php
-index 605f042..90abe93 100644
---- a/src/Kernel.php
-+++ b/src/Kernel.php
-@@ -43,7 +43,6 @@ class Kernel extends BaseKernel
-         $loader->load($confDir.'/{packages}/'.$this->environment.'/*'.self::CONFIG_EXTS, 'glob');
-         $loader->load($confDir.'/{services}'.self::CONFIG_EXTS, 'glob');
-         $loader->load($confDir.'/{services}_'.$this->environment.self::CONFIG_EXTS, 'glob');
--        $loader->load($confDir.'/{react}/*'.self::CONFIG_EXTS, 'glob');
-     }
- 
-     protected function configureRoutes(RouteCollectionBuilder $routes): void
-@@ -54,21 +53,4 @@ class Kernel extends BaseKernel
-         $routes->import($confDir.'/{routes}/*'.self::CONFIG_EXTS, '/', 'glob');
-         $routes->import($confDir.'/{routes}'.self::CONFIG_EXTS, '/', 'glob');
-     }
--
--    /**
--     * {@inheritdoc}
--     */
--    public function handle(Request $request, int $type = HttpKernelInterface::MASTER_REQUEST, bool $catch = true)
--    {
--        $this->boot();
--        $loop = $this->getContainer()->get('reactphp.event_loop');
--        $promise = $this->handleAsync($request);
--        $response = null;
--        $promise->then(function ($result) use (&$response) {
--            $response = $result;
--        });
--        $loop->run();
--
--        return $response;
--    }
- }
--- 
-2.25.1.windows.1
-
