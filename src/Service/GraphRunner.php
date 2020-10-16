@@ -14,7 +14,7 @@ use GraphQL\Executor\ExecutionResult;
 use GraphQL\Executor\Promise\Adapter\ReactPromiseAdapter;
 use GraphQL\GraphQL;
 use GraphQL\Type\Schema;
-use React\Promise\Promise;
+use React\Promise\Deferred;
 use React\Promise\PromiseInterface;
 
 class GraphRunner
@@ -45,17 +45,14 @@ class GraphRunner
      *
      * @return PromiseInterface
      */
-    public function execute($query, $variables)
+    public function execute($query, $variables): PromiseInterface
     {
-        $graphPromise = GraphQL::promiseToExecute($this->adapter,$this->schema, $query, null, null, $variables);
-
-        $resolver = function (callable $resolve) use ($graphPromise) {
-
-            $graphPromise->then(function (ExecutionResult $result) use ($resolve) {
-                $resolve($result->toArray());
+        $deferred = new Deferred();
+        GraphQL::promiseToExecute($this->adapter,$this->schema, $query, null, null, $variables)
+            ->then(function (ExecutionResult $result) use ($deferred) {
+                $deferred->resolve($result->toArray());
             });
-        };
 
-        return new Promise($resolver);
+        return $deferred->promise();
     }
 }
