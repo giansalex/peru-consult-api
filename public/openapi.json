@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "description": "Consultas de DNI y RUC - **Perú**\n\n## GraphQL\nEndpoint `api/graphql`\n",
-    "version": "4.1",
+    "version": "5.3",
     "title": "PERU CONSULTAS",
     "contact": {
       "name": "Giancarlos Salas",
@@ -59,49 +59,6 @@
         }
       }
     },
-    "/ruc": {
-      "post": {
-        "tags": [
-          "SUNAT"
-        ],
-        "summary": "RUC Multiple",
-        "description": "Retorna informacion segun los rucs",
-        "operationId": "getByRucs",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "minLength": 11,
-                  "maxLength": 11
-                }
-              }
-            }
-          },
-          "description": "Lista de Rucs",
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Operacion exitosa",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "items": {
-                    "$ref": "#/components/schemas/Company"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "No es una lista de rucs"
-          }
-        }
-      }
-    },
     "/dni/{dni}": {
       "get": {
         "tags": [
@@ -137,47 +94,6 @@
           },
           "404": {
             "description": "Dni invalido o no encontrado"
-          }
-        }
-      }
-    },
-    "/dni": {
-      "post": {
-        "tags": [
-          "RENIEC"
-        ],
-        "summary": "DNI Multiple",
-        "description": "Retorna informacion segun los dnis",
-        "operationId": "getByDnis",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "minLength": 8,
-                  "maxLength": 8
-                }
-              }
-            }
-          },
-          "description": "Lista de Dnis",
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Operacion exitosa",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Person"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "No es una lista de dnis"
           }
         }
       }
