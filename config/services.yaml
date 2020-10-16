@@ -54,6 +54,7 @@ services:
 
     GraphQL\Type\Schema:
         factory: ['@App\Factory\GraphqlSchemaFactory', 'create']
+    GraphQL\Executor\Promise\Adapter\ReactPromiseAdapter: ~
 
     App\EventSubscriber\TokenSubscriber:
         arguments:
