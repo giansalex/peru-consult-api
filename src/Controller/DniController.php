@@ -32,7 +32,7 @@ class DniController
      *
      * @return PromiseInterface
      */
-    public function index($dni)
+    public function index($dni): PromiseInterface
     {
         return $this->service
             ->get($dni)

@@ -32,7 +32,7 @@ class RucController
      *
      * @return PromiseInterface
      */
-    public function index($ruc)
+    public function index($ruc): PromiseInterface
     {
         return $this->service
             ->get($ruc)
