@@ -30,7 +30,7 @@ class UserSolController
      *
      * @return JsonResponse
      */
-    public function userSol($ruc, $user)
+    public function index($ruc, $user)
     {
         $user = strtoupper($user);
 
