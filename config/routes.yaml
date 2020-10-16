@@ -14,16 +14,6 @@ app_dni:
   path: /api/v1/dni/{dni<\d{8}>}
   controller: App\Controller\DniController::index
 
-app_ruc_multiple:
-  path: /api/v1/ruc
-  controller: App\Controller\ConsultMultipleController::ruc
-  methods: POST
-
-app_dni_multiple:
-  path: /api/v1/dni
-  controller: App\Controller\ConsultMultipleController::dni
-  methods: POST
-
 app_graphql:
   path: /api/graph
   controller: App\Controller\GraphController::query
