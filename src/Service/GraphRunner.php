@@ -10,52 +10,49 @@ declare(strict_types=1);
 
 namespace App\Service;
 
-use GraphQL\Error\FormattedError;
+use GraphQL\Executor\ExecutionResult;
+use GraphQL\Executor\Promise\Adapter\ReactPromiseAdapter;
 use GraphQL\GraphQL;
 use GraphQL\Type\Schema;
-use Psr\Log\LoggerInterface;
+use React\Promise\Deferred;
+use React\Promise\PromiseInterface;
 
 class GraphRunner
 {
     /**
+     * @var ReactPromiseAdapter
+     */
+    private $adapter;
+    /**
      * @var Schema
      */
     private $schema;
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
 
     /**
      * GraphRunner constructor.
+     * @param ReactPromiseAdapter $adapter
+     * @param Schema $schema
      */
-    public function __construct(Schema $schema, LoggerInterface $logger)
+    public function __construct(ReactPromiseAdapter $adapter, Schema $schema)
     {
+        $this->adapter = $adapter;
         $this->schema = $schema;
-        $this->logger = $logger;
     }
 
     /**
      * @param string $query
      * @param $variables
      *
-     * @return array
-     *
-     * @throws \Throwable
+     * @return PromiseInterface
      */
-    public function execute($query, $variables)
+    public function execute($query, $variables): PromiseInterface
     {
-        try {
-            $result = GraphQL::executeQuery($this->schema, $query, null, null, $variables);
-            $output = $result->toArray();
-        } catch (\Exception $e) {
-            var_dump($e);
-            $this->logger->error($e->getMessage());
-            $output = [
-                'errors' => [FormattedError::createFromException($e)],
-            ];
-        }
+        $deferred = new Deferred();
+        GraphQL::promiseToExecute($this->adapter,$this->schema, $query, null, null, $variables)
+            ->then(function (ExecutionResult $result) use ($deferred) {
+                $deferred->resolve($result->toArray());
+            });
 
-        return $output;
+        return $deferred->promise();
     }
 }

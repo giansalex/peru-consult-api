@@ -4,21 +4,22 @@ declare(strict_types=1);
 
 namespace App\Resolver;
 
-use Peru\Services\RucInterface;
+use Peru\Sunat\Async\Ruc;
+use React\Promise\PromiseInterface;
 
 class RucResolver
 {
     /**
-     * @var RucInterface
+     * @var Ruc
      */
     private $service;
 
-    public function __construct(RucInterface $service)
+    public function __construct(Ruc $service)
     {
         $this->service = $service;
     }
 
-    public function __invoke($root, $args)
+    public function __invoke($root, $args): PromiseInterface
     {
         return $this->service->get($args['ruc']);
     }

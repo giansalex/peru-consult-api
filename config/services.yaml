@@ -31,9 +31,6 @@ services:
     App\Resolver\:
         resource: '../src/Resolver'
         public: true
-    App\Service\:
-        resource: '../src/Service'
-        public: true
     App\Types\:
         resource: '../src/Types'
         public: true
@@ -45,21 +42,15 @@ services:
 
     Peru\Sunat\RucParser:
     Peru\Sunat\HtmlParser:
-    Peru\Sunat\Ruc:
-    Peru\Services\RucInterface: '@Peru\Sunat\Ruc'
-    Peru\Sunat\Async\Ruc:
-        public: true
-    Peru\Sunat\UserValidator:
-        public: true
+    Peru\Sunat\Async\Ruc: ~
+    Peru\Sunat\UserValidator: ~
 
     Peru\Jne\DniParser:
-    Peru\Jne\Dni:
-    Peru\Services\DniInterface: '@Peru\Jne\Dni'
-    Peru\Jne\Async\Dni:
-        public: true
+    Peru\Jne\Async\Dni: ~
 
     GraphQL\Type\Schema:
         factory: ['@App\Factory\GraphqlSchemaFactory', 'create']
+    GraphQL\Executor\Promise\Adapter\ReactPromiseAdapter: ~
 
     App\EventSubscriber\TokenSubscriber:
         arguments:

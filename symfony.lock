@@ -30,7 +30,7 @@
         "version": "0.1.0"
     },
     "drift/http-kernel": {
-        "version": "0.1.12"
+        "version": "0.1.13"
     },
     "drift/server": {
         "version": "0.1.12"
@@ -39,7 +39,7 @@
         "version": "v3.0.1"
     },
     "giansalex/peru-consult": {
-        "version": "v4.2.0"
+        "version": "v4.2.1"
     },
     "indigophp/hash-compat": {
         "version": "v1.1.0"
@@ -185,7 +185,7 @@
         ]
     },
     "symfony/http-client-contracts": {
-        "version": "v2.2.0"
+        "version": "v2.3.1"
     },
     "symfony/http-foundation": {
         "version": "v5.1.7"
@@ -256,7 +256,7 @@
         "version": "1.1.0"
     },
     "webonyx/graphql-php": {
-        "version": "v0.13.9"
+        "version": "v14.3.0"
     },
     "wyrihaximus/cpu-core-detector": {
         "version": "1.0.2"
