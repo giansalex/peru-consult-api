@@ -42,14 +42,10 @@ services:
 
     Peru\Sunat\RucParser:
     Peru\Sunat\HtmlParser:
-    Peru\Sunat\Ruc:
-    Peru\Services\RucInterface: '@Peru\Sunat\Ruc'
     Peru\Sunat\Async\Ruc: ~
     Peru\Sunat\UserValidator: ~
 
     Peru\Jne\DniParser:
-    Peru\Jne\Dni:
-    Peru\Services\DniInterface: '@Peru\Jne\Dni'
     Peru\Jne\Async\Dni: ~
 
     GraphQL\Type\Schema:
