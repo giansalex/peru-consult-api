@@ -11,6 +11,5 @@
   "env": {
     "APP_LOG": "php://stderr",
     "API_TOKEN": "abcxyz"
-  },
-  "image": "heroku/php"
+  }
 }
