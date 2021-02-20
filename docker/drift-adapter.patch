@@ -1,9 +1,9 @@
 diff --git a/src/AppKernelAdapter.php b/src/AppKernelAdapter.php
 new file mode 100644
-index 0000000..09df726
+index 0000000..c0c5703
 --- /dev/null
 +++ b/src/AppKernelAdapter.php
-@@ -0,0 +1,100 @@
+@@ -0,0 +1,106 @@
 +<?php
 +
 +declare(strict_types=1);
@@ -16,6 +16,7 @@ index 0000000..09df726
 +use Drift\Server\Adapter\DriftKernel\SyncKernelException;
 +use Drift\Server\Adapter\SymfonyKernelBasedAdapter;
 +use Exception;
++use React\Promise\Promise;
 +use React\Promise\PromiseInterface;
 +use Symfony\Component\HttpFoundation\Request;
 +use Symfony\Component\HttpKernel\Kernel;
@@ -91,7 +92,12 @@ index 0000000..09df726
 +     */
 +    public function shutDown(): PromiseInterface
 +    {
-+        return $this->kernel->shutdown();
++        $resolver = function (callable $resolve, callable $reject) {
++            $this->kernel->shutdown();
++            $resolve();
++        };
++
++        return new Promise($resolver);
 +    }
 +
 +    /**
