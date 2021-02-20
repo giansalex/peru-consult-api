@@ -11,29 +11,14 @@
     "clue/block-react": {
         "version": "v1.4.0"
     },
-    "clue/stream-filter": {
-        "version": "v1.4.1"
-    },
-    "clue/zlib-react": {
-        "version": "v0.2.2"
-    },
     "doctrine/inflector": {
         "version": "1.4.3"
     },
     "doctrine/instantiator": {
         "version": "1.4.0"
     },
-    "drift/console-bridge": {
-        "version": "0.1.0"
-    },
-    "drift/event-loop-utils": {
-        "version": "0.1.0"
-    },
     "drift/http-kernel": {
-        "version": "0.1.13"
-    },
-    "drift/server": {
-        "version": "0.1.12"
+        "version": "0.1.16"
     },
     "evenement/evenement": {
         "version": "v3.0.1"
