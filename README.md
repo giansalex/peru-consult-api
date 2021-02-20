@@ -29,11 +29,6 @@ composer install
 php -S 0.0.0.0:8080 -t public
 ```
 
-### Desplegar en Heroku
-Token por defecto: `abcxyz`
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
 ## Ejemplos
 
 ### GraphQL
