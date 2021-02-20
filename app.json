@@ -10,6 +10,13 @@
   "repository": "https://github.com/giansalex/peru-consult-api",
   "env": {
     "APP_LOG": "php://stderr",
-    "API_TOKEN": "abcxyz"
+    "APP_ENV": "prod",
+    "API_TOKEN": {
+      "description": "Un token para acceder al API.",
+      "generator": "secret"
+    }
+  },
+  "scripts": {
+    "postdeploy": "php bin/console cache:clear"
   }
 }
