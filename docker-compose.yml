@@ -2,7 +2,7 @@ version: '3'
 
 services:
     symfony:
-        image: php:7.4-alpine
+        image: php:8.0-alpine
         working_dir: /var/www
         command: vendor/bin/server watch 0.0.0.0:8080 --adapter=App\\AppKernelAdapter
         ports:
