@@ -1,3 +1,10 @@
+* text=auto
+
+*.sh	text eol=lf
+*.bat	text eol=crlf
+*.png binary
+*.jpg binary
+
 /.github export-ignore
 /docker export-ignore
 /docs export-ignore
