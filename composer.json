@@ -1,6 +1,6 @@
 {
     "name": "giansalex/peru-consult-api",
-    "description": "Consulta RUC, DNI - Perú",
+    "description": "Consulta de RUC y DNI - Perú",
     "keywords": ["peru", "rest", "ruc", "dni", "graphql"],
     "homepage": "https://github.com/giansalex/peru-consult-api",
     "type": "project",
