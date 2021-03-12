@@ -26,8 +26,9 @@ RUN composer install --no-interaction --no-dev --optimize-autoloader --ignore-pl
 
 FROM php:8.0-alpine
 
-ENV APP_ENV prod
-ENV API_TOKEN abcxyz
+ENV APP_ENV=prod
+ENV API_TOKEN=abcxyz
+ENV TRUSTED_PROXIES="127.0.0.1,REMOTE_ADDR"
 EXPOSE 8080
 WORKDIR /var/www/html
 
