@@ -93,11 +93,6 @@ Respuesta:
   "ruc": "20131312955",
   "razonSocial": "SUPERINTENDENCIA NACIONAL DE ADUANAS Y DE ADMINISTRACION TRIBUTARIA - SUNAT",
   "nombreComercial": "-",
-  "telefonos": [
-    "6343300",
-    "999999999",
-    "999999998"
-  ],
   "tipo": "INSTITUCIONES PUBLICAS",
   "estado": "ACTIVO",
   "condicion": "HABIDO",

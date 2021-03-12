@@ -32,7 +32,6 @@ class CompanyType extends ObjectType
                     'type' => Type::string(),
                     'description' => 'Nombre Comercial',
                 ],
-                'telefonos' => Type::listOf(Type::string()),
                 'tipo' => [
                     'type' => Type::string(),
                     'description' => 'Tipo Contribuyente',

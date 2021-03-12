@@ -18,7 +18,6 @@ query {
         ruc
         razonSocial
         nombreComercial
-        telefonos
         tipo
         estado
         condicion
