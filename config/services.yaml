@@ -41,7 +41,8 @@ services:
     Peru\Http\Async\ClientInterface: '@Peru\Http\Async\HttpClient'
 
     Peru\Sunat\RucParser:
-    Peru\Sunat\HtmlParser:
+    Peru\Sunat\Parser\HtmlRecaptchaParser:
+    Peru\Sunat\HtmlParserInterface: '@Peru\Sunat\Parser\HtmlRecaptchaParser'
     Peru\Sunat\Async\Ruc: ~
     Peru\Sunat\UserValidator: ~
 

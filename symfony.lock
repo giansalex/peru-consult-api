@@ -24,7 +24,7 @@
         "version": "v3.0.1"
     },
     "giansalex/peru-consult": {
-        "version": "v4.2.2"
+        "version": "v4.4.1"
     },
     "indigophp/hash-compat": {
         "version": "v1.1.0"
@@ -63,7 +63,7 @@
         "version": "v0.1.2"
     },
     "react/http": {
-        "version": "v1.2.0"
+        "version": "v1.3.0"
     },
     "react/promise": {
         "version": "v2.8.0"
@@ -90,7 +90,7 @@
         "version": "v5.2.4"
     },
     "symfony/cache": {
-        "version": "v5.2.4"
+        "version": "v5.2.6"
     },
     "symfony/cache-contracts": {
         "version": "v2.2.0"
@@ -111,7 +111,7 @@
         ]
     },
     "symfony/dependency-injection": {
-        "version": "v5.2.5"
+        "version": "v5.2.6"
     },
     "symfony/deprecation-contracts": {
         "version": "v2.2.0"
@@ -123,7 +123,7 @@
         "version": "v5.2.4"
     },
     "symfony/error-handler": {
-        "version": "v5.2.4"
+        "version": "v5.2.6"
     },
     "symfony/event-dispatcher": {
         "version": "v5.2.4"
@@ -132,7 +132,7 @@
         "version": "v2.2.0"
     },
     "symfony/filesystem": {
-        "version": "v5.2.4"
+        "version": "v5.2.6"
     },
     "symfony/finder": {
         "version": "v5.2.4"
@@ -176,7 +176,7 @@
         "version": "v5.2.4"
     },
     "symfony/http-kernel": {
-        "version": "v5.2.5"
+        "version": "v5.2.6"
     },
     "symfony/phpunit-bridge": {
         "version": "5.1",
@@ -226,10 +226,10 @@
         "version": "v2.2.0"
     },
     "symfony/string": {
-        "version": "v5.2.4"
+        "version": "v5.2.6"
     },
     "symfony/var-dumper": {
-        "version": "v5.2.5"
+        "version": "v5.2.6"
     },
     "symfony/var-exporter": {
         "version": "v5.2.4"
@@ -241,7 +241,7 @@
         "version": "1.1.0"
     },
     "webonyx/graphql-php": {
-        "version": "v14.5.1"
+        "version": "v14.6.1"
     },
     "wyrihaximus/cpu-core-detector": {
         "version": "1.0.2"
