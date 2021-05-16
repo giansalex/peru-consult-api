@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "18deb89118173ec1a6f6c5fb6cb3bd06",
+    "content-hash": "bda196388a1c7ef52c0801d9f8ff7a2a",
     "packages": [
         {
             "name": "clue/block-react",
@@ -182,16 +182,16 @@
         },
         {
             "name": "giansalex/peru-consult",
-            "version": "v4.4.2-BETA.1",
+            "version": "v4.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giansalex/peru-consult.git",
-                "reference": "452801db50ffb0d00e37272434b1b9e6c948adb1"
+                "reference": "0dce25c9e5e63f648fb3d633cc523025a50d991c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giansalex/peru-consult/zipball/452801db50ffb0d00e37272434b1b9e6c948adb1",
-                "reference": "452801db50ffb0d00e37272434b1b9e6c948adb1",
+                "url": "https://api.github.com/repos/giansalex/peru-consult/zipball/0dce25c9e5e63f648fb3d633cc523025a50d991c",
+                "reference": "0dce25c9e5e63f648fb3d633cc523025a50d991c",
                 "shasum": ""
             },
             "require": {
@@ -238,7 +238,7 @@
             ],
             "support": {
                 "issues": "https://github.com/giansalex/peru-consult/issues",
-                "source": "https://github.com/giansalex/peru-consult/tree/v4.4.2-BETA.1"
+                "source": "https://github.com/giansalex/peru-consult/tree/v4.4.2"
             },
             "funding": [
                 {
@@ -250,7 +250,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-05-14T17:19:02+00:00"
+            "time": "2021-05-16T17:43:05+00:00"
         },
         {
             "name": "psr/cache",
@@ -3762,9 +3762,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "giansalex/peru-consult": 10
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
