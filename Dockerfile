@@ -1,4 +1,4 @@
-FROM php:8.0-alpine AS build-env
+FROM php:8.0-alpine3.13 AS build-env
 
 LABEL owner="Giancarlos Salas"
 LABEL maintainer="giansalex@gmail.com"
@@ -24,7 +24,7 @@ RUN composer install --no-interaction --no-dev --optimize-autoloader --ignore-pl
     find -name "[Tt]est*" -type d -exec rm -rf {} + && \
     find -type f -name '*.md' -delete;
 
-FROM php:8.0-alpine
+FROM php:8.0-alpine3.13
 
 ENV APP_ENV=prod
 ENV API_TOKEN=abcxyz
