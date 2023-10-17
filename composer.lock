@@ -182,16 +182,16 @@
         },
         {
             "name": "giansalex/peru-consult",
-            "version": "v4.5.1",
+            "version": "v4.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giansalex/peru-consult.git",
-                "reference": "9d3147794c1ea3935a7478371cb6249d9d2fdb42"
+                "reference": "0befc976f18ab1faf65500838e63591e0cd2f32a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giansalex/peru-consult/zipball/9d3147794c1ea3935a7478371cb6249d9d2fdb42",
-                "reference": "9d3147794c1ea3935a7478371cb6249d9d2fdb42",
+                "url": "https://api.github.com/repos/giansalex/peru-consult/zipball/0befc976f18ab1faf65500838e63591e0cd2f32a",
+                "reference": "0befc976f18ab1faf65500838e63591e0cd2f32a",
                 "shasum": ""
             },
             "require": {
@@ -239,9 +239,9 @@
             ],
             "support": {
                 "issues": "https://github.com/giansalex/peru-consult/issues",
-                "source": "https://github.com/giansalex/peru-consult/tree/v4.5.1"
+                "source": "https://github.com/giansalex/peru-consult/tree/v4.5.2"
             },
-            "time": "2023-04-01T15:24:35+00:00"
+            "time": "2023-10-17T12:33:32+00:00"
         },
         {
             "name": "psr/cache",
